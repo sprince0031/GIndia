@@ -5,6 +5,14 @@ export type GICategory =
   | 'Manufactured'
   | 'Natural Goods';
 
+export type CardinalOrientation = 
+  | 'east'
+  | 'west'
+  | 'north'
+  | 'south'
+  | 'central'
+  | 'northeast';
+
 export interface GIProduct {
   id: string;
   name: string;
@@ -12,12 +20,13 @@ export interface GIProduct {
   stateName: string;
   category: GICategory;
   year?: string;
-  registrationNumber?: number | string;
+  registrationNumber?: string | number;
   description: string;
   culturalSignificance: string;
   keyFeatures: string[];
   imageUrl: string;
-  regionOrientation: 'east' | 'west' | 'north' | 'south' | 'central' | 'northeast';
+  regionOrientation: CardinalOrientation;
+  phonetic?: string;
   tags?: string[];
 }
 
@@ -26,21 +35,42 @@ export interface StateMetadata {
   name: string;
   code: string;
   capital: string;
-  orientation: 'east' | 'west' | 'north' | 'south' | 'central' | 'northeast';
+  orientation: CardinalOrientation;
   productCount: number;
   featuredProductIds: string[];
+  otherGis?: string[];
   centroid3D?: { x: number; y: number; z: number };
 }
 
+export interface CategoryInfo {
+  id: GICategory;
+  name: GICategory;
+  color: string;
+  badgeClass: string;
+  description: string;
+}
+
+export interface TopStateRank {
+  name: string;
+  count: number;
+  code: string;
+}
+
+export interface ExhibitionSummary {
+  totalStatesCovered: number;
+  totalFeaturedProducts: number;
+  totalCatalogEntries: number;
+  categoriesCount: Record<GICategory, number>;
+  topStatesByGI: TopStateRank[];
+}
+
 export interface GIDatabase {
+  version: string;
+  lastUpdated: string;
+  categories: CategoryInfo[];
   states: Record<string, StateMetadata>;
   products: GIProduct[];
-  categories: {
-    name: GICategory;
-    color: string;
-    badgeClass: string;
-    description: string;
-  }[];
+  summary: ExhibitionSummary;
 }
 
 export interface ExhibitionState {

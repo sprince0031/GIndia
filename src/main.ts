@@ -1,5 +1,7 @@
 import './style.css';
 import { ExhibitionState } from './types/gi-data';
+import { db } from './utils/database';
+import { AssetLoader } from './utils/asset-loader';
 
 function checkWebGLSupport(): boolean {
   try {
@@ -30,6 +32,17 @@ class GIndiaApp {
 
   private init(): void {
     console.info('🏛️ GIndia: Initializing 3D Interactive Exhibition Map of India');
+    
+    // Validate database
+    const states = db.getAllStates();
+    const products = db.getAllProducts();
+    const stats = db.getNationalStats();
+    console.info(`📦 GI Database Loaded: ${products.length} products across ${states.length} states/UTs.`);
+    console.info('📊 National GI Stats:', stats);
+
+    // Warm up asset cache for featured products
+    AssetLoader.preloadProducts(products.slice(0, 10));
+
     this.state.isWebGLSupported = checkWebGLSupport();
 
     if (!this.state.isWebGLSupported) {
@@ -52,6 +65,35 @@ class GIndiaApp {
     const btnFilter = document.getElementById('dock-filter-toggle');
     const filterPanel = document.getElementById('category-filter-panel');
     const btnCloseFilter = document.getElementById('btn-close-filter');
+    const categoryList = document.getElementById('category-filter-list');
+
+    // Populate category filter list
+    if (categoryList) {
+      const categories = db.getCategories();
+      categoryList.innerHTML = `
+        <button class="text-left px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-stone-100 transition-colors flex justify-between items-center ${this.state.activeCategoryFilter === 'All' ? 'bg-terracotta/10 text-terracotta' : 'text-ink'}" data-cat="All">
+          <span>All Categories</span>
+          <span class="text-[10px] text-ink-muted">(${db.getAllProducts().length})</span>
+        </button>
+        ${categories.map(cat => {
+          const count = db.filterProductsByCategory(cat.name).length;
+          return `
+            <button class="text-left px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-stone-100 transition-colors flex justify-between items-center text-ink" data-cat="${cat.name}">
+              <span>${cat.name}</span>
+              <span class="text-[10px] text-ink-muted">(${count})</span>
+            </button>
+          `;
+        }).join('')}
+      `;
+
+      categoryList.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const cat = (e.currentTarget as HTMLElement).getAttribute('data-cat') || 'All';
+          console.log(`Filtering by category: ${cat}`);
+          filterPanel?.classList.add('hidden');
+        });
+      });
+    }
 
     btnTour?.addEventListener('click', () => {
       this.state.isTourActive = !this.state.isTourActive;

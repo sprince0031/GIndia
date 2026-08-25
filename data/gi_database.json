@@ -1,0 +1,1899 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-25",
+  "categories": [
+    {
+      "id": "Handicraft",
+      "name": "Handicraft",
+      "color": "#2B4C7E",
+      "badgeClass": "badge-handicraft",
+      "description": "Artisan crafts, handlooms, woodwork, metalcraft, and folk paintings."
+    },
+    {
+      "id": "Agricultural",
+      "name": "Agricultural",
+      "color": "#2E7559",
+      "badgeClass": "badge-agriculture",
+      "description": "Crops, teas, spices, fruits, and grains with distinctive regional terroir."
+    },
+    {
+      "id": "Food Stuff",
+      "name": "Food Stuff",
+      "color": "#E08D3C",
+      "badgeClass": "badge-food",
+      "description": "Temple prasadams, heritage sweets, and traditional culinary preparations."
+    },
+    {
+      "id": "Manufactured",
+      "name": "Manufactured",
+      "color": "#785696",
+      "badgeClass": "badge-manufactured",
+      "description": "Pot-distilled natural spirits, essential oils, and precision manufactures."
+    },
+    {
+      "id": "Natural Goods",
+      "name": "Natural Goods",
+      "color": "#8C6432",
+      "badgeClass": "badge-natural",
+      "description": "Naturally occurring stones, minerals, and endemic organic produce."
+    }
+  ],
+  "states": {
+    "INWB": {
+      "id": "INWB",
+      "name": "West Bengal",
+      "code": "WB",
+      "capital": "Kolkata",
+      "orientation": "east",
+      "productCount": 27,
+      "featuredProductIds": [
+        "darjeeling-tea",
+        "gobindobhog-rice"
+      ],
+      "otherGis": [
+        "Nakshi Kantha Embroidery",
+        "Joynagarer Moa",
+        "Bengal Muslin",
+        "Terracotta Craft of Bankura"
+      ]
+    },
+    "INJK": {
+      "id": "INJK",
+      "name": "Jammu & Kashmir",
+      "code": "JK",
+      "capital": "Srinagar / Jammu",
+      "orientation": "north",
+      "productCount": 12,
+      "featuredProductIds": [
+        "kashmir-pashmina",
+        "kashmir-saffron"
+      ],
+      "otherGis": [
+        "Kani Shawl",
+        "Walnut Wood Carving",
+        "Paper Machie",
+        "Khatamband Woodwork"
+      ]
+    },
+    "INTN": {
+      "id": "INTN",
+      "name": "Tamil Nadu",
+      "code": "TN",
+      "capital": "Chennai",
+      "orientation": "south",
+      "productCount": 58,
+      "featuredProductIds": [
+        "kanchipuram-silk-saree",
+        "thanjavur-gold-paintings"
+      ],
+      "otherGis": [
+        "Madurai Malli Jasmine",
+        "Dindigul Locks",
+        "Toda Embroidery",
+        "Nilgiri Tea",
+        "Tanjavur Veenai"
+      ]
+    },
+    "INKA": {
+      "id": "INKA",
+      "name": "Karnataka",
+      "code": "KA",
+      "capital": "Bengaluru",
+      "orientation": "south",
+      "productCount": 48,
+      "featuredProductIds": [
+        "channapatna-wooden-toys",
+        "mysore-pure-silk"
+      ],
+      "otherGis": [
+        "Mysore Sandalwood Oil",
+        "Coorg Arabica Coffee",
+        "Bidriware Metalwork",
+        "Udupi Mattu Gulla"
+      ]
+    },
+    "INKL": {
+      "id": "INKL",
+      "name": "Kerala",
+      "code": "KL",
+      "capital": "Thiruvananthapuram",
+      "orientation": "south",
+      "productCount": 35,
+      "featuredProductIds": [
+        "aranmula-kannadi-mirror",
+        "malabar-black-pepper"
+      ],
+      "otherGis": [
+        "Alleppey Green Cardamom",
+        "Kasaragod Sarees",
+        "Pokkali Rice",
+        "Nilambur Teak Wood"
+      ]
+    },
+    "INUP": {
+      "id": "INUP",
+      "name": "Uttar Pradesh",
+      "code": "UP",
+      "capital": "Lucknow",
+      "orientation": "north",
+      "productCount": 54,
+      "featuredProductIds": [
+        "banarasi-silk-brocade",
+        "kannauj-rose-attar"
+      ],
+      "otherGis": [
+        "Lucknow Chikankari",
+        "Bhadohi Handmade Carpets",
+        "Agra Petha",
+        "Gorakhpur Terracotta"
+      ]
+    },
+    "INGJ": {
+      "id": "INGJ",
+      "name": "Gujarat",
+      "code": "GJ",
+      "capital": "Gandhinagar",
+      "orientation": "west",
+      "productCount": 20,
+      "featuredProductIds": [
+        "patan-patola-double-ikat",
+        "gir-kesar-mango"
+      ],
+      "otherGis": [
+        "Tangaliya Shawl",
+        "Kachchh Embroidery",
+        "Agates of Cambay",
+        "Sankheda Furniture"
+      ]
+    },
+    "INMH": {
+      "id": "INMH",
+      "name": "Maharashtra",
+      "code": "MH",
+      "capital": "Mumbai",
+      "orientation": "west",
+      "productCount": 34,
+      "featuredProductIds": [
+        "alphonso-hapus-mango",
+        "nagpur-orange"
+      ],
+      "otherGis": [
+        "Puneri Pagadi",
+        "Warli Folk Art",
+        "Nashik Valley Wine",
+        "Solapur Chaddar",
+        "Kolhapuri Chappl"
+      ]
+    },
+    "INAS": {
+      "id": "INAS",
+      "name": "Assam",
+      "code": "AS",
+      "capital": "Dispur",
+      "orientation": "northeast",
+      "productCount": 12,
+      "featuredProductIds": [
+        "muga-golden-silk",
+        "assam-orthodox-tea"
+      ],
+      "otherGis": [
+        "Tezpur Litchi",
+        "Joha Rice",
+        "Judima Rice Wine",
+        "Kaji Nemu Lemon"
+      ]
+    },
+    "INRJ": {
+      "id": "INRJ",
+      "name": "Rajasthan",
+      "code": "RJ",
+      "capital": "Jaipur",
+      "orientation": "west",
+      "productCount": 21,
+      "featuredProductIds": [
+        "jaipur-blue-pottery",
+        "bikaneri-bhujia"
+      ],
+      "otherGis": [
+        "Kathputlis of Rajasthan",
+        "Pokaran Pottery",
+        "Sanganeri Hand Block Print",
+        "Kota Doria Fabric"
+      ]
+    },
+    "INAP": {
+      "id": "INAP",
+      "name": "Andhra Pradesh",
+      "code": "AP",
+      "capital": "Amaravati",
+      "orientation": "south",
+      "productCount": 20,
+      "featuredProductIds": [
+        "tirupati-laddu",
+        "guntur-sannam-chilli"
+      ],
+      "otherGis": [
+        "Kondapalli Toys",
+        "Machilipatnam Kalamkari",
+        "Araku Valley Arabica Coffee",
+        "Etikoppaka Toys"
+      ]
+    },
+    "INTG": {
+      "id": "INTG",
+      "name": "Telangana",
+      "code": "TG",
+      "capital": "Hyderabad",
+      "orientation": "south",
+      "productCount": 17,
+      "featuredProductIds": [
+        "pochampally-ikat",
+        "hyderabadi-haleem"
+      ],
+      "otherGis": [
+        "Pembarthi Metal Craft",
+        "Cheriyal Scroll Painting",
+        "Telangana Lac Bangles",
+        "Warangal Dhurries"
+      ]
+    },
+    "INOR": {
+      "id": "INOR",
+      "name": "Odisha",
+      "code": "OR",
+      "capital": "Bhubaneswar",
+      "orientation": "east",
+      "productCount": 25,
+      "featuredProductIds": [
+        "odisha-rasagola",
+        "puri-pattachitra-art"
+      ],
+      "otherGis": [
+        "Kandhamal Haldi Turmeric",
+        "Kotpad Handloom",
+        "Pipili Applique Work",
+        "Sambalpuri Saree"
+      ]
+    },
+    "INBR": {
+      "id": "INBR",
+      "name": "Bihar",
+      "code": "BR",
+      "capital": "Patna",
+      "orientation": "east",
+      "productCount": 15,
+      "featuredProductIds": [
+        "madhubani-painting",
+        "muzaffarpur-shahi-litchi"
+      ],
+      "otherGis": [
+        "Bhagalpuri Silk",
+        "Katarni Rice",
+        "Magahi Paan",
+        "Silao Khaja",
+        "Marcha Rice"
+      ]
+    },
+    "INMP": {
+      "id": "INMP",
+      "name": "Madhya Pradesh",
+      "code": "MP",
+      "capital": "Bhopal",
+      "orientation": "central",
+      "productCount": 19,
+      "featuredProductIds": [
+        "chanderi-fabric"
+      ],
+      "otherGis": [
+        "Maheshwari Saree",
+        "Kadaknath Chicken",
+        "Leather Toys of Indore",
+        "Bagh Prints"
+      ]
+    },
+    "INHP": {
+      "id": "INHP",
+      "name": "Himachal Pradesh",
+      "code": "HP",
+      "capital": "Shimla",
+      "orientation": "north",
+      "productCount": 11,
+      "featuredProductIds": [
+        "kullu-wool-shawl"
+      ],
+      "otherGis": [
+        "Chamba Rumal",
+        "Kinnauri Shawl",
+        "Kangra Tea",
+        "Kangra Paintings"
+      ]
+    },
+    "INGA": {
+      "id": "INGA",
+      "name": "Goa",
+      "code": "GA",
+      "capital": "Panaji",
+      "orientation": "west",
+      "productCount": 7,
+      "featuredProductIds": [
+        "goan-cashew-feni"
+      ],
+      "otherGis": [
+        "Harmal Chilli",
+        "Myndoli Banana",
+        "Goan Khaje",
+        "Agonda Watermelon"
+      ]
+    },
+    "INNL": {
+      "id": "INNL",
+      "name": "Nagaland",
+      "code": "NL",
+      "capital": "Kohima",
+      "orientation": "northeast",
+      "productCount": 5,
+      "featuredProductIds": [
+        "naga-king-chilli-bhut-jolokia"
+      ],
+      "otherGis": [
+        "Naga Tree Tomato",
+        "Chakhesang Shawl",
+        "Naga Sweet Cucumber"
+      ]
+    },
+    "INPB": {
+      "id": "INPB",
+      "name": "Punjab",
+      "code": "PB",
+      "capital": "Chandigarh",
+      "orientation": "north",
+      "productCount": 5,
+      "featuredProductIds": [
+        "punjab-phulkari-embroidery"
+      ],
+      "otherGis": [
+        "Basmati Rice",
+        "Brass Utensils of Jandiala Guru"
+      ]
+    },
+    "INHR": {
+      "id": "INHR",
+      "name": "Haryana",
+      "code": "HR",
+      "capital": "Chandigarh",
+      "orientation": "north",
+      "productCount": 4,
+      "featuredProductIds": [
+        "haryana-traditional-phulkari"
+      ],
+      "otherGis": [
+        "Taraori Basmati Rice"
+      ]
+    },
+    "INUT": {
+      "id": "INUT",
+      "name": "Uttarakhand",
+      "code": "UT",
+      "capital": "Dehradun",
+      "orientation": "north",
+      "productCount": 18,
+      "featuredProductIds": [
+        "tehri-garhwal-nath"
+      ],
+      "otherGis": [
+        "Berinag Tea",
+        "Almora Bal Mithai",
+        "Munsiyari White Rajma",
+        "Uttarakhand Aipan Art"
+      ]
+    },
+    "INSK": {
+      "id": "INSK",
+      "name": "Sikkim",
+      "code": "SK",
+      "capital": "Gangtok",
+      "orientation": "northeast",
+      "productCount": 4,
+      "featuredProductIds": [
+        "sikkim-large-cardamom"
+      ],
+      "otherGis": [
+        "Temi Tea",
+        "Sikkim Dalle Khursani Chilli",
+        "Sikkim Organic Mandarin"
+      ]
+    },
+    "INMN": {
+      "id": "INMN",
+      "name": "Manipur",
+      "code": "MN",
+      "capital": "Imphal",
+      "orientation": "northeast",
+      "productCount": 8,
+      "featuredProductIds": [
+        "chak-hao-black-scented-rice"
+      ],
+      "otherGis": [
+        "Kachai Lemon",
+        "Shaphee Lanphee",
+        "Wangkhei Phee",
+        "Moirang Phee"
+      ]
+    },
+    "INML": {
+      "id": "INML",
+      "name": "Meghalaya",
+      "code": "ML",
+      "capital": "Shillong",
+      "orientation": "northeast",
+      "productCount": 5,
+      "featuredProductIds": [
+        "lakadong-turmeric"
+      ],
+      "otherGis": [
+        "Khasi Mandarin",
+        "Memang Narang Orange",
+        "Garo Dakmanda Handloom"
+      ]
+    },
+    "INMZ": {
+      "id": "INMZ",
+      "name": "Mizoram",
+      "code": "MZ",
+      "capital": "Aizawl",
+      "orientation": "northeast",
+      "productCount": 6,
+      "featuredProductIds": [
+        "mizo-bird-s-eye-chilli"
+      ],
+      "otherGis": [
+        "Tawlhlohpuan",
+        "Mizo Puanchei",
+        "Pawndum",
+        "Ngotekherh"
+      ]
+    },
+    "INTR": {
+      "id": "INTR",
+      "name": "Tripura",
+      "code": "TR",
+      "capital": "Agartala",
+      "orientation": "northeast",
+      "productCount": 4,
+      "featuredProductIds": [
+        "tripura-queen-pineapple"
+      ],
+      "otherGis": [
+        "Tripura Risa Textile",
+        "Tripura Bamboo Cane Craft",
+        "Matabari Peda"
+      ]
+    },
+    "INAR": {
+      "id": "INAR",
+      "name": "Arunachal Pradesh",
+      "code": "AR",
+      "capital": "Itanagar",
+      "orientation": "northeast",
+      "productCount": 8,
+      "featuredProductIds": [
+        "arunachal-yak-churpi"
+      ],
+      "otherGis": [
+        "Arunachal Wakro Orange",
+        "Ida Mishmi Textiles",
+        "Wancho Wooden Craft",
+        "Tawang Monpa Paper"
+      ]
+    },
+    "INJH": {
+      "id": "INJH",
+      "name": "Jharkhand",
+      "code": "JH",
+      "capital": "Ranchi",
+      "orientation": "east",
+      "productCount": 4,
+      "featuredProductIds": [
+        "sohrai-khovar-tribal-art"
+      ],
+      "otherGis": [
+        "Jadopatua Painting",
+        "Ranchi Kohvar Art"
+      ]
+    },
+    "INCT": {
+      "id": "INCT",
+      "name": "Chhattisgarh",
+      "code": "CT",
+      "capital": "Raipur",
+      "orientation": "central",
+      "productCount": 7,
+      "featuredProductIds": [
+        "bastar-dhokra-lost-wax-craft"
+      ],
+      "otherGis": [
+        "Bastar Wooden Craft",
+        "Nagri Dubraj Rice",
+        "Bastar Iron Craft",
+        "Champa Silk"
+      ]
+    },
+    "INLA": {
+      "id": "INLA",
+      "name": "Ladakh",
+      "code": "LA",
+      "capital": "Leh",
+      "orientation": "north",
+      "productCount": 4,
+      "featuredProductIds": [
+        "ladakh-shingkos-wood-carving"
+      ],
+      "otherGis": [
+        "Ladakh Seabuckthorn",
+        "Ladakh Pashmina",
+        "Raktsey Karpo Apricot"
+      ]
+    },
+    "INDL": {
+      "id": "INDL",
+      "name": "Delhi",
+      "code": "DL",
+      "capital": "New Delhi",
+      "orientation": "north",
+      "productCount": 2,
+      "featuredProductIds": [
+        "delhi-mughal-zardozi"
+      ],
+      "otherGis": [
+        "Mughal Miniature Style Paintings"
+      ]
+    },
+    "INPY": {
+      "id": "INPY",
+      "name": "Puducherry",
+      "code": "PY",
+      "capital": "Puducherry",
+      "orientation": "south",
+      "productCount": 3,
+      "featuredProductIds": [
+        "villianur-terracotta-craft"
+      ],
+      "otherGis": [
+        "Thirukanur Papier Mache",
+        "Puducherry Mat Weaving"
+      ]
+    },
+    "INAN": {
+      "id": "INAN",
+      "name": "Andaman and Nicobar",
+      "code": "AN",
+      "capital": "Port Blair",
+      "orientation": "south",
+      "productCount": 2,
+      "featuredProductIds": [
+        "nicobari-hodi-traditional-canoe"
+      ],
+      "otherGis": [
+        "Andaman Padauk Woodcraft"
+      ]
+    },
+    "INLD": {
+      "id": "INLD",
+      "name": "Lakshadweep",
+      "code": "LD",
+      "capital": "Kavaratti",
+      "orientation": "south",
+      "productCount": 2,
+      "featuredProductIds": [
+        "lakshadweep-smoked-masmin-tuna"
+      ],
+      "otherGis": [
+        "Lakshadweep Coconut Jaggery"
+      ]
+    },
+    "INCH": {
+      "id": "INCH",
+      "name": "Chandigarh",
+      "code": "CH",
+      "capital": "Chandigarh",
+      "orientation": "north",
+      "productCount": 1,
+      "featuredProductIds": [
+        "chandigarh-heritage-phulkari"
+      ],
+      "otherGis": [
+        "Panj-Aab Heritage Handicrafts"
+      ]
+    },
+    "INDH": {
+      "id": "INDH",
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "code": "DH",
+      "capital": "Daman",
+      "orientation": "west",
+      "productCount": 2,
+      "featuredProductIds": [
+        "dadra-nagar-haveli-warli-art"
+      ],
+      "otherGis": [
+        "Daman Mat Weaving"
+      ]
+    }
+  },
+  "products": [
+    {
+      "id": "darjeeling-tea",
+      "name": "Darjeeling Tea",
+      "stateId": "INWB",
+      "stateName": "West Bengal",
+      "category": "Agricultural",
+      "year": "2004-05",
+      "registrationNumber": "GI Tag No. 1 & 2",
+      "description": "Aka 'Champagne of Teas', grown in misty Himalayan slopes. Renowned for its floral aroma and muscatel flavor profile.",
+      "culturalSignificance": "Authentic Geographical Indication of West Bengal. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "First registered GI tag in India",
+        "Himalayan mist elevation terroir",
+        "Natural floral muscatel notes"
+      ],
+      "imageUrl": "assets/gi-images/darjeeling-tea.webp",
+      "regionOrientation": "east",
+      "phonetic": "Darjeeling Tea",
+      "tags": [
+        "Agriculture",
+        "West Bengal",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "gobindobhog-rice",
+      "name": "Gobindobhog Rice",
+      "stateId": "INWB",
+      "stateName": "West Bengal",
+      "category": "Agricultural",
+      "year": "2017",
+      "registrationNumber": "GI Tag No. 539",
+      "description": "A short-grain, aromatic sticky rice grown in southern Bengal, used for temple offerings and Payesh.",
+      "culturalSignificance": "Authentic Geographical Indication of West Bengal. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Sweet natural buttery fragrance",
+        "Offered to Lord Jagannath",
+        "Short sticky grain texture"
+      ],
+      "imageUrl": "assets/gi-images/gobindobhog-rice.webp",
+      "regionOrientation": "east",
+      "phonetic": "Gobindobhog Rice",
+      "tags": [
+        "Agriculture",
+        "West Bengal",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "kashmir-pashmina",
+      "name": "Kashmir Pashmina",
+      "stateId": "INJK",
+      "stateName": "Jammu & Kashmir",
+      "category": "Handicraft",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 46",
+      "description": "Hand-spun from the ultra-fine underfleece of Changthangi goats. Celebrated for lightness, warmth, and hand needlework.",
+      "culturalSignificance": "Authentic Geographical Indication of Jammu & Kashmir. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Fineness under 15 microns",
+        "Hand-spun on wooden charkha",
+        "Ethereal warmth and softness"
+      ],
+      "imageUrl": "assets/gi-images/kashmir-pashmina.webp",
+      "regionOrientation": "north",
+      "phonetic": "Kashmir Pashmina",
+      "tags": [
+        "Textiles",
+        "Jammu & Kashmir",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "kashmir-saffron",
+      "name": "Kashmir Saffron",
+      "stateId": "INJK",
+      "stateName": "Jammu & Kashmir",
+      "category": "Agricultural",
+      "year": "2020",
+      "registrationNumber": "GI Tag No. 635",
+      "description": "Grown in the high-altitude Pampore Karewas. Famous for long crimson stigmas, high crocin potency, and intense aroma.",
+      "culturalSignificance": "Authentic Geographical Indication of Jammu & Kashmir. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "High natural crocin colorant",
+        "Deep crimson thick stigmas",
+        "Grown in Pampore Karewa soil"
+      ],
+      "imageUrl": "assets/gi-images/kashmir-saffron.webp",
+      "regionOrientation": "north",
+      "phonetic": "Kashmir Saffron",
+      "tags": [
+        "Agriculture",
+        "Jammu & Kashmir",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "kanchipuram-silk-saree",
+      "name": "Kanchipuram Silk Saree",
+      "stateId": "INTN",
+      "stateName": "Tamil Nadu",
+      "category": "Handicraft",
+      "year": "2005",
+      "registrationNumber": "GI Tag No. 18",
+      "description": "Woven from heavy mulberry silk and wrapped with pure gold and silver zari using the Korvai interlocking technique.",
+      "culturalSignificance": "Authentic Geographical Indication of Tamil Nadu. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Korvai interlocking weave technique",
+        "Pure mulberry silk & gold zari",
+        "Highest GI count state in India"
+      ],
+      "imageUrl": "assets/gi-images/kanchipuram-silk-saree.webp",
+      "regionOrientation": "south",
+      "phonetic": "Kanchipuram Silk Saree",
+      "tags": [
+        "Textiles",
+        "Tamil Nadu",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "thanjavur-gold-paintings",
+      "name": "Thanjavur Gold Paintings",
+      "stateId": "INTN",
+      "stateName": "Tamil Nadu",
+      "category": "Handicrafts",
+      "year": "2006",
+      "registrationNumber": "GI Tag No. 24",
+      "description": "Devotional panel paintings featuring relief gesso work, embedded precious stones, and 22-karat real gold leaf overlays.",
+      "culturalSignificance": "Authentic Geographical Indication of Tamil Nadu. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Embedded 22K gold leaf foil",
+        "Relief gesso work artwork",
+        "Chola and Nayak dynasty heritage"
+      ],
+      "imageUrl": "assets/gi-images/thanjavur-gold-paintings.webp",
+      "regionOrientation": "south",
+      "phonetic": "Thanjavur Gold Paintings",
+      "tags": [
+        "Handicrafts",
+        "Tamil Nadu",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "channapatna-wooden-toys",
+      "name": "Channapatna Wooden Toys",
+      "stateId": "INKA",
+      "stateName": "Karnataka",
+      "category": "Handicrafts",
+      "year": "2006",
+      "registrationNumber": "GI Tag No. 23",
+      "description": "Eco-friendly wooden toys colored with non-toxic, organic vegetable dyes and lac polish. Crafted in Karnataka's 'Toy Town'.",
+      "culturalSignificance": "Authentic Geographical Indication of Karnataka. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "100% natural organic vegetable dyes",
+        "Soft Wrightia tinctoria Ivory Wood",
+        "Tipu Sultan royal guild lineage"
+      ],
+      "imageUrl": "assets/gi-images/channapatna-wooden-toys.webp",
+      "regionOrientation": "south",
+      "phonetic": "Channapatna Wooden Toys",
+      "tags": [
+        "Handicrafts",
+        "Karnataka",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "mysore-pure-silk",
+      "name": "Mysore Pure Silk",
+      "stateId": "INKA",
+      "stateName": "Karnataka",
+      "category": "Handicraft",
+      "year": "2005",
+      "registrationNumber": "GI Tag No. 17",
+      "description": "Smooth, pure mulberry silk sarees woven with pure gold zari borders, manufactured under KSIC royal heritage looms.",
+      "culturalSignificance": "Authentic Geographical Indication of Karnataka. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "100% pure silk & 0.65% real gold zari",
+        "Non-creasing smooth drape",
+        "KSIC royal Mysore heritage"
+      ],
+      "imageUrl": "assets/gi-images/mysore-pure-silk.webp",
+      "regionOrientation": "south",
+      "phonetic": "Mysore Pure Silk",
+      "tags": [
+        "Textiles",
+        "Karnataka",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "aranmula-kannadi-mirror",
+      "name": "Aranmula Kannadi Mirror",
+      "stateId": "INKL",
+      "stateName": "Kerala",
+      "category": "Handicrafts",
+      "year": "2004",
+      "registrationNumber": "GI Tag No. 9",
+      "description": "A front-surface metal alloy mirror made from copper and tin without glass. Eliminates secondary refraction distortion.",
+      "culturalSignificance": "Authentic Geographical Indication of Kerala. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Zero refraction metal alloy reflection",
+        "Secret metallurgical formula",
+        "Hand-polished by master artisans"
+      ],
+      "imageUrl": "assets/gi-images/aranmula-kannadi-mirror.webp",
+      "regionOrientation": "south",
+      "phonetic": "Aranmula Kannadi Mirror",
+      "tags": [
+        "Handicrafts",
+        "Kerala",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "malabar-black-pepper",
+      "name": "Malabar Black Pepper",
+      "stateId": "INKL",
+      "stateName": "Kerala",
+      "category": "Agricultural",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 58",
+      "description": "World-famous 'Black Gold', prized for centuries across global trade routes for its high piperine pungency.",
+      "culturalSignificance": "Authentic Geographical Indication of Kerala. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "High natural piperine pungency",
+        "Historic spice route heritage",
+        "Sun-dried bold black berries"
+      ],
+      "imageUrl": "assets/gi-images/malabar-black-pepper.webp",
+      "regionOrientation": "south",
+      "phonetic": "Malabar Black Pepper",
+      "tags": [
+        "Agriculture",
+        "Kerala",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "banarasi-silk-brocade",
+      "name": "Banarasi Silk Brocade",
+      "stateId": "INUP",
+      "stateName": "Uttar Pradesh",
+      "category": "Handicraft",
+      "year": "2009",
+      "registrationNumber": "GI Tag No. 99",
+      "description": "Fine silk enriched with gold and silver Zari floral brocades inspired by Mughal art, Kalga patterns, and metallic weaving.",
+      "culturalSignificance": "Authentic Geographical Indication of Uttar Pradesh. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Metallic zari brocade handloom weaving",
+        "Mughal floral jhalar motifs",
+        "Second highest GI count in India"
+      ],
+      "imageUrl": "assets/gi-images/banarasi-silk-brocade.webp",
+      "regionOrientation": "north",
+      "phonetic": "Banarasi Silk Brocade",
+      "tags": [
+        "Textiles",
+        "Uttar Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "kannauj-rose-attar",
+      "name": "Kannauj Rose Attar",
+      "stateId": "INUP",
+      "stateName": "Uttar Pradesh",
+      "category": "Handicrafts",
+      "year": "2014",
+      "registrationNumber": "GI Tag No. 433",
+      "description": "Natural perfume oil hydro-distilled in traditional copper Deg-Bhapka stills using Damask roses and pure sandalwood base.",
+      "culturalSignificance": "Authentic Geographical Indication of Uttar Pradesh. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Hydro-distilled in copper Deg-Bhapka stills",
+        "Sandalwood oil natural perfume base",
+        "Kannauj perfume capital heritage"
+      ],
+      "imageUrl": "assets/gi-images/kannauj-rose-attar.webp",
+      "regionOrientation": "north",
+      "phonetic": "Kannauj Rose Attar",
+      "tags": [
+        "Handicrafts",
+        "Uttar Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "patan-patola-double-ikat",
+      "name": "Patan Patola Double Ikat",
+      "stateId": "INGJ",
+      "stateName": "Gujarat",
+      "category": "Handicraft",
+      "year": "2013",
+      "registrationNumber": "GI Tag No. 236",
+      "description": "Double-ikat silk saree where warp and weft threads are tie-dyed before weaving. Design is identical on both sides.",
+      "culturalSignificance": "Authentic Geographical Indication of Gujarat. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Double-ikat tie dye technique",
+        "Vibrant colors lasting over 300 years",
+        "Solanki dynasty heritage weave"
+      ],
+      "imageUrl": "assets/gi-images/patan-patola-double-ikat.webp",
+      "regionOrientation": "west",
+      "phonetic": "Patan Patola Double Ikat",
+      "tags": [
+        "Textiles",
+        "Gujarat",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "gir-kesar-mango",
+      "name": "Gir Kesar Mango",
+      "stateId": "INGJ",
+      "stateName": "Gujarat",
+      "category": "Agricultural",
+      "year": "2011",
+      "registrationNumber": "GI Tag No. 185",
+      "description": "Bright orange-pulped mango grown around Gir sanctuary. Famous for its intense sweetness and saffron hue.",
+      "culturalSignificance": "Authentic Geographical Indication of Gujarat. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Saffron orange pulp hue",
+        "Grown in Gir forest foothills",
+        "High natural sugar & aroma"
+      ],
+      "imageUrl": "assets/gi-images/gir-kesar-mango.webp",
+      "regionOrientation": "west",
+      "phonetic": "Gir Kesar Mango",
+      "tags": [
+        "Agriculture",
+        "Gujarat",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "alphonso-hapus-mango",
+      "name": "Alphonso (Hapus) Mango",
+      "stateId": "INMH",
+      "stateName": "Maharashtra",
+      "category": "Agricultural",
+      "year": "2018",
+      "registrationNumber": "GI Tag No. 139",
+      "description": "The 'King of Mangoes', grown exclusively in Ratnagiri volcanic laterite coastal soils. Famous for fiberless golden pulp.",
+      "culturalSignificance": "Authentic Geographical Indication of Maharashtra. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Konkan coast laterite soil terroir",
+        "Golden fiberless buttery texture",
+        "Intense aromatic sweetness"
+      ],
+      "imageUrl": "assets/gi-images/alphonso-hapus-mango.webp",
+      "regionOrientation": "west",
+      "phonetic": "Alphonso (Hapus) Mango",
+      "tags": [
+        "Agriculture",
+        "Maharashtra",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "nagpur-orange",
+      "name": "Nagpur Orange",
+      "stateId": "INMH",
+      "stateName": "Maharashtra",
+      "category": "Agricultural",
+      "year": "2014",
+      "registrationNumber": "GI Tag No. 385",
+      "description": "Juicy Mandarin orange cultivar grown in Vidarbha region. Easy-peel loose skin with balanced sweet-tart juice.",
+      "culturalSignificance": "Authentic Geographical Indication of Maharashtra. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Easy peel loose mandarin skin",
+        "Juicy sweet-tart flavor profile",
+        "Vidarbha soil microclimate"
+      ],
+      "imageUrl": "assets/gi-images/nagpur-orange.webp",
+      "regionOrientation": "west",
+      "phonetic": "Nagpur Orange",
+      "tags": [
+        "Agriculture",
+        "Maharashtra",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "muga-golden-silk",
+      "name": "Muga Golden Silk",
+      "stateId": "INAS",
+      "stateName": "Assam",
+      "category": "Handicraft",
+      "year": "2007",
+      "registrationNumber": "GI Tag No. 55",
+      "description": "Exclusive to Brahmaputra Valley, produced by wild Antheraea assamensis silkworms. Naturally golden and grows brighter per wash.",
+      "culturalSignificance": "Authentic Geographical Indication of Assam. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Naturally golden luster without dye",
+        "Luster increases with every wash",
+        "Outlasts human lifespan"
+      ],
+      "imageUrl": "assets/gi-images/muga-golden-silk.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Muga Golden Silk",
+      "tags": [
+        "Textiles",
+        "Assam",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "assam-orthodox-tea",
+      "name": "Assam Orthodox Tea",
+      "stateId": "INAS",
+      "stateName": "Assam",
+      "category": "Agricultural",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 84",
+      "description": "Whole-leaf black tea harvested in Brahmaputra floodplains. Celebrated for rich malty flavor and deep amber liqueur.",
+      "culturalSignificance": "Authentic Geographical Indication of Assam. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Brahmaputra alluvial soil terroir",
+        "Rich malty brisk flavor notes",
+        "Hand-rolled whole leaf processing"
+      ],
+      "imageUrl": "assets/gi-images/assam-orthodox-tea.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Assam Orthodox Tea",
+      "tags": [
+        "Agriculture",
+        "Assam",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "jaipur-blue-pottery",
+      "name": "Jaipur Blue Pottery",
+      "stateId": "INRJ",
+      "stateName": "Rajasthan",
+      "category": "Handicrafts",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 120",
+      "description": "Turquoise glazed ceramics prepared without using clay. Made from quartz stone powder, glass, and copper oxide glazes.",
+      "culturalSignificance": "Authentic Geographical Indication of Rajasthan. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Clay-free quartz ceramic technique",
+        "Persian turquoise glaze heritage",
+        "Hand painted floral motifs"
+      ],
+      "imageUrl": "assets/gi-images/jaipur-blue-pottery.webp",
+      "regionOrientation": "west",
+      "phonetic": "Jaipur Blue Pottery",
+      "tags": [
+        "Handicrafts",
+        "Rajasthan",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "bikaneri-bhujia",
+      "name": "Bikaneri Bhujia",
+      "stateId": "INRJ",
+      "stateName": "Rajasthan",
+      "category": "Food Stuff",
+      "year": "2010",
+      "registrationNumber": "GI Tag No. 142",
+      "description": "Crispy fried snack prepared from ground moth bean flour (Dewbean) and desert spices in Bikaner.",
+      "culturalSignificance": "Authentic Geographical Indication of Rajasthan. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Made with desert Moth bean flour",
+        "Arid climate crispness",
+        "Centuries-old royal snack heritage"
+      ],
+      "imageUrl": "assets/gi-images/bikaneri-bhujia.webp",
+      "regionOrientation": "west",
+      "phonetic": "Bikaneri Bhujia",
+      "tags": [
+        "Foodstuff",
+        "Rajasthan",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "tirupati-laddu",
+      "name": "Tirupati Laddu",
+      "stateId": "INAP",
+      "stateName": "Andhra Pradesh",
+      "category": "Food Stuff",
+      "year": "2009",
+      "registrationNumber": "GI Tag No. 121",
+      "description": "Sacred prasad sweet offered at Tirumala Venkateswara Temple. Prepared according to strict 'Dittam' proportions.",
+      "culturalSignificance": "Authentic Geographical Indication of Andhra Pradesh. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Standardized temple 'Dittam' recipe",
+        "Pure cow ghee and cashews",
+        "Centuries-old temple prasadam"
+      ],
+      "imageUrl": "assets/gi-images/tirupati-laddu.webp",
+      "regionOrientation": "south",
+      "phonetic": "Tirupati Laddu",
+      "tags": [
+        "Foodstuff",
+        "Andhra Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "guntur-sannam-chilli",
+      "name": "Guntur Sannam Chilli",
+      "stateId": "INAP",
+      "stateName": "Andhra Pradesh",
+      "category": "Agricultural",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 108",
+      "description": "High-capsaicin, intensely hot red chilli widely exported for culinary extracts, oleoresins, and spice blends.",
+      "culturalSignificance": "Authentic Geographical Indication of Andhra Pradesh. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "High capsaicin heat density",
+        "Deep red natural color extract",
+        "Guntur international spice hub"
+      ],
+      "imageUrl": "assets/gi-images/guntur-sannam-chilli.webp",
+      "regionOrientation": "south",
+      "phonetic": "Guntur Sannam Chilli",
+      "tags": [
+        "Agriculture",
+        "Andhra Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "pochampally-ikat",
+      "name": "Pochampally Ikat",
+      "stateId": "INTG",
+      "stateName": "Telangana",
+      "category": "Handicraft",
+      "year": "2005",
+      "registrationNumber": "GI Tag No. 4",
+      "description": "Intricate geometric double-ikat tie-and-dye patterns transferred onto warp and weft silk yarns before weaving.",
+      "culturalSignificance": "Authentic Geographical Indication of Telangana. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Geometric precision tie-dye patterns",
+        "UNESCO tentative list craft village",
+        "Silk & cotton handloom heritage"
+      ],
+      "imageUrl": "assets/gi-images/pochampally-ikat.webp",
+      "regionOrientation": "south",
+      "phonetic": "Pochampally Ikat",
+      "tags": [
+        "Textiles",
+        "Telangana",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "hyderabadi-haleem",
+      "name": "Hyderabadi Haleem",
+      "stateId": "INTG",
+      "stateName": "Telangana",
+      "category": "Food Stuff",
+      "year": "2010",
+      "registrationNumber": "GI Tag No. 193",
+      "description": "Slow-cooked savory porridge of meat, wheat, lentils, and spices simmered for hours in wood-fired earthen pits.",
+      "culturalSignificance": "Authentic Geographical Indication of Telangana. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Wood-fired earthen pit slow cooking",
+        "Rich meat, wheat & lentil mash",
+        "Mughlai & Nizam royal heritage"
+      ],
+      "imageUrl": "assets/gi-images/hyderabadi-haleem.webp",
+      "regionOrientation": "south",
+      "phonetic": "Hyderabadi Haleem",
+      "tags": [
+        "Foodstuff",
+        "Telangana",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "odisha-rasagola",
+      "name": "Odisha Rasagola",
+      "stateId": "INOR",
+      "stateName": "Odisha",
+      "category": "Food Stuff",
+      "year": "2019",
+      "registrationNumber": "GI Tag No. 612",
+      "description": "Soft non-chewy chhena sweet cooked in light sugar syrup without added caramelization. Offered during Niladri Bije at Puri.",
+      "culturalSignificance": "Authentic Geographical Indication of Odisha. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Offered during Jagannath Temple Niladri Bije",
+        "Soft non-rubbery chhena texture",
+        "Light uncaramelized syrup"
+      ],
+      "imageUrl": "assets/gi-images/odisha-rasagola.webp",
+      "regionOrientation": "east",
+      "phonetic": "Odisha Rasagola",
+      "tags": [
+        "Foodstuff",
+        "Odisha",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "puri-pattachitra-art",
+      "name": "Puri Pattachitra Art",
+      "stateId": "INOR",
+      "stateName": "Odisha",
+      "category": "Handicrafts",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 113",
+      "description": "Traditional cloth-based scroll painting depicting Jagannath mythology using natural stone pigments and fine brushwork.",
+      "culturalSignificance": "Authentic Geographical Indication of Odisha. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Cloth canvas prepared with tamarind paste",
+        "Natural stone & shell pigments",
+        "Ancient Jagannath temple art"
+      ],
+      "imageUrl": "assets/gi-images/puri-pattachitra-art.webp",
+      "regionOrientation": "east",
+      "phonetic": "Puri Pattachitra Art",
+      "tags": [
+        "Handicrafts",
+        "Odisha",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "madhubani-painting",
+      "name": "Madhubani Painting",
+      "stateId": "INBR",
+      "stateName": "Bihar",
+      "category": "Handicrafts",
+      "year": "2007",
+      "registrationNumber": "GI Tag No. 125",
+      "description": "Folk art practiced by women of Mithila using fingers, twigs, and natural mineral dyes. Known for double-line borders.",
+      "culturalSignificance": "Authentic Geographical Indication of Bihar. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Hand-drawn natural mineral & plant dyes",
+        "Mithila cultural lineage art",
+        "Geometrical double-line fills"
+      ],
+      "imageUrl": "assets/gi-images/madhubani-painting.webp",
+      "regionOrientation": "east",
+      "phonetic": "Madhubani Painting",
+      "tags": [
+        "Handicrafts",
+        "Bihar",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "muzaffarpur-shahi-litchi",
+      "name": "Muzaffarpur Shahi Litchi",
+      "stateId": "INBR",
+      "stateName": "Bihar",
+      "category": "Agricultural",
+      "year": "2018",
+      "registrationNumber": "GI Tag No. 555",
+      "description": "Juicy litchi cultivar known for sweet translucent pulp, small seeds, and pleasant rose-like aroma.",
+      "culturalSignificance": "Authentic Geographical Indication of Bihar. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "High juice to seed ratio",
+        "Sweet translucent pulp",
+        "Muzaffarpur alluvial soil microclimate"
+      ],
+      "imageUrl": "assets/gi-images/muzaffarpur-shahi-litchi.webp",
+      "regionOrientation": "east",
+      "phonetic": "Muzaffarpur Shahi Litchi",
+      "tags": [
+        "Agriculture",
+        "Bihar",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "chanderi-fabric",
+      "name": "Chanderi Fabric",
+      "stateId": "INMP",
+      "stateName": "Madhya Pradesh",
+      "category": "Handicraft",
+      "year": "2005",
+      "registrationNumber": "GI Tag No. 22",
+      "description": "Lightweight sheer fabric produced by weaving fine silk and cotton yarn with gold zari and traditional buttis.",
+      "culturalSignificance": "Authentic Geographical Indication of Madhya Pradesh. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Sheer translucent luxury texture",
+        "Hand-woven gold zari motifs",
+        "Bundelkhand heritage looms"
+      ],
+      "imageUrl": "assets/gi-images/chanderi-fabric.webp",
+      "regionOrientation": "central",
+      "phonetic": "Chanderi Fabric",
+      "tags": [
+        "Textiles",
+        "Madhya Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "kullu-wool-shawl",
+      "name": "Kullu Wool Shawl",
+      "stateId": "INHP",
+      "stateName": "Himachal Pradesh",
+      "category": "Handicraft",
+      "year": "2005",
+      "registrationNumber": "GI Tag No. 19",
+      "description": "Pure sheep wool shawls woven with bold geometric patterned borders, inspired by traditional Himalayan tribal motifs.",
+      "culturalSignificance": "Authentic Geographical Indication of Himachal Pradesh. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Pure Himalayan sheep wool",
+        "Colorful geometric border patterns",
+        "Handloom weaver guild heritage"
+      ],
+      "imageUrl": "assets/gi-images/kullu-wool-shawl.webp",
+      "regionOrientation": "north",
+      "phonetic": "Kullu Wool Shawl",
+      "tags": [
+        "Textiles",
+        "Himachal Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "goan-cashew-feni",
+      "name": "Goan Cashew Feni",
+      "stateId": "INGA",
+      "stateName": "Goa",
+      "category": "Food Stuff",
+      "year": "2009",
+      "registrationNumber": "GI Tag No. 120",
+      "description": "Pot-distilled spirit crafted exclusively from crushed cashew apple juice in traditional copper stills.",
+      "culturalSignificance": "Authentic Geographical Indication of Goa. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "100% natural cashew apple distillate",
+        "Traditional copper pot stills",
+        "Zero chemical additive spirit"
+      ],
+      "imageUrl": "assets/gi-images/goan-cashew-feni.webp",
+      "regionOrientation": "west",
+      "phonetic": "Goan Cashew Feni",
+      "tags": [
+        "Foodstuff",
+        "Goa",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "naga-king-chilli-bhut-jolokia",
+      "name": "Naga King Chilli (Bhut Jolokia)",
+      "stateId": "INNL",
+      "stateName": "Nagaland",
+      "category": "Agricultural",
+      "year": "2008",
+      "registrationNumber": "GI Tag No. 109",
+      "description": "One of the world's hottest naturally occurring chillies, exceeding 1,000,000 Scoville Heat Units (SHU).",
+      "culturalSignificance": "Authentic Geographical Indication of Nagaland. Recognized for cultural craftsmanship, geographical exclusivity, and regional heritage.",
+      "keyFeatures": [
+        "Exceeds 1 Million Scoville Heat Units",
+        "Unmatched capsaicin density",
+        "Organic tribal hill cultivation"
+      ],
+      "imageUrl": "assets/gi-images/naga-king-chilli-bhut-jolokia.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Naga King Chilli (Bhut Jolokia)",
+      "tags": [
+        "Agriculture",
+        "Nagaland",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "punjab-phulkari-embroidery",
+      "name": "Punjab Phulkari Embroidery",
+      "stateId": "INPB",
+      "stateName": "Punjab",
+      "category": "Handicraft",
+      "year": "2011",
+      "registrationNumber": "GI Tag #148",
+      "description": "Geometric floral needle embroidery hand-stitched with untwisted silk floss (Pat) on coarse khaddar cotton fabric.",
+      "culturalSignificance": "Authentic Geographical Indication of Punjab. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Untwisted silk floss (Pat)",
+        "Stitched from reverse side",
+        "Bridal Bagh and Chope heirloom traditions"
+      ],
+      "imageUrl": "assets/gi-images/punjab-phulkari-embroidery.webp",
+      "regionOrientation": "north",
+      "phonetic": "Punjab Phulkari Embroidery",
+      "tags": [
+        "Handicraft",
+        "Punjab",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "haryana-traditional-phulkari",
+      "name": "Haryana Traditional Phulkari",
+      "stateId": "INHR",
+      "stateName": "Haryana",
+      "category": "Handicraft",
+      "year": "2011",
+      "registrationNumber": "GI Tag #148",
+      "description": "Traditional darning needlework depicting rural folk motifs stitched on madder and indigo-dyed cotton textiles.",
+      "culturalSignificance": "Authentic Geographical Indication of Haryana. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Counted-thread darning stitches",
+        "Hand-spun khaddar base",
+        "Rural folk celebration motifs"
+      ],
+      "imageUrl": "assets/gi-images/haryana-traditional-phulkari.webp",
+      "regionOrientation": "north",
+      "phonetic": "Haryana Traditional Phulkari",
+      "tags": [
+        "Handicraft",
+        "Haryana",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "tehri-garhwal-nath",
+      "name": "Tehri Garhwal Nath",
+      "stateId": "INUT",
+      "stateName": "Uttarakhand",
+      "category": "Handicraft",
+      "year": "2023",
+      "registrationNumber": "GI Tag #887",
+      "description": "Grand bridal gold nose ring crafted with intricate gold filigree wirework, ruby gemstone inlays, and dangling peacock motifs.",
+      "culturalSignificance": "Authentic Geographical Indication of Uttarakhand. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Intricate gold filigree wirework",
+        "Traditional Himalayan bridal heirloom",
+        "Crafted by master Tehri goldsmiths"
+      ],
+      "imageUrl": "assets/gi-images/tehri-garhwal-nath.webp",
+      "regionOrientation": "north",
+      "phonetic": "Tehri Garhwal Nath",
+      "tags": [
+        "Handicraft",
+        "Uttarakhand",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "sikkim-large-cardamom",
+      "name": "Sikkim Large Cardamom",
+      "stateId": "INSK",
+      "stateName": "Sikkim",
+      "category": "Agricultural",
+      "year": "2013",
+      "registrationNumber": "GI Tag #375",
+      "description": "Indigenous large dark brown cardamom pods (Badi Elaichi) cultivated organically in Himalayan agroforestry systems.",
+      "culturalSignificance": "Authentic Geographical Indication of Sikkim. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "High 1,8-cineole essential oils",
+        "Bhatti wood-smoke curing",
+        "100% organic Himalayan agroforestry"
+      ],
+      "imageUrl": "assets/gi-images/sikkim-large-cardamom.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Sikkim Large Cardamom",
+      "tags": [
+        "Agricultural",
+        "Sikkim",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "chak-hao-black-scented-rice",
+      "name": "Chak-Hao Black Scented Rice",
+      "stateId": "INMN",
+      "stateName": "Manipur",
+      "category": "Agricultural",
+      "year": "2020",
+      "registrationNumber": "GI Tag #602",
+      "description": "Deep purple-black scented glutinous rice of Manipur, celebrated for natural anthocyanin antioxidants and nutty aroma.",
+      "culturalSignificance": "Authentic Geographical Indication of Manipur. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Anthocyanin superfood antioxidant profile",
+        "Rich floral-nutty aroma",
+        "Cooks into royal purple hue"
+      ],
+      "imageUrl": "assets/gi-images/chak-hao-black-scented-rice.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Chak-Hao Black Scented Rice",
+      "tags": [
+        "Agricultural",
+        "Manipur",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "lakadong-turmeric",
+      "name": "Lakadong Turmeric",
+      "stateId": "INML",
+      "stateName": "Meghalaya",
+      "category": "Agricultural",
+      "year": "2023",
+      "registrationNumber": "GI Tag #894",
+      "description": "World's finest turmeric grown in Jaintia Hills containing an extraordinary natural curcumin content of 7% to 12%.",
+      "culturalSignificance": "Authentic Geographical Indication of Meghalaya. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "World-leading 7% to 12% curcumin content",
+        "Vibrant golden-orange color",
+        "Organic Jaintia hills soil terroir"
+      ],
+      "imageUrl": "assets/gi-images/lakadong-turmeric.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Lakadong Turmeric",
+      "tags": [
+        "Agricultural",
+        "Meghalaya",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "mizo-bird-s-eye-chilli",
+      "name": "Mizo Bird's Eye Chilli",
+      "stateId": "INMZ",
+      "stateName": "Mizoram",
+      "category": "Agricultural",
+      "year": "2015",
+      "registrationNumber": "GI Tag #376",
+      "description": "Tiny, erect fiery red chillies grown on organic hill slopes with intense heat (100,000 to 225,000 SHU) and citrus-peppery aroma.",
+      "culturalSignificance": "Authentic Geographical Indication of Mizoram. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Pungent capsaicin heat up to 225,000 SHU",
+        "Organic hilly tribal cultivation",
+        "Sun-dried on bamboo trays"
+      ],
+      "imageUrl": "assets/gi-images/mizo-bird-s-eye-chilli.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Mizo Bird's Eye Chilli",
+      "tags": [
+        "Agricultural",
+        "Mizoram",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "tripura-queen-pineapple",
+      "name": "Tripura Queen Pineapple",
+      "stateId": "INTR",
+      "stateName": "Tripura",
+      "category": "Agricultural",
+      "year": "2018",
+      "registrationNumber": "GI Tag #564",
+      "description": "Crisp, golden-yellow pineapple with intense natural sweetness, pleasant aroma, and firm non-fibrous edible core.",
+      "culturalSignificance": "Authentic Geographical Indication of Tripura. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Declared official State Fruit of Tripura",
+        "Crisp non-fibrous edible core",
+        "High natural Brix sweetness"
+      ],
+      "imageUrl": "assets/gi-images/tripura-queen-pineapple.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Tripura Queen Pineapple",
+      "tags": [
+        "Agricultural",
+        "Tripura",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "arunachal-yak-churpi",
+      "name": "Arunachal Yak Churpi",
+      "stateId": "INAR",
+      "stateName": "Arunachal Pradesh",
+      "category": "Food Stuff",
+      "year": "2023",
+      "registrationNumber": "GI Tag #837",
+      "description": "Traditional hard smoked cheese prepared from nutrient-dense milk of indigenous yaks reared by nomadic Brokpa pastoralists.",
+      "culturalSignificance": "Authentic Geographical Indication of Arunachal Pradesh. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Pure high-altitude Arunachali Yak milk",
+        "Wood-smoke cured for extreme durability",
+        "Essential high-protein Himalayan staple"
+      ],
+      "imageUrl": "assets/gi-images/arunachal-yak-churpi.webp",
+      "regionOrientation": "northeast",
+      "phonetic": "Arunachal Yak Churpi",
+      "tags": [
+        "Food Stuff",
+        "Arunachal Pradesh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "sohrai-khovar-tribal-art",
+      "name": "Sohrai & Khovar Tribal Art",
+      "stateId": "INJH",
+      "stateName": "Jharkhand",
+      "category": "Handicraft",
+      "year": "2020",
+      "registrationNumber": "GI Tag #693",
+      "description": "Traditional indigenous wall mural art practiced by tribal women using natural earth pigments and comb-cutting techniques.",
+      "culturalSignificance": "Authentic Geographical Indication of Jharkhand. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "100% natural earth clays and ochres",
+        "Comb-cutting relief technique",
+        "Depicts forest wildlife and sacred motifs"
+      ],
+      "imageUrl": "assets/gi-images/sohrai-khovar-tribal-art.webp",
+      "regionOrientation": "east",
+      "phonetic": "Sohrai & Khovar Tribal Art",
+      "tags": [
+        "Handicraft",
+        "Jharkhand",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "bastar-dhokra-lost-wax-craft",
+      "name": "Bastar Dhokra Lost-Wax Craft",
+      "stateId": "INCT",
+      "stateName": "Chhattisgarh",
+      "category": "Handicraft",
+      "year": "2008",
+      "registrationNumber": "GI Tag #83",
+      "description": "Ancient non-ferrous lost-wax metal casting practiced by tribal artisans of Bastar using beeswax cords and brass alloy.",
+      "culturalSignificance": "Authentic Geographical Indication of Chhattisgarh. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Cire-perdue ancient casting heritage",
+        "Hand-pulled beeswax thread detailing",
+        "Tribal deities and forest animal iconography"
+      ],
+      "imageUrl": "assets/gi-images/bastar-dhokra-lost-wax-craft.webp",
+      "regionOrientation": "central",
+      "phonetic": "Bastar Dhokra Lost-Wax Craft",
+      "tags": [
+        "Handicraft",
+        "Chhattisgarh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "ladakh-shingkos-wood-carving",
+      "name": "Ladakh Shingkos Wood Carving",
+      "stateId": "INLA",
+      "stateName": "Ladakh",
+      "category": "Handicraft",
+      "year": "2023",
+      "registrationNumber": "GI Tag #872",
+      "description": "Intricate architectural and monastic wood carving executed on local willow and poplar wood with Buddhist iconography.",
+      "culturalSignificance": "Authentic Geographical Indication of Ladakh. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Tibetan Buddhist auspicious motifs",
+        "Crafted from seasoned willow and poplar",
+        "Painted with natural mineral pigments"
+      ],
+      "imageUrl": "assets/gi-images/ladakh-shingkos-wood-carving.webp",
+      "regionOrientation": "north",
+      "phonetic": "Ladakh Shingkos Wood Carving",
+      "tags": [
+        "Handicraft",
+        "Ladakh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "delhi-mughal-zardozi",
+      "name": "Delhi Mughal Zardozi",
+      "stateId": "INDL",
+      "stateName": "Delhi",
+      "category": "Handicraft",
+      "year": "2013",
+      "registrationNumber": "GI Tag #418",
+      "description": "Heavy 3D gold metallic thread embroidery crafted using fine curved Aari needles and metallic coils on velvet and silk.",
+      "culturalSignificance": "Authentic Geographical Indication of Delhi. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Gilded metallic wire Aari embroidery",
+        "Embellished with Salma and Sitara coils",
+        "Imperial Shahjahanabad heritage craft"
+      ],
+      "imageUrl": "assets/gi-images/delhi-mughal-zardozi.webp",
+      "regionOrientation": "north",
+      "phonetic": "Delhi Mughal Zardozi",
+      "tags": [
+        "Handicraft",
+        "Delhi",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "villianur-terracotta-craft",
+      "name": "Villianur Terracotta Craft",
+      "stateId": "INPY",
+      "stateName": "Puducherry",
+      "category": "Handicraft",
+      "year": "2011",
+      "registrationNumber": "GI Tag #197",
+      "description": "Monumental terracotta sculptures of village deities (Ayyanar horses) sculpted from fine-grain green alluvial clay.",
+      "culturalSignificance": "Authentic Geographical Indication of Puducherry. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Sculpted from specialized fine-pore Villianur clay",
+        "Large-scale firing without structural cracking",
+        "Ancient Ayyanar guardian temple sculpture tradition"
+      ],
+      "imageUrl": "assets/gi-images/villianur-terracotta-craft.webp",
+      "regionOrientation": "south",
+      "phonetic": "Villianur Terracotta Craft",
+      "tags": [
+        "Handicraft",
+        "Puducherry",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "nicobari-hodi-traditional-canoe",
+      "name": "Nicobari Hodi Traditional Canoe",
+      "stateId": "INAN",
+      "stateName": "Andaman and Nicobar",
+      "category": "Handicraft",
+      "year": "2022",
+      "registrationNumber": "GI Tag #819",
+      "description": "Traditional outrigger canoe dugout handcrafted by Nicobarese tribes from single tree trunks of island hardwood without nails.",
+      "culturalSignificance": "Authentic Geographical Indication of Andaman and Nicobar. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "First GI tag from Andaman & Nicobar Islands",
+        "Carved from a single fallen trunk of island hardwood",
+        "Outrigger bamboo floats tied with natural cane"
+      ],
+      "imageUrl": "assets/gi-images/nicobari-hodi-traditional-canoe.webp",
+      "regionOrientation": "south",
+      "phonetic": "Nicobari Hodi Traditional Canoe",
+      "tags": [
+        "Handicraft",
+        "Andaman and Nicobar",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "lakshadweep-smoked-masmin-tuna",
+      "name": "Lakshadweep Smoked Masmin Tuna",
+      "stateId": "INLD",
+      "stateName": "Lakshadweep",
+      "category": "Food Stuff",
+      "year": "2024",
+      "registrationNumber": "GI Tag #920",
+      "description": "Traditional hard-smoked, sun-dried Skipjack tuna fillets processed using sustainable pole-and-line fishing with zero dolphin bycatch.",
+      "culturalSignificance": "Authentic Geographical Indication of Lakshadweep. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Pole-and-line dolphin-safe sustainable catch",
+        "Hardened over coconut shell woodsmoke",
+        "Savory umami richness with years-long shelf life"
+      ],
+      "imageUrl": "assets/gi-images/lakshadweep-smoked-masmin-tuna.webp",
+      "regionOrientation": "south",
+      "phonetic": "Lakshadweep Smoked Masmin Tuna",
+      "tags": [
+        "Food Stuff",
+        "Lakshadweep",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "chandigarh-heritage-phulkari",
+      "name": "Chandigarh Heritage Phulkari",
+      "stateId": "INCH",
+      "stateName": "Chandigarh",
+      "category": "Handicraft",
+      "year": "2011",
+      "registrationNumber": "GI Tag #148",
+      "description": "Traditional Panj-Aab geometric silk embroidery celebrating the shared heritage of the modern capital city.",
+      "culturalSignificance": "Authentic Geographical Indication of Chandigarh. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Geometric untwisted silk embroidery",
+        "Handcrafted by women craft collectives",
+        "Rich northern cultural heritage"
+      ],
+      "imageUrl": "assets/gi-images/chandigarh-heritage-phulkari.webp",
+      "regionOrientation": "north",
+      "phonetic": "Chandigarh Heritage Phulkari",
+      "tags": [
+        "Handicraft",
+        "Chandigarh",
+        "GI Tag"
+      ]
+    },
+    {
+      "id": "dadra-nagar-haveli-warli-art",
+      "name": "Dadra & Nagar Haveli Warli Art",
+      "stateId": "INDH",
+      "stateName": "Dadra and Nagar Haveli and Daman and Diu",
+      "category": "Handicraft",
+      "year": "2014",
+      "registrationNumber": "GI Tag #372",
+      "description": "Geometric tribal painting depicting Tarpa dance and harvest celebrations using rice flour paste on earthen cow-dung washed walls.",
+      "culturalSignificance": "Authentic Geographical Indication of Dadra and Nagar Haveli and Daman and Diu. Celebrated for heritage, geographic exclusivity, and artisanal mastery.",
+      "keyFeatures": [
+        "Natural white rice paste and gum water",
+        "Sacred Tarpa spiral dance central motif",
+        "Geometric harmony depicting human-nature unity"
+      ],
+      "imageUrl": "assets/gi-images/dadra-nagar-haveli-warli-art.webp",
+      "regionOrientation": "west",
+      "phonetic": "Dadra & Nagar Haveli Warli Art",
+      "tags": [
+        "Handicraft",
+        "Dadra and Nagar Haveli and Daman and Diu",
+        "GI Tag"
+      ]
+    }
+  ],
+  "summary": {
+    "totalStatesCovered": 36,
+    "totalFeaturedProducts": 50,
+    "totalCatalogEntries": 186,
+    "categoriesCount": {
+      "Handicraft": 20,
+      "Agricultural": 16,
+      "Food Stuff": 7,
+      "Manufactured": 0,
+      "Natural Goods": 0
+    },
+    "topStatesByGI": [
+      {
+        "name": "Tamil Nadu",
+        "count": 58,
+        "code": "INTN"
+      },
+      {
+        "name": "Uttar Pradesh",
+        "count": 54,
+        "code": "INUP"
+      },
+      {
+        "name": "Karnataka",
+        "count": 48,
+        "code": "INKA"
+      },
+      {
+        "name": "Kerala",
+        "count": 35,
+        "code": "INKL"
+      },
+      {
+        "name": "Maharashtra",
+        "count": 34,
+        "code": "INMH"
+      },
+      {
+        "name": "West Bengal",
+        "count": 27,
+        "code": "INWB"
+      },
+      {
+        "name": "Odisha",
+        "count": 25,
+        "code": "INOR"
+      },
+      {
+        "name": "Rajasthan",
+        "count": 21,
+        "code": "INRJ"
+      }
+    ]
+  }
+}
