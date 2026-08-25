@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { GIProduct, StateMetadata, GICategory } from '../types/gi-data';
+import { GIProduct, StateMetadata } from '../types/gi-data';
 import { AssetLoader } from '../utils/asset-loader';
 
 export interface InfoCardOptions {
@@ -51,9 +51,7 @@ export class InfoCardManager {
       isEast ? 'justify-end items-center' : 'justify-start items-center pl-16 sm:pl-20 md:pl-24'
     }`;
 
-    const badgeClass = this.getBadgeClass(product.category);
     const imgSrc = AssetLoader.getDisplaySrc(product);
-
     const hasMultipleProducts = this.currentProducts.length > 1;
 
     const html = `
@@ -91,19 +89,13 @@ export class InfoCardManager {
         <!-- Scrollable Card Content -->
         <div class="p-5 overflow-y-auto space-y-4 flex-1 custom-scroll">
           
-          <!-- Product Photographic Visual -->
+          <!-- Product Photographic Visual (Clean museum plate without redundant badge) -->
           <div class="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden bg-stone-base shadow-inner group">
             <img src="${imgSrc}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-            
-            <div class="absolute top-2.5 left-2.5">
-              <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full ${badgeClass} backdrop-blur-md shadow-sm">
-                ${product.category}
-              </span>
-            </div>
 
             ${product.year ? `
               <div class="absolute bottom-2.5 right-2.5">
-                <span class="text-[10px] font-medium text-white/90 bg-black/50 backdrop-blur-md px-2 py-0.5 rounded-full">
+                <span class="text-[10px] font-medium text-white/90 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full">
                   Reg: ${product.year}
                 </span>
               </div>
@@ -226,8 +218,6 @@ export class InfoCardManager {
     const rect = this.cardElement.getBoundingClientRect();
     const isEast = this.currentState.orientation === 'east' || this.currentState.orientation === 'northeast';
 
-    // If card is on right side (East), connect to card's left edge center
-    // If card is on left side (West), connect to card's right edge center
     const x = isEast ? rect.left : rect.right;
     const y = rect.top + rect.height * 0.45;
 
@@ -243,16 +233,5 @@ export class InfoCardManager {
 
   public getCurrentState(): StateMetadata | null {
     return this.currentState;
-  }
-
-  private getBadgeClass(cat: GICategory): string {
-    switch (cat) {
-      case 'Handicraft': return 'badge-handicraft';
-      case 'Agricultural': return 'badge-agriculture';
-      case 'Food Stuff': return 'badge-food';
-      case 'Manufactured': return 'badge-manufactured';
-      case 'Natural Goods': return 'badge-natural';
-      default: return 'badge-handicraft';
-    }
   }
 }

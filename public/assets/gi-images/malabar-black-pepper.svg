@@ -2,35 +2,104 @@
   <defs>
     <linearGradient id="bgGrad_malabar-black-pepper" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#14532D" />
-      <stop offset="60%" stop-color="#1A202C" />
-      <stop offset="100%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#052E16" />
+      <stop offset="100%" stop-color="#14532D" />
     </linearGradient>
-    <radialGradient id="glowGrad_malabar-black-pepper" cx="50%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#22C55E" stop-opacity="0" />
+    <radialGradient id="spotlight_malabar-black-pepper" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#22C55E" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="floorShadow_malabar-black-pepper" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.6)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
     </radialGradient>
   </defs>
+
+  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_malabar-black-pepper)"/>
-  <rect width="100%" height="100%" fill="url(#glowGrad_malabar-black-pepper)"/>
-  
-  <g transform="translate(300, 160)" stroke="#FACC15" stroke-opacity="0.2" fill="none" stroke-width="1.5">
-    <circle r="80" />
-    <circle r="60" stroke-dasharray="4,6" />
-    <rect x="-40" y="-40" width="80" height="80" transform="rotate(45)" />
+  <rect width="100%" height="100%" fill="url(#spotlight_malabar-black-pepper)"/>
+
+  <!-- Museum Exhibition Grid & Aura -->
+  <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
+  <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
+
+  <!-- Pedestal Floor Drop Shadow -->
+  <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_malabar-black-pepper)" />
+
+  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
+  <g transform="translate(300, 180)">
+    
+        <!-- Jute burlap sack spilling Tellicherry black peppercorns -->
+        <path d="M-70,50 Q-80,10 -40,-30 Q30,-40 65,-10 Q80,40 50,60 Z" fill="#A16207" filter="drop-shadow(0 15px 20px rgba(0,0,0,0.4))" />
+        <path d="M-60,40 Q-70,10 -35,-20 Q25,-30 55,-5 Q70,35 45,50 Z" fill="#78350F" />
+        <!-- Fresh green pepper vine leaves -->
+        <path d="M-50,-20 Q-70,-60 -30,-70 Q-10,-40 -50,-20 Z" fill="#15803D" />
+        <path d="M20,-30 Q60,-70 70,-40 Q40,-10 20,-30 Z" fill="#16A34A" />
+        <!-- Lustrous wrinkled black peppercorn spheres -->
+        <g fill="#18181B" stroke="#27272A" stroke-width="1.5">
+          
+            <circle cx="-25" cy="10" r="14" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-29.2" cy="5.8" r="3.5" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="-5" cy="5" r="16" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-9.8" cy="0.20000000000000018" r="4" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="18" cy="15" r="15" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="13.5" cy="10.5" r="3.75" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="35" cy="25" r="13" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="31.1" cy="21.1" r="3.25" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="-15" cy="30" r="15" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-19.5" cy="25.5" r="3.75" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="10" cy="32" r="16" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="5.2" cy="27.2" r="4" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="-35" cy="28" r="12" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-38.6" cy="24.4" r="3" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="28" cy="-5" r="13" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="24.1" cy="-8.9" r="3.25" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="-5" cy="-15" r="14" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-9.2" cy="-19.2" r="3.5" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="10" cy="-5" r="13" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="6.1" cy="-8.9" r="3.25" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="-45" cy="45" r="11" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-48.3" cy="41.7" r="2.75" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="-10" cy="50" r="14" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-14.2" cy="45.8" r="3.5" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="15" cy="52" r="13" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="11.1" cy="48.1" r="3.25" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="35" cy="48" r="12" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="31.4" cy="44.4" r="3" fill="#71717A" opacity="0.7" />
+          
+            <circle cx="0" cy="25" r="15" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
+            <circle cx="-4.5" cy="20.5" r="3.75" fill="#71717A" opacity="0.7" />
+          
+        </g>
+      
   </g>
 
-  <g transform="translate(32, 40)">
-    <rect width="130" height="26" rx="13" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" />
-    <text x="65" y="17" fill="#FACC15" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">
-      AGRICULTURAL
-    </text>
-  </g>
+  <!-- Curatorial Caption Bar -->
+  <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
+  <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
-  <text x="32" y="320" fill="#F9F6F0" font-family="serif" font-size="22" font-weight="700">
+  <text x="32" y="358" fill="#F9F6F0" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="700">
     Malabar Black Pepper
   </text>
-  <text x="32" y="348" fill="rgba(249, 246, 240, 0.7)" font-family="sans-serif" font-size="13">
-    Kerala • GI Tag No. 58
+  
+  <text x="32" y="382" fill="rgba(249, 246, 240, 0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500">
+    Kerala • Registered Geographical Indication of India
   </text>
+
+  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

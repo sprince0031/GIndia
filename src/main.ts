@@ -106,7 +106,8 @@ class GIndiaApp {
       this.tourManager = new TourManager({
         audioNarrator: this.audioNarrator,
         onStepChange: (state, product, stepIndex, totalSteps) => {
-          this.handleStateSelection(state.id, state.name, null, false);
+          // Highlight in terracotta and update infocard during autoplay
+          this.handleStateSelection(state.id, state.name, null, true);
           const caption = document.getElementById('narration-caption');
           if (caption) {
             caption.innerHTML = `<strong class="text-terracotta">${stepIndex + 1}/${totalSteps}</strong>: <strong>${state.name}</strong> • ${product.name}`;
@@ -168,6 +169,12 @@ class GIndiaApp {
             this.tourManager.pause();
           }
           this.handleStateSelection(stateId, stateName, centroid, false);
+        },
+        onStateDeselect: () => {
+          this.tracerLayer?.hide();
+          this.infoCardManager?.hide();
+          this.state.selectedStateId = null;
+          this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
         }
       });
 

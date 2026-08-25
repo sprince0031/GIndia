@@ -2,35 +2,62 @@
   <defs>
     <linearGradient id="bgGrad_mysore-pure-silk" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1E3A8A" />
-      <stop offset="60%" stop-color="#1A202C" />
-      <stop offset="100%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
     </linearGradient>
-    <radialGradient id="glowGrad_mysore-pure-silk" cx="50%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0" />
+    <radialGradient id="spotlight_mysore-pure-silk" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#3B82F6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="floorShadow_mysore-pure-silk" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.6)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
     </radialGradient>
   </defs>
+
+  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_mysore-pure-silk)"/>
-  <rect width="100%" height="100%" fill="url(#glowGrad_mysore-pure-silk)"/>
-  
-  <g transform="translate(300, 160)" stroke="#F59E0B" stroke-opacity="0.2" fill="none" stroke-width="1.5">
-    <circle r="80" />
-    <circle r="60" stroke-dasharray="4,6" />
-    <rect x="-40" y="-40" width="80" height="80" transform="rotate(45)" />
+  <rect width="100%" height="100%" fill="url(#spotlight_mysore-pure-silk)"/>
+
+  <!-- Museum Exhibition Grid & Aura -->
+  <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
+  <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
+
+  <!-- Pedestal Floor Drop Shadow -->
+  <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_mysore-pure-silk)" />
+
+  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
+  <g transform="translate(300, 180)">
+    
+        <!-- Indigo & Gold zari Mysore Silk fold -->
+        <rect x="-85" y="-55" width="170" height="115" rx="10" fill="#1E3A8A" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
+        <rect x="-75" y="-45" width="150" height="95" rx="6" fill="#1D4ED8" />
+        <rect x="-75" y="10" width="150" height="40" fill="#EAB308" />
+        <!-- Kasuti geometric embroidery motifs -->
+        <g fill="#1E3A8A" transform="translate(-50, 28) scale(0.7)">
+          <polygon points="0,-15 15,0 0,15 -15,0" />
+          <polygon points="35,-15 50,0 35,15 20,0" />
+          <polygon points="70,-15 85,0 70,15 55,0" />
+          <polygon points="105,-15 120,0 105,15 90,0" />
+          <polygon points="140,-15 155,0 140,15 125,0" />
+        </g>
+        <path d="M-75,-25 Q0,-45 75,-25" stroke="#FDE047" stroke-width="2" stroke-dasharray="4,4" fill="none" />
+      
   </g>
 
-  <g transform="translate(32, 40)">
-    <rect width="130" height="26" rx="13" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" />
-    <text x="65" y="17" fill="#F59E0B" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">
-      HANDICRAFT
-    </text>
-  </g>
+  <!-- Curatorial Caption Bar -->
+  <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
+  <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
-  <text x="32" y="320" fill="#F9F6F0" font-family="serif" font-size="22" font-weight="700">
+  <text x="32" y="358" fill="#F9F6F0" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="700">
     Mysore Pure Silk
   </text>
-  <text x="32" y="348" fill="rgba(249, 246, 240, 0.7)" font-family="sans-serif" font-size="13">
-    Karnataka • GI Tag No. 17
+  
+  <text x="32" y="382" fill="rgba(249, 246, 240, 0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500">
+    Karnataka • Registered Geographical Indication of India
   </text>
+
+  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

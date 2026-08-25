@@ -9,6 +9,7 @@ export interface InteractionManagerOptions {
   stateInfoMap: Map<string, StateMeshInfo>;
   onStateHover?: (stateId: string | null, stateName: string | null) => void;
   onStateSelect?: (stateId: string, stateName: string, centroid: THREE.Vector3) => void;
+  onStateDeselect?: () => void;
 }
 
 export class InteractionManager {
@@ -25,6 +26,7 @@ export class InteractionManager {
 
   private onStateHover?: (stateId: string | null, stateName: string | null) => void;
   private onStateSelect?: (stateId: string, stateName: string, centroid: THREE.Vector3) => void;
+  private onStateDeselect?: () => void;
 
   private pointerDownPos = { x: 0, y: 0 };
 
@@ -42,6 +44,7 @@ export class InteractionManager {
     this.stateInfoMap = options.stateInfoMap;
     this.onStateHover = options.onStateHover;
     this.onStateSelect = options.onStateSelect;
+    this.onStateDeselect = options.onStateDeselect;
 
     this.attachEventListeners();
   }
@@ -68,7 +71,6 @@ export class InteractionManager {
   private onPointerUp = (e: PointerEvent): void => {
     const dist = Math.hypot(e.clientX - this.pointerDownPos.x, e.clientY - this.pointerDownPos.y);
     if (dist < 10) {
-      // Direct click / tap
       const rect = this.domElement.getBoundingClientRect();
       this.pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       this.pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
@@ -76,15 +78,20 @@ export class InteractionManager {
       this.raycaster.setFromCamera(this.pointer, this.camera);
       const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, true);
       
-      if (intersects.length > 0) {
-        let obj: THREE.Object3D | null = intersects[0].object;
-        while (obj && !obj.userData?.stateId) {
-          obj = obj.parent;
-        }
-        if (obj?.userData?.stateId) {
-          this.selectState(obj.userData.stateId, true);
-          return;
-        }
+      if (intersects.length === 0) {
+        // Clicked outside / in the ocean: deselect
+        this.deselectState();
+        this.onStateDeselect?.();
+        return;
+      }
+
+      let obj: THREE.Object3D | null = intersects[0].object;
+      while (obj && !obj.userData?.stateId) {
+        obj = obj.parent;
+      }
+      if (obj?.userData?.stateId) {
+        this.selectState(obj.userData.stateId, true);
+        return;
       }
 
       if (this.hoveredStateId) {

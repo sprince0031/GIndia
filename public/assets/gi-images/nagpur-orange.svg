@@ -2,35 +2,80 @@
   <defs>
     <linearGradient id="bgGrad_nagpur-orange" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#14532D" />
-      <stop offset="60%" stop-color="#1A202C" />
-      <stop offset="100%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#052E16" />
+      <stop offset="100%" stop-color="#14532D" />
     </linearGradient>
-    <radialGradient id="glowGrad_nagpur-orange" cx="50%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#22C55E" stop-opacity="0" />
+    <radialGradient id="spotlight_nagpur-orange" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#22C55E" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="floorShadow_nagpur-orange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.6)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
     </radialGradient>
   </defs>
+
+  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_nagpur-orange)"/>
-  <rect width="100%" height="100%" fill="url(#glowGrad_nagpur-orange)"/>
-  
-  <g transform="translate(300, 160)" stroke="#FACC15" stroke-opacity="0.2" fill="none" stroke-width="1.5">
-    <circle r="80" />
-    <circle r="60" stroke-dasharray="4,6" />
-    <rect x="-40" y="-40" width="80" height="80" transform="rotate(45)" />
+  <rect width="100%" height="100%" fill="url(#spotlight_nagpur-orange)"/>
+
+  <!-- Museum Exhibition Grid & Aura -->
+  <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
+  <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
+
+  <!-- Pedestal Floor Drop Shadow -->
+  <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_nagpur-orange)" />
+
+  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
+  <g transform="translate(300, 180)">
+    
+        <!-- Plump Nagpur Mandarin Orange with fresh sliced wheel -->
+        <g transform="translate(-25, 0)">
+          <!-- Whole orange fruit -->
+          <circle cx="0" cy="15" r="55" fill="#EA580C" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.4))" />
+          <circle cx="-10" cy="5" r="45" fill="#F97316" />
+          <!-- Green leaf & stem -->
+          <path d="M0,-40 Q-25,-65 -50,-50 Q-35,-30 0,-35 Z" fill="#16A34A" />
+          <rect x="-3" y="-45" width="6" height="12" rx="3" fill="#78350F" />
+        </g>
+        <!-- Juicy sliced orange half -->
+        <g transform="translate(45, 25)">
+          <circle cx="0" cy="0" r="40" fill="#FED7AA" stroke="#EA580C" stroke-width="6" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.3))" />
+          
+            <path d="M0,0 L32,0 A32,32 0 0,1 25.13014178818384,19.811006377914687 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L22.627416997969522,22.62741699796952 A32,32 0 0,1 3.7611967186508064,31.77819062255764 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L1.959434878635765e-15,32 A32,32 0 0,1 -19.81100637791469,25.130141788183835 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L-22.62741699796952,22.627416997969522 A32,32 0 0,1 -31.77819062255764,3.7611967186508015 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L-32,3.91886975727153e-15 A32,32 0 0,1 -25.130141788183845,-19.81100637791468 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L-22.627416997969526,-22.62741699796952 A32,32 0 0,1 -3.7611967186508313,-31.778190622557638 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L-5.878304635907295e-15,-32 A32,32 0 0,1 19.811006377914666,-25.130141788183856 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+            <path d="M0,0 L22.627416997969515,-22.627416997969526 A32,32 0 0,1 31.778190622557638,-3.7611967186508335 Z" fill="#F97316" stroke="#FFEDD5" stroke-width="1.5" />
+          
+          <circle cx="0" cy="0" r="5" fill="#FFFFFF" />
+        </g>
+      
   </g>
 
-  <g transform="translate(32, 40)">
-    <rect width="130" height="26" rx="13" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" />
-    <text x="65" y="17" fill="#FACC15" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">
-      AGRICULTURAL
-    </text>
-  </g>
+  <!-- Curatorial Caption Bar -->
+  <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
+  <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
-  <text x="32" y="320" fill="#F9F6F0" font-family="serif" font-size="22" font-weight="700">
+  <text x="32" y="358" fill="#F9F6F0" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="700">
     Nagpur Orange
   </text>
-  <text x="32" y="348" fill="rgba(249, 246, 240, 0.7)" font-family="sans-serif" font-size="13">
-    Maharashtra • GI Tag No. 385
+  
+  <text x="32" y="382" fill="rgba(249, 246, 240, 0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500">
+    Maharashtra • Registered Geographical Indication of India
   </text>
+
+  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>
