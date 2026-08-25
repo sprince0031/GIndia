@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas: #F9F6F0;
+  --color-canvas-subtle: #F3EFE6;
+  --color-stone-base: #E5DFC5;
+  --color-stone-hover: #D8CFB0;
+  --color-terracotta: #D9531E;
+  --color-terracotta-dark: #B83E10;
+  --color-terracotta-glow: rgba(217, 83, 30, 0.25);
+  --color-indigo: #2B4C7E;
+  --color-saffron: #E08D3C;
+  --color-gold: #C5A059;
+  --color-ink: #1A202C;
+  --color-ink-muted: #718096;
+  --color-ink-subtle: #A0AEC0;
+  
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --glass-bg: rgba(249, 246, 240, 0.82);
+  --glass-border: rgba(26, 32, 44, 0.08);
+  --glass-shadow: 0 20px 40px -15px rgba(26, 32, 44, 0.07), 0 0 1px 1px rgba(26, 32, 44, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-dock {
+  background: rgba(249, 246, 240, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(26, 32, 44, 0.09);
+  box-shadow: 0 10px 30px -5px rgba(26, 32, 44, 0.08);
+}
+
+.glass-btn {
+  background: rgba(249, 246, 240, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 32, 44, 0.1);
+  color: var(--color-ink);
+  transition: all 0.2s ease;
+}
+
+.glass-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--color-terracotta);
+  color: var(--color-terracotta);
+  transform: translateY(-1px);
+}
+
+/* Dock Button & Tooltip */
+.dock-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dock-btn:hover {
+  background: rgba(217, 83, 30, 0.08);
+}
+
+.dock-btn.active {
+  background: var(--color-terracotta);
+}
+
+.dock-btn.active svg {
+  color: #FFFFFF !important;
+}
+
+.dock-tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 10px;
+  background: var(--color-ink);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+}
+
+.dock-btn:hover .dock-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(2px);
+}
+
+/* Spatial Info Card Styling */
+.gi-info-card {
+  pointer-events: auto;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  background: rgba(249, 246, 240, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(26, 32, 44, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(26, 32, 44, 0.12), 0 0 0 1px rgba(217, 83, 30, 0.12);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Category Badges */
+.badge-handicraft {
+  background: rgba(43, 76, 126, 0.1);
+  color: #2B4C7E;
+  border: 1px solid rgba(43, 76, 126, 0.2);
+}
+
+.badge-agriculture {
+  background: rgba(46, 117, 89, 0.1);
+  color: #2E7559;
+  border: 1px solid rgba(46, 117, 89, 0.2);
+}
+
+.badge-food {
+  background: rgba(224, 141, 60, 0.1);
+  color: #C07020;
+  border: 1px solid rgba(224, 141, 60, 0.2);
+}
+
+.badge-manufactured {
+  background: rgba(120, 86, 150, 0.1);
+  color: #785696;
+  border: 1px solid rgba(120, 86, 150, 0.2);
+}
+
+.badge-natural {
+  background: rgba(140, 100, 50, 0.1);
+  color: #8C6432;
+  border: 1px solid rgba(140, 100, 50, 0.2);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 32, 44, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
+}
