@@ -2,7 +2,6 @@
 
 | Track ID | Title | Description | Status |
 | :--- | :--- | :--- | :--- |
-| `scaffolding_and_build` | Project Scaffolding & Build Pipeline | Initialize Vite + TypeScript + Tailwind CSS structure, asset folders, and base HTML template. | `[x] Completed` |
 | `gi_database_and_assets` | Local GI Database & Media Asset Pipeline | Construct typed JSON database (`data/gi_database.json`) covering Indian GI products across all states/UTs with authentic metadata and offline graphics. | `[ ] Pending` |
 | `threejs_map_engine` | Three.js 3D Interactive Map Engine | Implement `SVGLoader` extrusion from `in.svg`, warm gallery lighting, terracotta highlight materials, raycasting state selection, and hover elevation. | `[ ] Pending` |
 | `spatial_cards_tracers` | Spatial UI Cards & Dynamic 3D Tracers | Implement floating product info cards with directional orientation (East/West), dynamic SVG bezier tracer rays anchored to 3D state centroids, and category filters. | `[ ] Pending` |
