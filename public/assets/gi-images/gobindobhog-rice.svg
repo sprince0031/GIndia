@@ -16,30 +16,22 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_gobindobhog-rice)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_gobindobhog-rice)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_gobindobhog-rice)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Terracotta handi bowl -->
         <ellipse cx="0" cy="60" rx="80" ry="20" fill="rgba(0,0,0,0.4)" />
         <path d="M-70,10 Q-80,65 0,70 Q80,65 70,10 Z" fill="#9A3412" />
         <path d="M-65,15 Q-75,60 0,65 Q75,60 65,15 Z" fill="#C2410C" />
-        <!-- Steaming mounded aromatic short rice grains -->
         <ellipse cx="0" cy="12" rx="68" ry="22" fill="#F8FAFC" />
         <path d="M-65,12 Q0,-45 65,12 Z" fill="#FFFFFF" />
-        <!-- Individual short glistening rice grains -->
-        <ellipse cx="-42.6" cy="-17.6" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(113.7, -42.6, -17.6)" /><ellipse cx="-37.0" cy="-14.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(150.9, -37.0, -14.2)" /><ellipse cx="-3.1" cy="-15.6" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(120.5, -3.1, -15.6)" /><ellipse cx="-37.1" cy="-23.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(40.8, -37.1, -23.2)" /><ellipse cx="2.4" cy="-22.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(78.9, 2.4, -22.3)" /><ellipse cx="-30.6" cy="-20.6" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(84.2, -30.6, -20.6)" /><ellipse cx="-20.8" cy="-16.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(13.4, -20.8, -16.9)" /><ellipse cx="34.2" cy="-34.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(140.3, 34.2, -34.4)" /><ellipse cx="-7.6" cy="-22.0" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(33.8, -7.6, -22.0)" /><ellipse cx="30.2" cy="-24.1" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(44.4, 30.2, -24.1)" /><ellipse cx="-34.5" cy="-19.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(124.0, -34.5, -19.2)" /><ellipse cx="-33.7" cy="-20.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(43.5, -33.7, -20.7)" /><ellipse cx="37.4" cy="-31.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(123.3, 37.4, -31.2)" /><ellipse cx="36.5" cy="-10.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(170.0, 36.5, -10.8)" /><ellipse cx="17.2" cy="-33.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(40.1, 17.2, -33.2)" /><ellipse cx="-9.4" cy="-30.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(81.4, -9.4, -30.7)" /><ellipse cx="-33.5" cy="-12.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(127.8, -33.5, -12.5)" /><ellipse cx="16.4" cy="-24.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(60.6, 16.4, -24.3)" /><ellipse cx="20.8" cy="-23.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(26.7, 20.8, -23.2)" /><ellipse cx="28.3" cy="-28.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(100.5, 28.3, -28.8)" /><ellipse cx="-31.2" cy="-32.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(27.3, -31.2, -32.5)" /><ellipse cx="15.1" cy="-18.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(30.9, 15.1, -18.3)" /><ellipse cx="16.7" cy="-14.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(113.8, 16.7, -14.5)" /><ellipse cx="7.2" cy="-18.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(117.7, 7.2, -18.3)" />
-        <!-- Sacred Tulsi holy basil leaf garnish -->
+        <ellipse cx="-27.5" cy="-28.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(111.4, -27.5, -28.8)" /><ellipse cx="-17.3" cy="-21.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(24.8, -17.3, -21.5)" /><ellipse cx="10.6" cy="-28.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(172.7, 10.6, -28.4)" /><ellipse cx="22.8" cy="-28.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(12.6, 22.8, -28.3)" /><ellipse cx="-21.1" cy="-22.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(103.6, -21.1, -22.2)" /><ellipse cx="-23.2" cy="-17.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(4.7, -23.2, -17.9)" /><ellipse cx="43.8" cy="-32.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(151.2, 43.8, -32.4)" /><ellipse cx="-9.3" cy="-27.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(98.4, -9.3, -27.2)" /><ellipse cx="5.4" cy="-33.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(166.4, 5.4, -33.4)" /><ellipse cx="42.0" cy="-12.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(156.0, 42.0, -12.7)" /><ellipse cx="18.6" cy="-34.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(139.4, 18.6, -34.5)" /><ellipse cx="35.6" cy="-10.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(10.9, 35.6, -10.3)" /><ellipse cx="-24.5" cy="-10.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(147.6, -24.5, -10.7)" /><ellipse cx="-19.5" cy="-16.1" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(154.9, -19.5, -16.1)" /><ellipse cx="6.1" cy="-27.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(172.4, 6.1, -27.9)" /><ellipse cx="7.8" cy="-22.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(57.4, 7.8, -22.7)" /><ellipse cx="-11.6" cy="-22.1" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(154.4, -11.6, -22.1)" /><ellipse cx="-23.6" cy="-12.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(109.9, -23.6, -12.4)" /><ellipse cx="-40.4" cy="-27.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(42.3, -40.4, -27.4)" /><ellipse cx="-18.8" cy="-22.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(94.0, -18.8, -22.8)" /><ellipse cx="13.0" cy="-32.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(159.1, 13.0, -32.9)" /><ellipse cx="41.0" cy="-16.0" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(49.5, 41.0, -16.0)" /><ellipse cx="27.4" cy="-25.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(44.0, 27.4, -25.9)" /><ellipse cx="-11.2" cy="-10.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(144.7, -11.2, -10.8)" />
         <g transform="translate(0, -35) scale(0.8)">
           <path d="M0,0 Q-15,-20 0,-35 Q15,-20 0,0 Z" fill="#15803D" />
           <path d="M0,0 Q-20,-10 -25,-25 Q-5,-20 0,0 Z" fill="#16A34A" />
@@ -48,7 +40,6 @@
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -60,6 +51,5 @@
     West Bengal • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

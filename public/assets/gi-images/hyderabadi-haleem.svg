@@ -16,31 +16,28 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_hyderabadi-haleem)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_hyderabadi-haleem)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FDE047" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FDE047" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_hyderabadi-haleem)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Heritage Craft Artifact Display -->
-        <circle cx="0" cy="0" r="65" fill="#CA8A04" opacity="0.2" filter="drop-shadow(0 0 20px rgba(234,179,8,0.4))" />
-        <!-- Royal Medal Emblem -->
-        <polygon points="0,-60 18,-20 60,-20 28,10 40,55 0,28 -40,55 -28,10 -60,-20 -18,-20" fill="#EAB308" stroke="#CA8A04" stroke-width="3" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.4))" />
-        <circle cx="0" cy="0" r="28" fill="#78350F" />
-        <circle cx="0" cy="0" r="22" fill="#FDE047" />
-        <path d="M-10,0 L0,-12 L10,0 L0,12 Z" fill="#991B1B" />
+        <ellipse cx="0" cy="55" rx="75" ry="18" fill="rgba(0,0,0,0.4)" />
+        <path d="M-65,15 Q-75,60 0,65 Q75,60 65,15 Z" fill="#94A3B8" />
+        <path d="M-60,18 Q-70,55 0,60 Q70,55 60,18 Z" fill="#CBD5E1" />
+        <ellipse cx="0" cy="15" rx="58" ry="18" fill="#78350F" />
+        <g fill="#451A03">
+          <ellipse cx="28.59101036958542" cy="10.040085615391504" rx="9" ry="3" transform="rotate(36.67854542307866)" /><ellipse cx="-15.481253568273658" cy="10.881565681580769" rx="9" ry="3" transform="rotate(2.275690288531411)" /><ellipse cx="-28.107340802169414" cy="0.4794321532588217" rx="9" ry="3" transform="rotate(77.94811238324823)" /><ellipse cx="16.74472416532923" cy="-2.3546476983613642" rx="9" ry="3" transform="rotate(157.66404702082286)" /><ellipse cx="14.81547378367799" cy="3.3411024283250645" rx="9" ry="3" transform="rotate(130.1314772875112)" /><ellipse cx="28.37712149197111" cy="6.090390961212266" rx="9" ry="3" transform="rotate(120.21119547514239)" /><ellipse cx="29.584492026001087" cy="12.499141100754194" rx="9" ry="3" transform="rotate(75.52597224762526)" /><ellipse cx="-7.406494926491027" cy="3.3694877041887654" rx="9" ry="3" transform="rotate(40.942144859196375)" /><ellipse cx="8.23204985918083" cy="4.983958424617924" rx="9" ry="3" transform="rotate(57.909870211024455)" /><ellipse cx="-8.102592661991183" cy="3.9623309030439935" rx="9" ry="3" transform="rotate(11.066820932933625)" /><ellipse cx="-7.070753570443067" cy="-1.1584511919604195" rx="9" ry="3" transform="rotate(131.03133492872595)" /><ellipse cx="-23.71180263117916" cy="3.629008140993599" rx="9" ry="3" transform="rotate(133.18448372454657)" />
+        </g>
+        <circle cx="0" cy="12" r="6" fill="#FEF08A" />
+        <ellipse cx="-10" cy="15" rx="8" ry="4" fill="#15803D" />
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -52,6 +49,5 @@
     Telangana • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FDE047" />
 </svg>

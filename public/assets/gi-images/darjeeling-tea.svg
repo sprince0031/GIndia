@@ -16,28 +16,22 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_darjeeling-tea)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_darjeeling-tea)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_darjeeling-tea)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Teacup saucer & cup -->
         <ellipse cx="0" cy="55" rx="90" ry="24" fill="#E2E8F0" opacity="0.9" />
         <ellipse cx="0" cy="52" rx="75" ry="18" fill="#CBD5E1" />
         <path d="M-55,20 C-50,60 50,60 55,20 C55,-10 -55,-10 -55,20 Z" fill="#FFFFFF" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.3))" />
         <ellipse cx="0" cy="18" rx="52" ry="14" fill="#C2410C" />
         <ellipse cx="0" cy="18" rx="46" ry="11" fill="#D97706" opacity="0.9" />
         <path d="M52,15 C75,15 75,45 50,45" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
-        <!-- Fresh green tea flush (two leaves and a bud) -->
         <g transform="translate(10, -25) scale(1.1)">
           <path d="M0,20 Q-30,-20 0,-60 Q30,-20 0,20 Z" fill="#16A34A" />
           <path d="M0,20 Q-15,-15 0,-60" fill="none" stroke="#86EFAC" stroke-width="2" />
@@ -45,13 +39,11 @@
           <path d="M15,15 Q50,5 40,-35 Q10,-15 15,15 Z" fill="#15803D" />
           <circle cx="-5" cy="-25" r="4" fill="#FEF08A" opacity="0.9" filter="drop-shadow(0 0 4px #FACC15)" />
         </g>
-        <!-- Rising aromatic steam -->
         <path d="M-15,0 Q-25,-30 -10,-50 T-20,-90" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.4" stroke-linecap="round" />
         <path d="M10,-5 Q25,-35 15,-60 T25,-95" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-linecap="round" />
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -63,6 +55,5 @@
     West Bengal • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

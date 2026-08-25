@@ -16,39 +16,30 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_thanjavur-gold-paintings)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_thanjavur-gold-paintings)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_thanjavur-gold-paintings)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Teakwood frame & Gesso gold foil relief arch -->
         <rect x="-80" y="-70" width="160" height="145" rx="8" fill="#451A03" stroke="#78350F" stroke-width="6" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.6))" />
         <rect x="-68" y="-58" width="136" height="121" fill="#7F1D1D" />
-        <!-- 22K Gold foil embossed temple mandapa arch -->
         <path d="M-55,45 L-55,-20 Q0,-65 55,-20 L55,45 Z" fill="#EAB308" stroke="#CA8A04" stroke-width="2" />
         <path d="M-45,45 L-45,-15 Q0,-50 45,-15 L45,45 Z" fill="#1E293B" />
-        <!-- Krishna Icon with flute & peacock feather crown -->
         <circle cx="0" cy="-5" r="18" fill="#38BDF8" />
         <path d="M-15,35 Q0,10 15,35 Z" fill="#EAB308" />
         <line x1="-25" y1="12" x2="28" y2="2" stroke="#FEF08A" stroke-width="4" stroke-linecap="round" />
         <circle cx="0" cy="-28" r="7" fill="#10B981" />
-        <!-- Ruby & Emerald gemstone insets -->
         <circle cx="-55" cy="-20" r="4" fill="#DC2626" />
         <circle cx="55" cy="-20" r="4" fill="#059669" />
         <circle cx="0" cy="-55" r="5" fill="#DC2626" />
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -60,6 +51,5 @@
     Tamil Nadu • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

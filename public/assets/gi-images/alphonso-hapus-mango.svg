@@ -16,38 +16,28 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_alphonso-hapus-mango)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_alphonso-hapus-mango)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_alphonso-hapus-mango)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Luscious golden-saffron ripe mango with emerald leaves -->
         <g transform="translate(0, 5) rotate(-15)">
-          <!-- Fresh green stalk & mango leaves -->
           <path d="M0,-45 Q-30,-75 -60,-65 Q-50,-40 -5,-35 Z" fill="#15803D" />
           <path d="M10,-45 Q40,-80 70,-60 Q50,-35 15,-35 Z" fill="#16A34A" />
           <rect x="-4" y="-55" width="8" height="22" rx="4" fill="#78350F" />
-          <!-- Plump mango fruit with saffron/ruby blush -->
           <path d="M0,-35 C50,-35 85,10 70,55 C55,90 -20,95 -50,60 C-80,25 -50,-35 0,-35 Z" fill="#F59E0B" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.4))" />
           <path d="M-20,-20 C30,-20 60,15 50,50 C40,75 -10,80 -35,50 C-60,20 -40,-20 -20,-20 Z" fill="#FBBF24" />
-          <!-- Rosy ripe blush highlight -->
           <path d="M10,-25 C45,-25 70,5 60,40 C50,60 20,60 5,35 Z" fill="#EA580C" opacity="0.6" />
-          <!-- Velvet sheen reflection -->
           <ellipse cx="-25" cy="5" rx="8" ry="24" fill="#FEF08A" opacity="0.5" transform="rotate(-25, -25, 5)" />
         </g>
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -59,6 +49,5 @@
     Maharashtra • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

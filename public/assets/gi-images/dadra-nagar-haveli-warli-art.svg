@@ -16,37 +16,27 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_dadra-nagar-haveli-warli-art)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_dadra-nagar-haveli-warli-art)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_dadra-nagar-haveli-warli-art)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Tribal & Folk Heritage Art Canvas (Madhubani / Warli / Pattachitra) -->
         <rect x="-85" y="-60" width="170" height="125" rx="8" fill="#FEF3C7" stroke="#78350F" stroke-width="5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
-        <!-- Double-line border with geometric triangles -->
         <rect x="-75" y="-50" width="150" height="105" fill="none" stroke="#DC2626" stroke-width="2" />
-        <!-- Traditional Peacock & Sun Folk Motifs -->
         <g transform="translate(0, 0)" fill="none" stroke="#1E293B" stroke-width="2.5">
-          <!-- Central Sacred Sun / Tree of Life -->
           <circle cx="0" cy="0" r="24" fill="#F59E0B" />
           <line x1="26" y1="0" x2="36" y2="0" stroke="#DC2626" stroke-width="2.5" /><line x1="22.516660498395407" y1="12.999999999999998" x2="31.176914536239792" y2="17.999999999999996" stroke="#DC2626" stroke-width="2.5" /><line x1="13.000000000000004" y1="22.516660498395403" x2="18.000000000000004" y2="31.17691453623979" stroke="#DC2626" stroke-width="2.5" /><line x1="1.592040838891559e-15" y1="26" x2="2.204364238465236e-15" y2="36" stroke="#DC2626" stroke-width="2.5" /><line x1="-12.999999999999995" y1="22.516660498395407" x2="-17.999999999999993" y2="31.176914536239792" stroke="#DC2626" stroke-width="2.5" /><line x1="-22.516660498395407" y1="12.999999999999998" x2="-31.176914536239792" y2="17.999999999999996" stroke="#DC2626" stroke-width="2.5" /><line x1="-26" y1="3.184081677783118e-15" x2="-36" y2="4.408728476930472e-15" stroke="#DC2626" stroke-width="2.5" /><line x1="-22.51666049839541" y1="-12.999999999999993" x2="-31.1769145362398" y2="-17.99999999999999" stroke="#DC2626" stroke-width="2.5" /><line x1="-13.00000000000001" y1="-22.5166604983954" x2="-18.000000000000014" y2="-31.176914536239785" stroke="#DC2626" stroke-width="2.5" /><line x1="-4.776122516674677e-15" y1="-26" x2="-6.613092715395707e-15" y2="-36" stroke="#DC2626" stroke-width="2.5" /><line x1="13.000000000000004" y1="-22.516660498395403" x2="18.000000000000004" y2="-31.17691453623979" stroke="#DC2626" stroke-width="2.5" /><line x1="22.516660498395396" y1="-13.00000000000001" x2="31.17691453623978" y2="-18.000000000000014" stroke="#DC2626" stroke-width="2.5" />
-          <!-- Twin folk fish / peacock flourishes -->
           <path d="M-45,25 Q-25,10 -35,-15 Q-55,0 -45,25 Z" fill="#0284C7" stroke="#1E293B" />
           <path d="M45,25 Q25,10 35,-15 Q55,0 45,25 Z" fill="#16A34A" stroke="#1E293B" />
         </g>
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -58,6 +48,5 @@
     Dadra and Nagar Haveli and Daman and Diu • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

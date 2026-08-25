@@ -16,35 +16,26 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_tirupati-laddu)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_tirupati-laddu)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FDE047" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FDE047" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_tirupati-laddu)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Sacred golden Besan & Ghee Laddu -->
         <circle cx="0" cy="10" r="60" fill="#D97706" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
         <circle cx="-10" cy="0" r="50" fill="#F59E0B" />
         <circle cx="-15" cy="-8" r="40" fill="#FBBF24" />
-        <!-- Glistening Cashew nut pieces -->
         <path d="M-25,-10 C-35,-20 -20,-35 0,-25 C-10,-20 -15,-15 -25,-10 Z" fill="#FEF08A" stroke="#FDE047" stroke-width="1.5" />
         <path d="M15,10 C5,0 20,-15 35,-5 C25,0 20,5 15,10 Z" fill="#FEF08A" stroke="#FDE047" stroke-width="1.5" />
-        <!-- Golden Raisins (Kishmish) & Green Cardamom pods -->
         <ellipse cx="10" cy="-20" rx="8" ry="5" fill="#78350F" transform="rotate(25, 10, -20)" />
         <ellipse cx="-15" cy="25" rx="9" ry="5" fill="#15803D" transform="rotate(-30, -15, 25)" />
-        <circle cx="2" cy="20" r="3" fill="#FFFFFF" opacity="0.9" /> <!-- Camphor crystal -->
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -56,6 +47,5 @@
     Andhra Pradesh • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FDE047" />
 </svg>

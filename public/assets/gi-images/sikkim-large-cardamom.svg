@@ -16,31 +16,30 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_sikkim-large-cardamom)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_sikkim-large-cardamom)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_sikkim-large-cardamom)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Heritage Craft Artifact Display -->
-        <circle cx="0" cy="0" r="65" fill="#CA8A04" opacity="0.2" filter="drop-shadow(0 0 20px rgba(234,179,8,0.4))" />
-        <!-- Royal Medal Emblem -->
-        <polygon points="0,-60 18,-20 60,-20 28,10 40,55 0,28 -40,55 -28,10 -60,-20 -18,-20" fill="#EAB308" stroke="#CA8A04" stroke-width="3" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.4))" />
-        <circle cx="0" cy="0" r="28" fill="#78350F" />
-        <circle cx="0" cy="0" r="22" fill="#FDE047" />
-        <path d="M-10,0 L0,-12 L10,0 L0,12 Z" fill="#991B1B" />
+        <g transform="translate(-20, 10) rotate(-35)">
+          <ellipse cx="0" cy="0" rx="22" ry="42" fill="#581C87" stroke="#3B0764" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.5))" />
+          <ellipse cx="-5" cy="0" rx="14" ry="38" fill="#7E22CE" />
+          <line x1="0" y1="-38" x2="0" y2="38" stroke="#3B0764" stroke-width="2.5" />
+          <line x1="-10" y1="-30" x2="-10" y2="30" stroke="#3B0764" stroke-width="1.8" />
+          <line x1="10" y1="-30" x2="10" y2="30" stroke="#3B0764" stroke-width="1.8" />
+        </g>
+        <g transform="translate(30, 20) rotate(30)">
+          <ellipse cx="0" cy="0" rx="18" ry="35" fill="#6B21A8" stroke="#4C1D95" stroke-width="2" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.4))" />
+          <line x1="0" y1="-32" x2="0" y2="32" stroke="#4C1D95" stroke-width="2" />
+        </g>
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -52,6 +51,5 @@
     Sikkim • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

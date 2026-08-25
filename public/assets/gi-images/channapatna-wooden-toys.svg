@@ -16,42 +16,31 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_channapatna-wooden-toys)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_channapatna-wooden-toys)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_channapatna-wooden-toys)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Glossy vegetable-dyed lacquered rocking horse / stacker -->
-        <!-- Amber base stand -->
         <ellipse cx="0" cy="65" rx="75" ry="16" fill="#0284C7" />
-        <!-- Lacquered ring stacking layers -->
         <ellipse cx="0" cy="48" rx="60" ry="14" fill="#DC2626" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))" />
         <ellipse cx="0" cy="32" rx="50" ry="12" fill="#EAB308" />
         <ellipse cx="0" cy="18" rx="40" ry="10" fill="#16A34A" />
         <ellipse cx="0" cy="5" rx="30" ry="8" fill="#EA580C" />
-        <!-- Glossy ivory wood topper head -->
         <circle cx="0" cy="-22" r="22" fill="#FBBF24" filter="drop-shadow(0 6px 10px rgba(0,0,0,0.3))" />
         <circle cx="-7" cy="-25" r="3.5" fill="#1E293B" />
         <circle cx="7" cy="-25" r="3.5" fill="#1E293B" />
         <path d="M-6,-14 Q0,-8 6,-14" stroke="#DC2626" stroke-width="2.5" fill="none" stroke-linecap="round" />
-        <!-- Conical king cap with brass finial -->
         <polygon points="0,-60 -16,-38 16,-38" fill="#DC2626" />
         <circle cx="0" cy="-62" r="5" fill="#FEF08A" />
-        <!-- High-gloss lacquer reflection highlight -->
         <path d="M-10,-32 Q-14,-22 -12,-12" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round" />
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -63,6 +52,5 @@
     Karnataka • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

@@ -16,29 +16,22 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_kanchipuram-silk-saree)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_kanchipuram-silk-saree)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_kanchipuram-silk-saree)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Folded royal magenta & gold zari silk drape -->
         <rect x="-85" y="-55" width="170" height="120" rx="10" fill="#831843" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
         <rect x="-75" y="-45" width="150" height="100" rx="6" fill="#9D174D" />
-        <!-- Korvai pure gold zari temple border -->
         <rect x="-75" y="15" width="150" height="40" fill="#CA8A04" />
         <g fill="#FEF08A">
           <polygon points="-65,15 -52.5,-5 -40,15" /><polygon points="-40,15 -27.5,-5 -15,15" /><polygon points="-15,15 -2.5,-5 10,15" /><polygon points="10,15 22.5,-5 35,15" /><polygon points="35,15 47.5,-5 60,15" /><polygon points="60,15 72.5,-5 85,15" />
         </g>
-        <!-- Traditional Mayil (Peacock) Zari Motif -->
         <g transform="translate(0, -15) scale(0.9)" fill="#FDE047">
           <circle cx="-10" cy="-10" r="7" />
           <path d="M-10,-3 C-5,15 15,20 25,0 C30,-15 15,-20 0,-15" />
@@ -47,7 +40,6 @@
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -59,6 +51,5 @@
     Tamil Nadu • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

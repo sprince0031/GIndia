@@ -16,36 +16,27 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_odisha-rasagola)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_odisha-rasagola)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FDE047" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FDE047" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_odisha-rasagola)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Earthen clay handi with soft white Rasagola floating in syrup -->
         <ellipse cx="0" cy="55" rx="75" ry="18" fill="rgba(0,0,0,0.4)" />
         <path d="M-65,15 Q-75,60 0,65 Q75,60 65,15 Z" fill="#9A3412" />
-        <ellipse cx="0" cy="15" rx="60" ry="18" fill="#D97706" opacity="0.6" /> <!-- Sugar syrup -->
-        <!-- Plump soft Rasagola cheese spheres -->
+        <ellipse cx="0" cy="15" rx="60" ry="18" fill="#D97706" opacity="0.6" />
         <circle cx="-25" cy="5" r="28" fill="#F8FAFC" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.25))" />
         <circle cx="22" cy="10" r="26" fill="#F1F5F9" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.25))" />
         <circle cx="0" cy="-12" r="30" fill="#FFFFFF" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.3))" />
         <circle cx="-8" cy="-18" r="8" fill="#FFFFFF" opacity="0.9" />
-        <!-- Saffron strand & cardamom garnish -->
         <path d="M-5,-20 Q5,-30 15,-25" stroke="#DC2626" stroke-width="2" fill="none" stroke-linecap="round" />
-        <ellipse cx="-2" cy="-5" rx="4" ry="2.5" fill="#15803D" transform="rotate(35, -2, -5)" />
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -57,6 +48,5 @@
     Odisha • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FDE047" />
 </svg>

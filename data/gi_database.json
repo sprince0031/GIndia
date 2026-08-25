@@ -656,7 +656,7 @@
         "Himalayan mist elevation terroir",
         "Natural floral muscatel notes"
       ],
-      "imageUrl": "assets/gi-images/darjeeling-tea.webp",
+      "imageUrl": "assets/gi-images/darjeeling-tea.svg",
       "regionOrientation": "east",
       "phonetic": "Darjeeling Tea",
       "tags": [
@@ -680,7 +680,7 @@
         "Offered to Lord Jagannath",
         "Short sticky grain texture"
       ],
-      "imageUrl": "assets/gi-images/gobindobhog-rice.webp",
+      "imageUrl": "assets/gi-images/gobindobhog-rice.svg",
       "regionOrientation": "east",
       "phonetic": "Gobindobhog Rice",
       "tags": [
@@ -704,7 +704,7 @@
         "Hand-spun on wooden charkha",
         "Ethereal warmth and softness"
       ],
-      "imageUrl": "assets/gi-images/kashmir-pashmina.webp",
+      "imageUrl": "assets/gi-images/kashmir-pashmina.svg",
       "regionOrientation": "north",
       "phonetic": "Kashmir Pashmina",
       "tags": [
@@ -728,7 +728,7 @@
         "Deep crimson thick stigmas",
         "Grown in Pampore Karewa soil"
       ],
-      "imageUrl": "assets/gi-images/kashmir-saffron.webp",
+      "imageUrl": "assets/gi-images/kashmir-saffron.svg",
       "regionOrientation": "north",
       "phonetic": "Kashmir Saffron",
       "tags": [
@@ -752,7 +752,7 @@
         "Pure mulberry silk & gold zari",
         "Highest GI count state in India"
       ],
-      "imageUrl": "assets/gi-images/kanchipuram-silk-saree.webp",
+      "imageUrl": "assets/gi-images/kanchipuram-silk-saree.svg",
       "regionOrientation": "south",
       "phonetic": "Kanchipuram Silk Saree",
       "tags": [
@@ -776,7 +776,7 @@
         "Relief gesso work artwork",
         "Chola and Nayak dynasty heritage"
       ],
-      "imageUrl": "assets/gi-images/thanjavur-gold-paintings.webp",
+      "imageUrl": "assets/gi-images/thanjavur-gold-paintings.svg",
       "regionOrientation": "south",
       "phonetic": "Thanjavur Gold Paintings",
       "tags": [
@@ -800,7 +800,7 @@
         "Soft Wrightia tinctoria Ivory Wood",
         "Tipu Sultan royal guild lineage"
       ],
-      "imageUrl": "assets/gi-images/channapatna-wooden-toys.webp",
+      "imageUrl": "assets/gi-images/channapatna-wooden-toys.svg",
       "regionOrientation": "south",
       "phonetic": "Channapatna Wooden Toys",
       "tags": [
@@ -824,7 +824,7 @@
         "Non-creasing smooth drape",
         "KSIC royal Mysore heritage"
       ],
-      "imageUrl": "assets/gi-images/mysore-pure-silk.webp",
+      "imageUrl": "assets/gi-images/mysore-pure-silk.svg",
       "regionOrientation": "south",
       "phonetic": "Mysore Pure Silk",
       "tags": [
@@ -848,7 +848,7 @@
         "Secret metallurgical formula",
         "Hand-polished by master artisans"
       ],
-      "imageUrl": "assets/gi-images/aranmula-kannadi-mirror.webp",
+      "imageUrl": "assets/gi-images/aranmula-kannadi-mirror.svg",
       "regionOrientation": "south",
       "phonetic": "Aranmula Kannadi Mirror",
       "tags": [
@@ -872,7 +872,7 @@
         "Historic spice route heritage",
         "Sun-dried bold black berries"
       ],
-      "imageUrl": "assets/gi-images/malabar-black-pepper.webp",
+      "imageUrl": "assets/gi-images/malabar-black-pepper.svg",
       "regionOrientation": "south",
       "phonetic": "Malabar Black Pepper",
       "tags": [
@@ -896,7 +896,7 @@
         "Mughal floral jhalar motifs",
         "Second highest GI count in India"
       ],
-      "imageUrl": "assets/gi-images/banarasi-silk-brocade.webp",
+      "imageUrl": "assets/gi-images/banarasi-silk-brocade.svg",
       "regionOrientation": "north",
       "phonetic": "Banarasi Silk Brocade",
       "tags": [
@@ -920,7 +920,7 @@
         "Sandalwood oil natural perfume base",
         "Kannauj perfume capital heritage"
       ],
-      "imageUrl": "assets/gi-images/kannauj-rose-attar.webp",
+      "imageUrl": "assets/gi-images/kannauj-rose-attar.svg",
       "regionOrientation": "north",
       "phonetic": "Kannauj Rose Attar",
       "tags": [
@@ -944,7 +944,7 @@
         "Vibrant colors lasting over 300 years",
         "Solanki dynasty heritage weave"
       ],
-      "imageUrl": "assets/gi-images/patan-patola-double-ikat.webp",
+      "imageUrl": "assets/gi-images/patan-patola-double-ikat.svg",
       "regionOrientation": "west",
       "phonetic": "Patan Patola Double Ikat",
       "tags": [
@@ -968,7 +968,7 @@
         "Grown in Gir forest foothills",
         "High natural sugar & aroma"
       ],
-      "imageUrl": "assets/gi-images/gir-kesar-mango.webp",
+      "imageUrl": "assets/gi-images/gir-kesar-mango.svg",
       "regionOrientation": "west",
       "phonetic": "Gir Kesar Mango",
       "tags": [
@@ -992,7 +992,7 @@
         "Golden fiberless buttery texture",
         "Intense aromatic sweetness"
       ],
-      "imageUrl": "assets/gi-images/alphonso-hapus-mango.webp",
+      "imageUrl": "assets/gi-images/alphonso-hapus-mango.svg",
       "regionOrientation": "west",
       "phonetic": "Alphonso (Hapus) Mango",
       "tags": [
@@ -1016,7 +1016,7 @@
         "Juicy sweet-tart flavor profile",
         "Vidarbha soil microclimate"
       ],
-      "imageUrl": "assets/gi-images/nagpur-orange.webp",
+      "imageUrl": "assets/gi-images/nagpur-orange.svg",
       "regionOrientation": "west",
       "phonetic": "Nagpur Orange",
       "tags": [
@@ -1040,7 +1040,7 @@
         "Luster increases with every wash",
         "Outlasts human lifespan"
       ],
-      "imageUrl": "assets/gi-images/muga-golden-silk.webp",
+      "imageUrl": "assets/gi-images/muga-golden-silk.svg",
       "regionOrientation": "northeast",
       "phonetic": "Muga Golden Silk",
       "tags": [
@@ -1064,7 +1064,7 @@
         "Rich malty brisk flavor notes",
         "Hand-rolled whole leaf processing"
       ],
-      "imageUrl": "assets/gi-images/assam-orthodox-tea.webp",
+      "imageUrl": "assets/gi-images/assam-orthodox-tea.svg",
       "regionOrientation": "northeast",
       "phonetic": "Assam Orthodox Tea",
       "tags": [
@@ -1088,7 +1088,7 @@
         "Persian turquoise glaze heritage",
         "Hand painted floral motifs"
       ],
-      "imageUrl": "assets/gi-images/jaipur-blue-pottery.webp",
+      "imageUrl": "assets/gi-images/jaipur-blue-pottery.svg",
       "regionOrientation": "west",
       "phonetic": "Jaipur Blue Pottery",
       "tags": [
@@ -1112,7 +1112,7 @@
         "Arid climate crispness",
         "Centuries-old royal snack heritage"
       ],
-      "imageUrl": "assets/gi-images/bikaneri-bhujia.webp",
+      "imageUrl": "assets/gi-images/bikaneri-bhujia.svg",
       "regionOrientation": "west",
       "phonetic": "Bikaneri Bhujia",
       "tags": [
@@ -1136,7 +1136,7 @@
         "Pure cow ghee and cashews",
         "Centuries-old temple prasadam"
       ],
-      "imageUrl": "assets/gi-images/tirupati-laddu.webp",
+      "imageUrl": "assets/gi-images/tirupati-laddu.svg",
       "regionOrientation": "south",
       "phonetic": "Tirupati Laddu",
       "tags": [
@@ -1160,7 +1160,7 @@
         "Deep red natural color extract",
         "Guntur international spice hub"
       ],
-      "imageUrl": "assets/gi-images/guntur-sannam-chilli.webp",
+      "imageUrl": "assets/gi-images/guntur-sannam-chilli.svg",
       "regionOrientation": "south",
       "phonetic": "Guntur Sannam Chilli",
       "tags": [
@@ -1184,7 +1184,7 @@
         "UNESCO tentative list craft village",
         "Silk & cotton handloom heritage"
       ],
-      "imageUrl": "assets/gi-images/pochampally-ikat.webp",
+      "imageUrl": "assets/gi-images/pochampally-ikat.svg",
       "regionOrientation": "south",
       "phonetic": "Pochampally Ikat",
       "tags": [
@@ -1208,7 +1208,7 @@
         "Rich meat, wheat & lentil mash",
         "Mughlai & Nizam royal heritage"
       ],
-      "imageUrl": "assets/gi-images/hyderabadi-haleem.webp",
+      "imageUrl": "assets/gi-images/hyderabadi-haleem.svg",
       "regionOrientation": "south",
       "phonetic": "Hyderabadi Haleem",
       "tags": [
@@ -1232,7 +1232,7 @@
         "Soft non-rubbery chhena texture",
         "Light uncaramelized syrup"
       ],
-      "imageUrl": "assets/gi-images/odisha-rasagola.webp",
+      "imageUrl": "assets/gi-images/odisha-rasagola.svg",
       "regionOrientation": "east",
       "phonetic": "Odisha Rasagola",
       "tags": [
@@ -1256,7 +1256,7 @@
         "Natural stone & shell pigments",
         "Ancient Jagannath temple art"
       ],
-      "imageUrl": "assets/gi-images/puri-pattachitra-art.webp",
+      "imageUrl": "assets/gi-images/puri-pattachitra-art.svg",
       "regionOrientation": "east",
       "phonetic": "Puri Pattachitra Art",
       "tags": [
@@ -1280,7 +1280,7 @@
         "Mithila cultural lineage art",
         "Geometrical double-line fills"
       ],
-      "imageUrl": "assets/gi-images/madhubani-painting.webp",
+      "imageUrl": "assets/gi-images/madhubani-painting.svg",
       "regionOrientation": "east",
       "phonetic": "Madhubani Painting",
       "tags": [
@@ -1304,7 +1304,7 @@
         "Sweet translucent pulp",
         "Muzaffarpur alluvial soil microclimate"
       ],
-      "imageUrl": "assets/gi-images/muzaffarpur-shahi-litchi.webp",
+      "imageUrl": "assets/gi-images/muzaffarpur-shahi-litchi.svg",
       "regionOrientation": "east",
       "phonetic": "Muzaffarpur Shahi Litchi",
       "tags": [
@@ -1328,7 +1328,7 @@
         "Hand-woven gold zari motifs",
         "Bundelkhand heritage looms"
       ],
-      "imageUrl": "assets/gi-images/chanderi-fabric.webp",
+      "imageUrl": "assets/gi-images/chanderi-fabric.svg",
       "regionOrientation": "central",
       "phonetic": "Chanderi Fabric",
       "tags": [
@@ -1352,7 +1352,7 @@
         "Colorful geometric border patterns",
         "Handloom weaver guild heritage"
       ],
-      "imageUrl": "assets/gi-images/kullu-wool-shawl.webp",
+      "imageUrl": "assets/gi-images/kullu-wool-shawl.svg",
       "regionOrientation": "north",
       "phonetic": "Kullu Wool Shawl",
       "tags": [
@@ -1376,7 +1376,7 @@
         "Traditional copper pot stills",
         "Zero chemical additive spirit"
       ],
-      "imageUrl": "assets/gi-images/goan-cashew-feni.webp",
+      "imageUrl": "assets/gi-images/goan-cashew-feni.svg",
       "regionOrientation": "west",
       "phonetic": "Goan Cashew Feni",
       "tags": [
@@ -1400,7 +1400,7 @@
         "Unmatched capsaicin density",
         "Organic tribal hill cultivation"
       ],
-      "imageUrl": "assets/gi-images/naga-king-chilli-bhut-jolokia.webp",
+      "imageUrl": "assets/gi-images/naga-king-chilli-bhut-jolokia.svg",
       "regionOrientation": "northeast",
       "phonetic": "Naga King Chilli (Bhut Jolokia)",
       "tags": [
@@ -1424,7 +1424,7 @@
         "Stitched from reverse side",
         "Bridal Bagh and Chope heirloom traditions"
       ],
-      "imageUrl": "assets/gi-images/punjab-phulkari-embroidery.webp",
+      "imageUrl": "assets/gi-images/punjab-phulkari-embroidery.svg",
       "regionOrientation": "north",
       "phonetic": "Punjab Phulkari Embroidery",
       "tags": [
@@ -1448,7 +1448,7 @@
         "Hand-spun khaddar base",
         "Rural folk celebration motifs"
       ],
-      "imageUrl": "assets/gi-images/haryana-traditional-phulkari.webp",
+      "imageUrl": "assets/gi-images/haryana-traditional-phulkari.svg",
       "regionOrientation": "north",
       "phonetic": "Haryana Traditional Phulkari",
       "tags": [
@@ -1472,7 +1472,7 @@
         "Traditional Himalayan bridal heirloom",
         "Crafted by master Tehri goldsmiths"
       ],
-      "imageUrl": "assets/gi-images/tehri-garhwal-nath.webp",
+      "imageUrl": "assets/gi-images/tehri-garhwal-nath.svg",
       "regionOrientation": "north",
       "phonetic": "Tehri Garhwal Nath",
       "tags": [
@@ -1496,7 +1496,7 @@
         "Bhatti wood-smoke curing",
         "100% organic Himalayan agroforestry"
       ],
-      "imageUrl": "assets/gi-images/sikkim-large-cardamom.webp",
+      "imageUrl": "assets/gi-images/sikkim-large-cardamom.svg",
       "regionOrientation": "northeast",
       "phonetic": "Sikkim Large Cardamom",
       "tags": [
@@ -1520,7 +1520,7 @@
         "Rich floral-nutty aroma",
         "Cooks into royal purple hue"
       ],
-      "imageUrl": "assets/gi-images/chak-hao-black-scented-rice.webp",
+      "imageUrl": "assets/gi-images/chak-hao-black-scented-rice.svg",
       "regionOrientation": "northeast",
       "phonetic": "Chak-Hao Black Scented Rice",
       "tags": [
@@ -1544,7 +1544,7 @@
         "Vibrant golden-orange color",
         "Organic Jaintia hills soil terroir"
       ],
-      "imageUrl": "assets/gi-images/lakadong-turmeric.webp",
+      "imageUrl": "assets/gi-images/lakadong-turmeric.svg",
       "regionOrientation": "northeast",
       "phonetic": "Lakadong Turmeric",
       "tags": [
@@ -1568,7 +1568,7 @@
         "Organic hilly tribal cultivation",
         "Sun-dried on bamboo trays"
       ],
-      "imageUrl": "assets/gi-images/mizo-bird-s-eye-chilli.webp",
+      "imageUrl": "assets/gi-images/mizo-bird-s-eye-chilli.svg",
       "regionOrientation": "northeast",
       "phonetic": "Mizo Bird's Eye Chilli",
       "tags": [
@@ -1592,7 +1592,7 @@
         "Crisp non-fibrous edible core",
         "High natural Brix sweetness"
       ],
-      "imageUrl": "assets/gi-images/tripura-queen-pineapple.webp",
+      "imageUrl": "assets/gi-images/tripura-queen-pineapple.svg",
       "regionOrientation": "northeast",
       "phonetic": "Tripura Queen Pineapple",
       "tags": [
@@ -1616,7 +1616,7 @@
         "Wood-smoke cured for extreme durability",
         "Essential high-protein Himalayan staple"
       ],
-      "imageUrl": "assets/gi-images/arunachal-yak-churpi.webp",
+      "imageUrl": "assets/gi-images/arunachal-yak-churpi.svg",
       "regionOrientation": "northeast",
       "phonetic": "Arunachal Yak Churpi",
       "tags": [
@@ -1640,7 +1640,7 @@
         "Comb-cutting relief technique",
         "Depicts forest wildlife and sacred motifs"
       ],
-      "imageUrl": "assets/gi-images/sohrai-khovar-tribal-art.webp",
+      "imageUrl": "assets/gi-images/sohrai-khovar-tribal-art.svg",
       "regionOrientation": "east",
       "phonetic": "Sohrai & Khovar Tribal Art",
       "tags": [
@@ -1664,7 +1664,7 @@
         "Hand-pulled beeswax thread detailing",
         "Tribal deities and forest animal iconography"
       ],
-      "imageUrl": "assets/gi-images/bastar-dhokra-lost-wax-craft.webp",
+      "imageUrl": "assets/gi-images/bastar-dhokra-lost-wax-craft.svg",
       "regionOrientation": "central",
       "phonetic": "Bastar Dhokra Lost-Wax Craft",
       "tags": [
@@ -1688,7 +1688,7 @@
         "Crafted from seasoned willow and poplar",
         "Painted with natural mineral pigments"
       ],
-      "imageUrl": "assets/gi-images/ladakh-shingkos-wood-carving.webp",
+      "imageUrl": "assets/gi-images/ladakh-shingkos-wood-carving.svg",
       "regionOrientation": "north",
       "phonetic": "Ladakh Shingkos Wood Carving",
       "tags": [
@@ -1712,7 +1712,7 @@
         "Embellished with Salma and Sitara coils",
         "Imperial Shahjahanabad heritage craft"
       ],
-      "imageUrl": "assets/gi-images/delhi-mughal-zardozi.webp",
+      "imageUrl": "assets/gi-images/delhi-mughal-zardozi.svg",
       "regionOrientation": "north",
       "phonetic": "Delhi Mughal Zardozi",
       "tags": [
@@ -1736,7 +1736,7 @@
         "Large-scale firing without structural cracking",
         "Ancient Ayyanar guardian temple sculpture tradition"
       ],
-      "imageUrl": "assets/gi-images/villianur-terracotta-craft.webp",
+      "imageUrl": "assets/gi-images/villianur-terracotta-craft.svg",
       "regionOrientation": "south",
       "phonetic": "Villianur Terracotta Craft",
       "tags": [
@@ -1760,7 +1760,7 @@
         "Carved from a single fallen trunk of island hardwood",
         "Outrigger bamboo floats tied with natural cane"
       ],
-      "imageUrl": "assets/gi-images/nicobari-hodi-traditional-canoe.webp",
+      "imageUrl": "assets/gi-images/nicobari-hodi-traditional-canoe.svg",
       "regionOrientation": "south",
       "phonetic": "Nicobari Hodi Traditional Canoe",
       "tags": [
@@ -1784,7 +1784,7 @@
         "Hardened over coconut shell woodsmoke",
         "Savory umami richness with years-long shelf life"
       ],
-      "imageUrl": "assets/gi-images/lakshadweep-smoked-masmin-tuna.webp",
+      "imageUrl": "assets/gi-images/lakshadweep-smoked-masmin-tuna.svg",
       "regionOrientation": "south",
       "phonetic": "Lakshadweep Smoked Masmin Tuna",
       "tags": [
@@ -1808,7 +1808,7 @@
         "Handcrafted by women craft collectives",
         "Rich northern cultural heritage"
       ],
-      "imageUrl": "assets/gi-images/chandigarh-heritage-phulkari.webp",
+      "imageUrl": "assets/gi-images/chandigarh-heritage-phulkari.svg",
       "regionOrientation": "north",
       "phonetic": "Chandigarh Heritage Phulkari",
       "tags": [
@@ -1832,7 +1832,7 @@
         "Sacred Tarpa spiral dance central motif",
         "Geometric harmony depicting human-nature unity"
       ],
-      "imageUrl": "assets/gi-images/dadra-nagar-haveli-warli-art.webp",
+      "imageUrl": "assets/gi-images/dadra-nagar-haveli-warli-art.svg",
       "regionOrientation": "west",
       "phonetic": "Dadra & Nagar Haveli Warli Art",
       "tags": [

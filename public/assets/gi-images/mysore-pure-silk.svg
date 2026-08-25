@@ -16,37 +16,29 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_mysore-pure-silk)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_mysore-pure-silk)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_mysore-pure-silk)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Indigo & Gold zari Mysore Silk fold -->
         <rect x="-85" y="-55" width="170" height="115" rx="10" fill="#1E3A8A" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
         <rect x="-75" y="-45" width="150" height="95" rx="6" fill="#1D4ED8" />
         <rect x="-75" y="10" width="150" height="40" fill="#EAB308" />
-        <!-- Kasuti geometric embroidery motifs -->
         <g fill="#1E3A8A" transform="translate(-50, 28) scale(0.7)">
           <polygon points="0,-15 15,0 0,15 -15,0" />
           <polygon points="35,-15 50,0 35,15 20,0" />
           <polygon points="70,-15 85,0 70,15 55,0" />
           <polygon points="105,-15 120,0 105,15 90,0" />
-          <polygon points="140,-15 155,0 140,15 125,0" />
         </g>
         <path d="M-75,-25 Q0,-45 75,-25" stroke="#FDE047" stroke-width="2" stroke-dasharray="4,4" fill="none" />
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -58,6 +50,5 @@
     Karnataka • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

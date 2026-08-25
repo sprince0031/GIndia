@@ -16,31 +16,27 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_villianur-terracotta-craft)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_villianur-terracotta-craft)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_villianur-terracotta-craft)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Heritage Craft Artifact Display -->
-        <circle cx="0" cy="0" r="65" fill="#CA8A04" opacity="0.2" filter="drop-shadow(0 0 20px rgba(234,179,8,0.4))" />
-        <!-- Royal Medal Emblem -->
-        <polygon points="0,-60 18,-20 60,-20 28,10 40,55 0,28 -40,55 -28,10 -60,-20 -18,-20" fill="#EAB308" stroke="#CA8A04" stroke-width="3" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.4))" />
-        <circle cx="0" cy="0" r="28" fill="#78350F" />
-        <circle cx="0" cy="0" r="22" fill="#FDE047" />
-        <path d="M-10,0 L0,-12 L10,0 L0,12 Z" fill="#991B1B" />
+        <g transform="translate(0, 10)" fill="#C2410C" stroke="#7C2D12" stroke-width="2.5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))">
+          <path d="M-30,-45 C-20,-75 25,-75 25,-40 L20,30 L-20,30 Z" />
+          <polygon points="18,-70 28,-90 12,-75" fill="#EA580C" />
+          <polygon points="-18,-70 -28,-90 -12,-75" fill="#EA580C" />
+          <circle cx="0" cy="-25" r="9" fill="#F59E0B" />
+          <circle cx="0" cy="5" r="9" fill="#F59E0B" />
+          <circle cx="0" cy="-25" r="4" fill="#DC2626" />
+        </g>
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -52,6 +48,5 @@
     Puducherry • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>

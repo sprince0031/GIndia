@@ -16,27 +16,20 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_malabar-black-pepper)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_malabar-black-pepper)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_malabar-black-pepper)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Jute burlap sack spilling Tellicherry black peppercorns -->
         <path d="M-70,50 Q-80,10 -40,-30 Q30,-40 65,-10 Q80,40 50,60 Z" fill="#A16207" filter="drop-shadow(0 15px 20px rgba(0,0,0,0.4))" />
         <path d="M-60,40 Q-70,10 -35,-20 Q25,-30 55,-5 Q70,35 45,50 Z" fill="#78350F" />
-        <!-- Fresh green pepper vine leaves -->
         <path d="M-50,-20 Q-70,-60 -30,-70 Q-10,-40 -50,-20 Z" fill="#15803D" />
         <path d="M20,-30 Q60,-70 70,-40 Q40,-10 20,-30 Z" fill="#16A34A" />
-        <!-- Lustrous wrinkled black peppercorn spheres -->
         <g fill="#18181B" stroke="#27272A" stroke-width="1.5">
           
             <circle cx="-25" cy="10" r="14" filter="drop-shadow(0 3px 5px rgba(0,0,0,0.5))" />
@@ -88,7 +81,6 @@
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -100,6 +92,5 @@
     Kerala • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

@@ -16,29 +16,20 @@
     </radialGradient>
   </defs>
 
-  <!-- Ambient Gallery Plate Canvas -->
   <rect width="100%" height="100%" fill="url(#bgGrad_kannauj-rose-attar)"/>
   <rect width="100%" height="100%" fill="url(#spotlight_kannauj-rose-attar)"/>
 
-  <!-- Museum Exhibition Grid & Aura -->
   <circle cx="300" cy="180" r="140" fill="none" stroke="#F59E0B" stroke-opacity="0.12" stroke-width="1.5" />
   <circle cx="300" cy="180" r="115" fill="none" stroke="#F59E0B" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
 
-  <!-- Pedestal Floor Drop Shadow -->
   <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_kannauj-rose-attar)" />
 
-  <!-- HERO PHYSICAL OBJECT ILLUSTRATION -->
   <g transform="translate(300, 180)">
     
-        <!-- Cut-crystal perfume bottle / Itardani with pure Damask rose attar -->
-        <!-- Liquid amber rose oil inside bottle -->
         <path d="M-40,65 L-45,0 L-20,-20 L20,-20 L45,0 L40,65 Z" fill="#D97706" opacity="0.85" filter="drop-shadow(0 15px 20px rgba(0,0,0,0.4))" />
-        <!-- Faceted cut crystal glass outer walls -->
         <path d="M-40,65 L-45,0 L-20,-20 L20,-20 L45,0 L40,65 Z" fill="none" stroke="#E2E8F0" stroke-width="4" />
-        <!-- Crystal stopper wand -->
         <polygon points="0,-65 -15,-40 15,-40" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2" />
         <rect x="-10" y="-40" width="20" height="20" rx="3" fill="#CA8A04" />
-        <!-- Glowing fresh Damask Rose bloom -->
         <g transform="translate(45, 30) scale(0.75)">
           <circle cx="0" cy="0" r="28" fill="#E11D48" />
           <circle cx="-8" cy="-6" r="20" fill="#F43F5E" />
@@ -48,7 +39,6 @@
       
   </g>
 
-  <!-- Curatorial Caption Bar -->
   <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
   <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
 
@@ -60,6 +50,5 @@
     Uttar Pradesh • Registered Geographical Indication of India
   </text>
 
-  <!-- Accent Corner Tag -->
   <rect x="0" y="396" width="600" height="4" fill="#F59E0B" />
 </svg>
