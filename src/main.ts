@@ -10,6 +10,8 @@ import { InfoCardManager } from './components/info-card';
 import { TracerLayer } from './components/tracer-layer';
 import { CategoryFilterManager } from './core/category-filter';
 import { ModalManager } from './components/modals';
+import { AudioNarrator } from './core/audio-narrator';
+import { TourManager } from './core/tour-manager';
 
 function checkWebGLSupport(): boolean {
   try {
@@ -41,6 +43,8 @@ class GIndiaApp {
   private tracerLayer: TracerLayer | null = null;
   private categoryFilterManager: CategoryFilterManager | null = null;
   private modalManager: ModalManager | null = null;
+  private audioNarrator: AudioNarrator | null = null;
+  private tourManager: TourManager | null = null;
 
   constructor() {
     this.init();
@@ -49,7 +53,7 @@ class GIndiaApp {
   private async init(): Promise<void> {
     console.info('🏛️ GIndia: Initializing 3D Interactive Exhibition Map of India');
     
-    // Load local database
+    // 1. Load database
     const states = db.getAllStates();
     const products = db.getAllProducts();
     const stats = db.getNationalStats();
@@ -59,7 +63,17 @@ class GIndiaApp {
     // Warm up asset cache
     AssetLoader.preloadProducts(products.slice(0, 15));
 
-    // Setup Info Card Manager
+    // 2. Audio Engine
+    this.audioNarrator = new AudioNarrator({
+      onStart: () => {
+        document.getElementById('narration-pulse')?.classList.add('animate-pulse');
+      },
+      onEnd: () => {
+        document.getElementById('narration-pulse')?.classList.remove('animate-pulse');
+      }
+    });
+
+    // 3. Info Card Manager
     const cardContainer = document.getElementById('info-card-container');
     if (cardContainer) {
       this.infoCardManager = new InfoCardManager({
@@ -73,15 +87,34 @@ class GIndiaApp {
           this.state.activeProductId = product.id;
         },
         onSpeak: (product) => {
-          this.speakProduct(product.name, product.stateName, product.description);
+          if (this.audioNarrator) {
+            this.audioNarrator.speakProduct(product, product.stateName);
+          }
         }
       });
     }
 
-    // Setup Modal Manager
+    // 4. Modal Manager
     const modalContainer = document.getElementById('modal-container');
     if (modalContainer) {
       this.modalManager = new ModalManager(modalContainer);
+    }
+
+    // 5. Tour Choreographer
+    if (this.audioNarrator) {
+      this.tourManager = new TourManager({
+        audioNarrator: this.audioNarrator,
+        onStepChange: (state, product, stepIndex, totalSteps) => {
+          this.handleStateSelection(state.id, state.name);
+          const caption = document.getElementById('narration-caption');
+          if (caption) {
+            caption.innerHTML = `<strong class="text-terracotta">${stepIndex + 1}/${totalSteps}</strong>: <strong>${state.name}</strong> • ${product.name}`;
+          }
+        },
+        onTourStateChange: (isActive, isPaused) => {
+          this.updateTourUI(isActive, isPaused);
+        }
+      });
     }
 
     this.state.isWebGLSupported = checkWebGLSupport();
@@ -101,27 +134,22 @@ class GIndiaApp {
     const tracerSvg = document.getElementById('tracer-svg-layer') as unknown as SVGSVGElement;
     if (!canvasContainer || !tracerSvg) return;
 
-    // 1. Initialize Scene Manager
     this.sceneManager = new SceneManager({ container: canvasContainer });
 
-    // 2. Initialize Camera Controller
     this.cameraController = new CameraController({
       camera: this.sceneManager.camera,
       domElement: this.sceneManager.renderer.domElement
     });
 
     try {
-      // 3. Parse & Extrude SVG Map Geometry
       console.info('🗺️ Extruding 3D vector map of India from in.svg...');
       const parseResult = await SvgMapParser.loadAndParse('assets/in.svg');
       this.sceneManager.scene.add(parseResult.mapGroup);
 
-      // 4. Initialize Category Filter Manager
       this.categoryFilterManager = new CategoryFilterManager({
         stateInfoMap: parseResult.stateInfoMap
       });
 
-      // 5. Initialize Interaction & Raycasting Manager
       this.interactionManager = new InteractionManager({
         camera: this.sceneManager.camera,
         domElement: this.sceneManager.renderer.domElement,
@@ -130,16 +158,18 @@ class GIndiaApp {
         onStateHover: (stateId, stateName) => {
           if (stateId && stateName) {
             this.updateHeaderSubtitle(`${stateName} (${stateId})`);
-          } else if (!this.state.selectedStateId) {
+          } else if (!this.state.selectedStateId && !this.tourManager?.getIsActive()) {
             this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
           }
         },
         onStateSelect: (stateId, stateName, centroid) => {
+          if (this.tourManager?.getIsActive()) {
+            this.tourManager.pause();
+          }
           this.handleStateSelection(stateId, stateName, centroid);
         }
       });
 
-      // 6. Initialize Tracer Layer
       if (this.infoCardManager) {
         this.tracerLayer = new TracerLayer({
           svgElement: tracerSvg,
@@ -148,13 +178,12 @@ class GIndiaApp {
         });
       }
 
-      // 7. Register render loop callbacks
       this.sceneManager.registerAnimationCallback(() => {
         this.cameraController?.update();
         this.tracerLayer?.update();
       });
 
-      console.info('✨ 3D Map Engine & Dynamic Spatial Tracers Successfully Initialized!');
+      console.info('✨ 3D Map Engine, Spatial Tracers & Kiosk Tour Initialized!');
     } catch (err) {
       console.error('Failed to load 3D map, falling back to 2D canvas:', err);
       this.init2DFallback();
@@ -167,7 +196,6 @@ class GIndiaApp {
     if (!stateMeta) return;
 
     const actualName = stateName || stateMeta.name;
-    console.info(`🎯 Selected State: ${actualName} (${cleanId})`);
     this.state.selectedStateId = cleanId;
 
     const products = db.getProductsByState(cleanId);
@@ -185,36 +213,40 @@ class GIndiaApp {
         this.cameraController?.focusOnTarget(actualCentroid);
       }
       this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
-
-      if (this.state.isSpeechEnabled && products.length > 0) {
-        const p = products[0];
-        this.speakProduct(p.name, actualName, p.description);
-      }
     }
-  }
-
-  private speakProduct(name: string, state: string, description: string): void {
-    if (!('speechSynthesis' in window) || !this.state.isSpeechEnabled) return;
-
-    window.speechSynthesis.cancel();
-    const text = `${name}, from ${state}. ${description}`;
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.95;
-    utterance.pitch = 1.0;
-    
-    const voices = window.speechSynthesis.getVoices();
-    const indianVoice = voices.find(v => v.lang.includes('en-IN') || v.name.includes('India'));
-    if (indianVoice) {
-      utterance.voice = indianVoice;
-    }
-
-    window.speechSynthesis.speak(utterance);
   }
 
   private updateHeaderSubtitle(text: string): void {
     const subtitle = document.querySelector('header span');
     if (subtitle) {
       subtitle.textContent = text;
+    }
+  }
+
+  private updateTourUI(isActive: boolean, isPaused: boolean): void {
+    const btnTour = document.getElementById('dock-tour-toggle');
+    const playIcon = document.getElementById('dock-tour-play-icon');
+    const pauseIcon = document.getElementById('dock-tour-pause-icon');
+    const narrationBar = document.getElementById('narration-bar');
+    const btnNarrationPause = document.getElementById('btn-narration-pause');
+
+    btnTour?.classList.toggle('active', isActive);
+    
+    if (isActive) {
+      playIcon?.classList.add('hidden');
+      pauseIcon?.classList.remove('hidden');
+      narrationBar?.classList.remove('hidden');
+      narrationBar?.classList.add('flex');
+    } else {
+      playIcon?.classList.remove('hidden');
+      pauseIcon?.classList.add('hidden');
+      narrationBar?.classList.add('hidden');
+      narrationBar?.classList.remove('flex');
+    }
+
+    if (btnNarrationPause) {
+      btnNarrationPause.textContent = isPaused ? '▶️' : '⏸';
+      btnNarrationPause.title = isPaused ? 'Resume Tour' : 'Pause Tour';
     }
   }
 
@@ -238,6 +270,39 @@ class GIndiaApp {
     const btnSearch = document.getElementById('btn-search');
     const btnStats = document.getElementById('btn-stats');
 
+    // Bottom Narration Bar Buttons
+    const btnNarrationPrev = document.getElementById('btn-narration-prev');
+    const btnNarrationPause = document.getElementById('btn-narration-pause');
+    const btnNarrationNext = document.getElementById('btn-narration-next');
+
+    btnNarrationPrev?.addEventListener('click', () => this.tourManager?.previous());
+    btnNarrationNext?.addEventListener('click', () => this.tourManager?.next());
+    btnNarrationPause?.addEventListener('click', () => {
+      if (this.tourManager?.getIsPaused()) {
+        this.tourManager.resume();
+      } else {
+        this.tourManager?.pause();
+      }
+    });
+
+    // Tour Toggle
+    btnTour?.addEventListener('click', () => {
+      this.tourManager?.toggle();
+    });
+
+    // Speech Mute Toggle
+    const updateSpeechIcon = () => {
+      const isMuted = this.audioNarrator?.getIsMuted() ?? false;
+      document.getElementById('dock-speech-on-icon')?.classList.toggle('hidden', isMuted);
+      document.getElementById('dock-speech-off-icon')?.classList.toggle('hidden', !isMuted);
+    };
+
+    updateSpeechIcon();
+    btnSpeech?.addEventListener('click', () => {
+      this.audioNarrator?.toggleMute();
+      updateSpeechIcon();
+    });
+
     // Header buttons
     btnSearch?.addEventListener('click', () => {
       this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId));
@@ -257,9 +322,17 @@ class GIndiaApp {
         this.modalManager?.close();
         filterPanel?.classList.add('hidden');
       }
+      if (e.key === ' ' && this.tourManager?.getIsActive()) {
+        e.preventDefault();
+        if (this.tourManager.getIsPaused()) {
+          this.tourManager.resume();
+        } else {
+          this.tourManager.pause();
+        }
+      }
     });
 
-    // Populate category filter list
+    // Category filter list
     if (categoryList) {
       const categories = db.getCategories();
       categoryList.innerHTML = `
@@ -293,24 +366,6 @@ class GIndiaApp {
       });
     }
 
-    btnTour?.addEventListener('click', () => {
-      this.state.isTourActive = !this.state.isTourActive;
-      btnTour.classList.toggle('active', this.state.isTourActive);
-      document.getElementById('dock-tour-play-icon')?.classList.toggle('hidden', this.state.isTourActive);
-      document.getElementById('dock-tour-pause-icon')?.classList.toggle('hidden', !this.state.isTourActive);
-      document.getElementById('narration-bar')?.classList.toggle('hidden', !this.state.isTourActive);
-      document.getElementById('narration-bar')?.classList.toggle('flex', this.state.isTourActive);
-    });
-
-    btnSpeech?.addEventListener('click', () => {
-      this.state.isSpeechEnabled = !this.state.isSpeechEnabled;
-      document.getElementById('dock-speech-on-icon')?.classList.toggle('hidden', !this.state.isSpeechEnabled);
-      document.getElementById('dock-speech-off-icon')?.classList.toggle('hidden', this.state.isSpeechEnabled);
-      if (!this.state.isSpeechEnabled && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
-    });
-
     btnFilter?.addEventListener('click', () => {
       filterPanel?.classList.toggle('hidden');
     });
@@ -321,6 +376,7 @@ class GIndiaApp {
 
     btnReset?.addEventListener('click', () => {
       console.log('Resetting 3D camera to exhibition default');
+      this.tourManager?.stop();
       this.infoCardManager?.hide();
       this.tracerLayer?.hide();
       this.interactionManager?.deselectState();
