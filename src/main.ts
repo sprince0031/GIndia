@@ -1,11 +1,14 @@
 import './style.css';
-import { ExhibitionState } from './types/gi-data';
+import { ExhibitionState, GICategory } from './types/gi-data';
 import { db } from './utils/database';
 import { AssetLoader } from './utils/asset-loader';
 import { SceneManager } from './core/scene-manager';
 import { CameraController } from './core/camera-controller';
 import { SvgMapParser } from './utils/svg-parser';
 import { InteractionManager } from './core/interaction-manager';
+import { InfoCardManager } from './components/info-card';
+import { TracerLayer } from './components/tracer-layer';
+import { CategoryFilterManager } from './core/category-filter';
 
 function checkWebGLSupport(): boolean {
   try {
@@ -33,6 +36,9 @@ class GIndiaApp {
   private sceneManager: SceneManager | null = null;
   private cameraController: CameraController | null = null;
   private interactionManager: InteractionManager | null = null;
+  private infoCardManager: InfoCardManager | null = null;
+  private tracerLayer: TracerLayer | null = null;
+  private categoryFilterManager: CategoryFilterManager | null = null;
 
   constructor() {
     this.init();
@@ -48,13 +54,32 @@ class GIndiaApp {
     console.info(`📦 GI Database Loaded: ${products.length} products across ${states.length} states/UTs.`);
     console.info('📊 National GI Stats:', stats);
 
-    // Warm up asset cache for top products
-    AssetLoader.preloadProducts(products.slice(0, 12));
+    // Warm up asset cache
+    AssetLoader.preloadProducts(products.slice(0, 15));
+
+    // Setup Info Card Manager
+    const cardContainer = document.getElementById('info-card-container');
+    if (cardContainer) {
+      this.infoCardManager = new InfoCardManager({
+        container: cardContainer,
+        onClose: () => {
+          this.tracerLayer?.hide();
+          this.interactionManager?.deselectState();
+          this.state.selectedStateId = null;
+        },
+        onProductChange: (product) => {
+          this.state.activeProductId = product.id;
+        },
+        onSpeak: (product) => {
+          this.speakProduct(product.name, product.stateName, product.description);
+        }
+      });
+    }
 
     this.state.isWebGLSupported = checkWebGLSupport();
 
     if (!this.state.isWebGLSupported) {
-      console.warn('⚠️ WebGL not supported or hardware acceleration disabled. Enabling 2D SVG fallback.');
+      console.warn('⚠️ WebGL not supported. Enabling 2D SVG fallback.');
       this.init2DFallback();
     } else {
       await this.init3DScene();
@@ -64,21 +89,17 @@ class GIndiaApp {
   }
 
   private async init3DScene(): Promise<void> {
-    const container = document.getElementById('canvas-container');
-    if (!container) return;
+    const canvasContainer = document.getElementById('canvas-container');
+    const tracerSvg = document.getElementById('tracer-svg-layer') as unknown as SVGSVGElement;
+    if (!canvasContainer || !tracerSvg) return;
 
     // 1. Initialize Scene Manager
-    this.sceneManager = new SceneManager({ container });
+    this.sceneManager = new SceneManager({ container: canvasContainer });
 
     // 2. Initialize Camera Controller
     this.cameraController = new CameraController({
       camera: this.sceneManager.camera,
       domElement: this.sceneManager.renderer.domElement
-    });
-
-    // Register controller update in render loop
-    this.sceneManager.registerAnimationCallback(() => {
-      this.cameraController?.update();
     });
 
     try {
@@ -87,7 +108,12 @@ class GIndiaApp {
       const parseResult = await SvgMapParser.loadAndParse('assets/in.svg');
       this.sceneManager.scene.add(parseResult.mapGroup);
 
-      // 4. Initialize Interaction & Raycasting Manager
+      // 4. Initialize Category Filter Manager
+      this.categoryFilterManager = new CategoryFilterManager({
+        stateInfoMap: parseResult.stateInfoMap
+      });
+
+      // 5. Initialize Interaction & Raycasting Manager
       this.interactionManager = new InteractionManager({
         camera: this.sceneManager.camera,
         domElement: this.sceneManager.renderer.domElement,
@@ -95,20 +121,81 @@ class GIndiaApp {
         stateInfoMap: parseResult.stateInfoMap,
         onStateHover: (stateId, stateName) => {
           if (stateId && stateName) {
-            console.log(`Hover: ${stateName} (${stateId})`);
+            this.updateHeaderSubtitle(`${stateName} (${stateId})`);
+          } else if (!this.state.selectedStateId) {
+            this.updateHeaderSubtitle('Interactive Heritage & Regional Produce Atlas');
           }
         },
         onStateSelect: (stateId, stateName, centroid) => {
-          console.info(`🎯 Selected State: ${stateName} (${stateId})`);
-          this.state.selectedStateId = stateId;
-          this.cameraController?.focusOnTarget(centroid);
+          this.handleStateSelection(stateId, stateName, centroid);
         }
       });
 
-      console.info('✨ 3D Map Engine Successfully Initialized!');
+      // 6. Initialize Tracer Layer
+      if (this.infoCardManager) {
+        this.tracerLayer = new TracerLayer({
+          svgElement: tracerSvg,
+          interactionManager: this.interactionManager,
+          infoCardManager: this.infoCardManager
+        });
+      }
+
+      // 7. Register render loop callbacks
+      this.sceneManager.registerAnimationCallback(() => {
+        this.cameraController?.update();
+        this.tracerLayer?.update();
+      });
+
+      console.info('✨ 3D Map Engine & Dynamic Spatial Tracers Successfully Initialized!');
     } catch (err) {
       console.error('Failed to load 3D map, falling back to 2D canvas:', err);
       this.init2DFallback();
+    }
+  }
+
+  private handleStateSelection(stateId: string, stateName: string, centroid: any): void {
+    console.info(`🎯 Selected State: ${stateName} (${stateId})`);
+    this.state.selectedStateId = stateId;
+
+    const stateMeta = db.getStateById(stateId);
+    const products = db.getProductsByState(stateId);
+
+    if (stateMeta && this.infoCardManager) {
+      this.infoCardManager.showStateProducts(stateMeta, products);
+      this.tracerLayer?.setTargetCentroid(centroid);
+      this.cameraController?.focusOnTarget(centroid);
+      this.updateHeaderSubtitle(`${stateName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
+
+      if (this.state.isSpeechEnabled && products.length > 0) {
+        const p = products[0];
+        this.speakProduct(p.name, stateName, p.description);
+      }
+    }
+  }
+
+  private speakProduct(name: string, state: string, description: string): void {
+    if (!('speechSynthesis' in window) || !this.state.isSpeechEnabled) return;
+
+    window.speechSynthesis.cancel(); // Cancel any ongoing speech
+    const text = `${name}, from ${state}. ${description}`;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+    
+    // Select Indian English voice if available
+    const voices = window.speechSynthesis.getVoices();
+    const indianVoice = voices.find(v => v.lang.includes('en-IN') || v.name.includes('India'));
+    if (indianVoice) {
+      utterance.voice = indianVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  private updateHeaderSubtitle(text: string): void {
+    const subtitle = document.querySelector('header span');
+    if (subtitle) {
+      subtitle.textContent = text;
     }
   }
 
@@ -151,10 +238,15 @@ class GIndiaApp {
 
       categoryList.querySelectorAll('button').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          const cat = (e.currentTarget as HTMLElement).getAttribute('data-cat') || 'All';
-          this.state.activeCategoryFilter = cat as any;
-          console.log(`Filtering by category: ${cat}`);
+          const cat = ((e.currentTarget as HTMLElement).getAttribute('data-cat') || 'All') as GICategory | 'All';
+          this.state.activeCategoryFilter = cat;
+          this.categoryFilterManager?.setFilter(cat);
           filterPanel?.classList.add('hidden');
+
+          categoryList.querySelectorAll('button').forEach(b => {
+            b.classList.remove('bg-terracotta/10', 'text-terracotta');
+          });
+          (e.currentTarget as HTMLElement).classList.add('bg-terracotta/10', 'text-terracotta');
         });
       });
     }
@@ -172,6 +264,9 @@ class GIndiaApp {
       this.state.isSpeechEnabled = !this.state.isSpeechEnabled;
       document.getElementById('dock-speech-on-icon')?.classList.toggle('hidden', !this.state.isSpeechEnabled);
       document.getElementById('dock-speech-off-icon')?.classList.toggle('hidden', this.state.isSpeechEnabled);
+      if (!this.state.isSpeechEnabled && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
     });
 
     btnFilter?.addEventListener('click', () => {
@@ -184,8 +279,12 @@ class GIndiaApp {
 
     btnReset?.addEventListener('click', () => {
       console.log('Resetting 3D camera to exhibition default');
+      this.infoCardManager?.hide();
+      this.tracerLayer?.hide();
       this.interactionManager?.deselectState();
+      this.categoryFilterManager?.resetFilter();
       this.cameraController?.resetView();
+      this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
     });
   }
 }
