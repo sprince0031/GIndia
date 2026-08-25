@@ -106,7 +106,7 @@ class GIndiaApp {
       this.tourManager = new TourManager({
         audioNarrator: this.audioNarrator,
         onStepChange: (state, product, stepIndex, totalSteps) => {
-          this.handleStateSelection(state.id, state.name);
+          this.handleStateSelection(state.id, state.name, null, false);
           const caption = document.getElementById('narration-caption');
           if (caption) {
             caption.innerHTML = `<strong class="text-terracotta">${stepIndex + 1}/${totalSteps}</strong>: <strong>${state.name}</strong> • ${product.name}`;
@@ -158,7 +158,6 @@ class GIndiaApp {
         stateInfoMap: parseResult.stateInfoMap,
         onStateHover: (_stateId, stateName) => {
           if (stateName) {
-            // Clean state name only (no bracketed state codes)
             this.updateHeaderSubtitle(stateName);
           } else if (!this.state.selectedStateId && !this.tourManager?.getIsActive()) {
             this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
@@ -168,7 +167,7 @@ class GIndiaApp {
           if (this.tourManager?.getIsActive()) {
             this.tourManager.pause();
           }
-          this.handleStateSelection(stateId, stateName, centroid);
+          this.handleStateSelection(stateId, stateName, centroid, false);
         }
       });
 
@@ -192,7 +191,7 @@ class GIndiaApp {
     }
   }
 
-  public handleStateSelection(stateId: string, stateName?: string, centroid?: any): void {
+  public handleStateSelection(stateId: string, stateName?: string, centroid?: any, updateInteraction = true): void {
     const cleanId = stateId.replace('-', '').toUpperCase();
     const stateMeta = db.getStateById(cleanId);
     if (!stateMeta) return;
@@ -204,8 +203,8 @@ class GIndiaApp {
     const info = this.interactionManager?.getStateInfo(cleanId);
     const actualCentroid = centroid || (info ? info.centroid : null);
 
-    if (this.interactionManager) {
-      this.interactionManager.selectState(cleanId);
+    if (updateInteraction && this.interactionManager) {
+      this.interactionManager.selectState(cleanId, false);
     }
 
     if (this.infoCardManager) {
@@ -214,7 +213,6 @@ class GIndiaApp {
         this.tracerLayer?.setTargetCentroid(actualCentroid);
         this.cameraController?.focusOnTarget(actualCentroid);
       }
-      // Clean header subtitle without bracketed codes
       this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
     }
   }
@@ -308,18 +306,18 @@ class GIndiaApp {
 
     // Header buttons
     btnSearch?.addEventListener('click', () => {
-      this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId));
+      this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId, undefined, undefined, true));
     });
 
     btnStats?.addEventListener('click', () => {
-      this.modalManager?.openStatsModal((stateId) => this.handleStateSelection(stateId));
+      this.modalManager?.openStatsModal((stateId) => this.handleStateSelection(stateId, undefined, undefined, true));
     });
 
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId));
+        this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId, undefined, undefined, true));
       }
       if (e.key === 'Escape') {
         this.modalManager?.close();

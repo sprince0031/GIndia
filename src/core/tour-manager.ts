@@ -45,8 +45,27 @@ export class TourManager {
   }
 
   private setupIdleDetection(): void {
-    const onUserInteraction = () => {
+    let lastInteractionTime = 0;
+
+    const onUserInteraction = (e: Event) => {
+      // Ignore clicks on tour controls or header buttons
+      const target = e.target as HTMLElement | null;
+      if (
+        target?.closest('#narration-bar') ||
+        target?.closest('#dock-tour-toggle') ||
+        target?.closest('#dock-speech-toggle') ||
+        target?.closest('#btn-search') ||
+        target?.closest('#btn-stats')
+      ) {
+        return;
+      }
+
+      const now = Date.now();
+      if (now - lastInteractionTime < 400) return;
+      lastInteractionTime = now;
+
       if (this.isActive && !this.isPaused) {
+        console.info('⏸️ Visitor interaction on map detected. Pausing tour...');
         this.pause();
       }
 
@@ -64,7 +83,6 @@ export class TourManager {
 
     window.addEventListener('pointerdown', onUserInteraction, { passive: true });
     window.addEventListener('wheel', onUserInteraction, { passive: true });
-    window.addEventListener('touchstart', onUserInteraction, { passive: true });
   }
 
   public start(startIndex = 0): void {
@@ -153,20 +171,20 @@ export class TourManager {
 
     const featuredProduct = products[0];
 
-    // Trigger visual updates
+    // Trigger visual step change
     this.onStepChange?.(state, featuredProduct, index, this.itineraryStateIds.length);
 
     let stepHandled = false;
 
-    // Guaranteed fallback timer to prevent tour from ever hanging (e.g. max 9.5s per stop)
+    // Guaranteed watchdog timer: advance to next stop after max 8.5s
     this.stepTimeoutId = window.setTimeout(() => {
       if (!stepHandled && this.isActive && !this.isPaused) {
         stepHandled = true;
         this.next();
       }
-    }, 9500);
+    }, 8500);
 
-    // Speak audio narration
+    // Play speech narration
     this.audioNarrator.speakProduct(featuredProduct, state.name, () => {
       if (!stepHandled && this.isActive && !this.isPaused) {
         stepHandled = true;

@@ -67,20 +67,28 @@ export class InteractionManager {
 
   private onPointerUp = (e: PointerEvent): void => {
     const dist = Math.hypot(e.clientX - this.pointerDownPos.x, e.clientY - this.pointerDownPos.y);
-    if (dist < 8) {
-      // Calculate raycast at click point
+    if (dist < 10) {
+      // Direct click / tap
+      const rect = this.domElement.getBoundingClientRect();
+      this.pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      this.pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
       this.raycaster.setFromCamera(this.pointer, this.camera);
-      const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, false);
+      const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, true);
+      
       if (intersects.length > 0) {
-        const hitMesh = intersects[0].object as THREE.Mesh;
-        const stateId = hitMesh.userData.stateId as string;
-        if (stateId) {
-          this.selectState(stateId);
+        let obj: THREE.Object3D | null = intersects[0].object;
+        while (obj && !obj.userData?.stateId) {
+          obj = obj.parent;
+        }
+        if (obj?.userData?.stateId) {
+          this.selectState(obj.userData.stateId, true);
           return;
         }
       }
+
       if (this.hoveredStateId) {
-        this.selectState(this.hoveredStateId);
+        this.selectState(this.hoveredStateId, true);
       }
     }
   };
@@ -97,12 +105,16 @@ export class InteractionManager {
 
   private performRaycast(): void {
     this.raycaster.setFromCamera(this.pointer, this.camera);
-    const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, false);
+    const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, true);
 
     if (intersects.length > 0) {
-      const hitMesh = intersects[0].object as THREE.Mesh;
-      const stateId = hitMesh.userData.stateId as string;
-      const stateName = hitMesh.userData.stateName as string;
+      let obj: THREE.Object3D | null = intersects[0].object;
+      while (obj && !obj.userData?.stateId) {
+        obj = obj.parent;
+      }
+
+      const stateId = obj?.userData?.stateId as string | undefined;
+      const stateName = obj?.userData?.stateName as string | undefined;
 
       if (stateId && stateId !== this.hoveredStateId) {
         if (this.hoveredStateId && this.hoveredStateId !== this.selectedStateId) {
@@ -114,7 +126,7 @@ export class InteractionManager {
         if (this.hoveredStateId !== this.selectedStateId) {
           this.animateStateHover(stateId, true);
         }
-        this.onStateHover?.(stateId, stateName);
+        this.onStateHover?.(stateId, stateName || stateId);
       }
     } else {
       if (this.hoveredStateId) {
@@ -128,7 +140,7 @@ export class InteractionManager {
     }
   }
 
-  public selectState(stateId: string): void {
+  public selectState(stateId: string, emitEvent = true): void {
     const cleanId = stateId.replace('-', '').toUpperCase();
     const info = this.stateInfoMap.get(cleanId);
     if (!info) return;
@@ -137,10 +149,13 @@ export class InteractionManager {
       this.animateStateSelect(this.selectedStateId, false);
     }
 
+    const wasAlreadySelected = this.selectedStateId === cleanId;
     this.selectedStateId = cleanId;
     this.animateStateSelect(cleanId, true);
 
-    this.onStateSelect?.(cleanId, info.name, info.centroid);
+    if (emitEvent && !wasAlreadySelected) {
+      this.onStateSelect?.(cleanId, info.name, info.centroid);
+    }
   }
 
   public deselectState(): void {
