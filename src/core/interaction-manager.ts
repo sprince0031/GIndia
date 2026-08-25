@@ -1,0 +1,237 @@
+import * as THREE from 'three';
+import gsap from 'gsap';
+import { StateMeshInfo } from '../utils/svg-parser';
+
+export interface InteractionManagerOptions {
+  camera: THREE.PerspectiveCamera;
+  domElement: HTMLElement;
+  interactiveMeshes: THREE.Mesh[];
+  stateInfoMap: Map<string, StateMeshInfo>;
+  onStateHover?: (stateId: string | null, stateName: string | null) => void;
+  onStateSelect?: (stateId: string, stateName: string, centroid: THREE.Vector3) => void;
+}
+
+export class InteractionManager {
+  private camera: THREE.PerspectiveCamera;
+  private domElement: HTMLElement;
+  private interactiveMeshes: THREE.Mesh[];
+  private stateInfoMap: Map<string, StateMeshInfo>;
+
+  private raycaster: THREE.Raycaster = new THREE.Raycaster();
+  private pointer: THREE.Vector2 = new THREE.Vector2(-9999, -9999);
+  
+  private hoveredStateId: string | null = null;
+  private selectedStateId: string | null = null;
+
+  private onStateHover?: (stateId: string | null, stateName: string | null) => void;
+  private onStateSelect?: (stateId: string, stateName: string, centroid: THREE.Vector3) => void;
+
+  
+  private pointerDownPos = { x: 0, y: 0 };
+
+  // Color constants
+  private readonly STONE_COLOR = 0xE6DFD5;
+  private readonly TERRACOTTA_COLOR = 0xD9531E;
+  private readonly TERRACOTTA_EMISSIVE = 0x381206;
+  private readonly HOVER_ELEVATION = 10;
+  private readonly SELECT_ELEVATION = 14;
+
+  constructor(options: InteractionManagerOptions) {
+    this.camera = options.camera;
+    this.domElement = options.domElement;
+    this.interactiveMeshes = options.interactiveMeshes;
+    this.stateInfoMap = options.stateInfoMap;
+    this.onStateHover = options.onStateHover;
+    this.onStateSelect = options.onStateSelect;
+
+    this.attachEventListeners();
+  }
+
+  private attachEventListeners(): void {
+    this.domElement.addEventListener('pointermove', this.onPointerMove);
+    this.domElement.addEventListener('pointerdown', this.onPointerDown);
+    this.domElement.addEventListener('pointerup', this.onPointerUp);
+    this.domElement.addEventListener('pointerleave', this.onPointerLeave);
+  }
+
+  private onPointerMove = (e: PointerEvent): void => {
+    const rect = this.domElement.getBoundingClientRect();
+    this.pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    this.pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+    this.performRaycast();
+  };
+
+  private onPointerDown = (e: PointerEvent): void => {
+    
+    this.pointerDownPos = { x: e.clientX, y: e.clientY };
+  };
+
+  private onPointerUp = (e: PointerEvent): void => {
+    const dist = Math.hypot(e.clientX - this.pointerDownPos.x, e.clientY - this.pointerDownPos.y);
+    if (dist < 6) {
+      // Intentional Click / Tap (not a drag or orbit pan)
+      if (this.hoveredStateId) {
+        this.selectState(this.hoveredStateId);
+      }
+    }
+  };
+
+  private onPointerLeave = (): void => {
+    this.pointer.set(-9999, -9999);
+    if (this.hoveredStateId && this.hoveredStateId !== this.selectedStateId) {
+      this.animateStateHover(this.hoveredStateId, false);
+      this.hoveredStateId = null;
+      this.domElement.style.cursor = 'grab';
+      this.onStateHover?.(null, null);
+    }
+  };
+
+  private performRaycast(): void {
+    this.raycaster.setFromCamera(this.pointer, this.camera);
+    const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, false);
+
+    if (intersects.length > 0) {
+      const hitMesh = intersects[0].object as THREE.Mesh;
+      const stateId = hitMesh.userData.stateId as string;
+      const stateName = hitMesh.userData.stateName as string;
+
+      if (stateId && stateId !== this.hoveredStateId) {
+        // Reset previous hovered state
+        if (this.hoveredStateId && this.hoveredStateId !== this.selectedStateId) {
+          this.animateStateHover(this.hoveredStateId, false);
+        }
+
+        // Apply new hover
+        this.hoveredStateId = stateId;
+        this.domElement.style.cursor = 'pointer';
+        if (this.hoveredStateId !== this.selectedStateId) {
+          this.animateStateHover(stateId, true);
+        }
+        this.onStateHover?.(stateId, stateName);
+      }
+    } else {
+      // Nothing hovered
+      if (this.hoveredStateId) {
+        if (this.hoveredStateId !== this.selectedStateId) {
+          this.animateStateHover(this.hoveredStateId, false);
+        }
+        this.hoveredStateId = null;
+        this.domElement.style.cursor = 'grab';
+        this.onStateHover?.(null, null);
+      }
+    }
+  }
+
+  public selectState(stateId: string): void {
+    const info = this.stateInfoMap.get(stateId);
+    if (!info) return;
+
+    // Reset previous selection
+    if (this.selectedStateId && this.selectedStateId !== stateId) {
+      this.animateStateSelect(this.selectedStateId, false);
+    }
+
+    this.selectedStateId = stateId;
+    this.animateStateSelect(stateId, true);
+
+    this.onStateSelect?.(stateId, info.name, info.centroid);
+  }
+
+  public deselectState(): void {
+    if (this.selectedStateId) {
+      this.animateStateSelect(this.selectedStateId, false);
+      this.selectedStateId = null;
+    }
+  }
+
+  private animateStateHover(stateId: string, isHovered: boolean): void {
+    const info = this.stateInfoMap.get(stateId);
+    if (!info) return;
+
+    info.isHovered = isHovered;
+    const mesh = info.mesh;
+    const material = mesh.material as THREE.MeshStandardMaterial;
+
+    const targetZ = isHovered ? this.HOVER_ELEVATION : 0;
+    const targetColor = isHovered ? this.TERRACOTTA_COLOR : this.STONE_COLOR;
+    const targetEmissive = isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000;
+
+    // Animate Elevation (Z-lift)
+    gsap.to(info.group.position, {
+      z: targetZ,
+      duration: 0.28,
+      ease: 'power2.out'
+    });
+
+    // Animate Material Color
+    const tempColor = { r: material.color.r, g: material.color.g, b: material.color.b };
+    const goalColor = new THREE.Color(targetColor);
+
+    gsap.to(tempColor, {
+      r: goalColor.r,
+      g: goalColor.g,
+      b: goalColor.b,
+      duration: 0.28,
+      onUpdate: () => {
+        material.color.setRGB(tempColor.r, tempColor.g, tempColor.b);
+      }
+    });
+
+    material.emissive.setHex(targetEmissive);
+  }
+
+  private animateStateSelect(stateId: string, isSelected: boolean): void {
+    const info = this.stateInfoMap.get(stateId);
+    if (!info) return;
+
+    info.isSelected = isSelected;
+    const mesh = info.mesh;
+    const material = mesh.material as THREE.MeshStandardMaterial;
+
+    const targetZ = isSelected ? this.SELECT_ELEVATION : (info.isHovered ? this.HOVER_ELEVATION : 0);
+    const targetColor = isSelected ? this.TERRACOTTA_COLOR : (info.isHovered ? this.TERRACOTTA_COLOR : this.STONE_COLOR);
+
+    gsap.to(info.group.position, {
+      z: targetZ,
+      duration: 0.35,
+      ease: 'elastic.out(1, 0.75)'
+    });
+
+    material.color.setHex(targetColor);
+    material.emissive.setHex(isSelected ? 0x4A1808 : (info.isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000));
+  }
+
+  /**
+   * Project 3D coordinate vector to 2D screen viewport coordinates (pixels)
+   */
+  public toScreenPosition(worldPosition: THREE.Vector3): { x: number; y: number; isVisible: boolean } {
+    const vector = worldPosition.clone();
+    vector.project(this.camera);
+
+    const rect = this.domElement.getBoundingClientRect();
+    const halfWidth = rect.width / 2;
+    const halfHeight = rect.height / 2;
+
+    const x = vector.x * halfWidth + halfWidth + rect.left;
+    const y = -vector.y * halfHeight + halfHeight + rect.top;
+    const isVisible = vector.z < 1.0;
+
+    return { x, y, isVisible };
+  }
+
+  public getSelectedStateId(): string | null {
+    return this.selectedStateId;
+  }
+
+  public getStateInfo(stateId: string): StateMeshInfo | undefined {
+    return this.stateInfoMap.get(stateId);
+  }
+
+  public dispose(): void {
+    this.domElement.removeEventListener('pointermove', this.onPointerMove);
+    this.domElement.removeEventListener('pointerdown', this.onPointerDown);
+    this.domElement.removeEventListener('pointerup', this.onPointerUp);
+    this.domElement.removeEventListener('pointerleave', this.onPointerLeave);
+  }
+}
