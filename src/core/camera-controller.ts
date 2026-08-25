@@ -11,8 +11,7 @@ export class CameraController {
   public controls: OrbitControls;
   private camera: THREE.PerspectiveCamera;
   
-  // Default Exhibition Perspectives
-  public readonly defaultPosition = new THREE.Vector3(0, -380, 640);
+  public defaultPosition = new THREE.Vector3(0, -380, 620);
   public readonly defaultTarget = new THREE.Vector3(0, 0, 0);
 
   constructor(options: CameraControllerOptions) {
@@ -27,22 +26,37 @@ export class CameraController {
     this.controls.rotateSpeed = 0.6;
     this.controls.zoomSpeed = 0.8;
 
+    // Calculate responsive camera framing based on initial aspect ratio
+    this.updateDefaultPosition();
+
     // Constrain Zoom Bounds
-    this.controls.minDistance = 280;
-    this.controls.maxDistance = 880;
+    this.controls.minDistance = 250;
+    this.controls.maxDistance = 1100;
 
     // Constrain Polar (Elevation) Angles: Prevent looking under ground plane
     this.controls.minPolarAngle = Math.PI * 0.18; // ~32 degrees
     this.controls.maxPolarAngle = Math.PI * 0.44; // ~79 degrees
 
     // Constrain Azimuth (Rotation) Bounds: Maintain facing orientation
-    this.controls.minAzimuthAngle = -Math.PI * 0.38;
-    this.controls.maxAzimuthAngle = Math.PI * 0.38;
+    this.controls.minAzimuthAngle = -Math.PI * 0.40;
+    this.controls.maxAzimuthAngle = Math.PI * 0.40;
 
-    // Set initial target
+    // Set initial target and position
     this.controls.target.copy(this.defaultTarget);
     this.camera.position.copy(this.defaultPosition);
     this.controls.update();
+  }
+
+  public updateDefaultPosition(): void {
+    const aspect = this.camera.aspect || 1.6;
+    // For narrower screens (mobile/tablet portrait), step back further
+    if (aspect < 1.0) {
+      this.defaultPosition.set(0, -560, 920);
+    } else if (aspect < 1.4) {
+      this.defaultPosition.set(0, -460, 750);
+    } else {
+      this.defaultPosition.set(0, -360, 600);
+    }
   }
 
   public update(): void {
@@ -53,6 +67,8 @@ export class CameraController {
    * Smoothly reset camera to default exhibition overview perspective
    */
   public resetView(duration = 1.0): Promise<void> {
+    this.updateDefaultPosition();
+
     return new Promise((resolve) => {
       gsap.to(this.camera.position, {
         x: this.defaultPosition.x,
@@ -82,11 +98,11 @@ export class CameraController {
    */
   public focusOnTarget(target: THREE.Vector3, duration = 0.9): Promise<void> {
     return new Promise((resolve) => {
-      // Calculate gentle offset keeping overview composition
+      const isNarrow = (this.camera.aspect || 1.6) < 1.2;
       const targetPos = new THREE.Vector3(
         target.x * 0.45,
-        target.y * 0.45 - 340,
-        560
+        target.y * 0.45 - (isNarrow ? 480 : 320),
+        isNarrow ? 720 : 520
       );
 
       gsap.to(this.camera.position, {
@@ -98,8 +114,8 @@ export class CameraController {
       });
 
       gsap.to(this.controls.target, {
-        x: target.x * 0.6,
-        y: target.y * 0.6,
+        x: target.x * 0.5,
+        y: target.y * 0.5,
         z: target.z,
         duration,
         ease: 'power2.out',

@@ -5,11 +5,22 @@ export class AssetLoader {
   private static imageCache: Map<string, HTMLImageElement> = new Map();
   private static pendingLoads: Map<string, Promise<string>> = new Map();
 
+  public static resolveUrl(url: string): string {
+    if (!url || url.startsWith('http') || url.startsWith('data:')) {
+      return url;
+    }
+    const base = import.meta.env.BASE_URL || './';
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    const cleanPath = url.startsWith('/') || url.startsWith('./') ? url.replace(/^(\.\/|\/)/, '') : url;
+    return `${cleanBase}${cleanPath}`;
+  }
+
   /**
    * Preload an image URL into browser cache with immediate fallback to generated SVG
    */
   public static async loadImage(product: GIProduct): Promise<string> {
-    const url = product.imageUrl;
+    const rawUrl = product.imageUrl;
+    const url = this.resolveUrl(rawUrl);
 
     if (this.imageCache.has(url)) {
       return url;
@@ -52,10 +63,11 @@ export class AssetLoader {
    * Synchronously obtain a displayable image src (returns either cached url or instant SVG fallback)
    */
   public static getDisplaySrc(product: GIProduct): string {
-    if (this.imageCache.has(product.imageUrl)) {
-      return product.imageUrl;
+    const url = this.resolveUrl(product.imageUrl);
+    if (this.imageCache.has(url)) {
+      return url;
     }
-    // Return instant fallback while loading in background
+    // Preload in background and return instant vector fallback
     this.loadImage(product);
     return ArtworkGenerator.generateFallbackDataUri(product);
   }

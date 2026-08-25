@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader.js';
+import { AssetLoader } from './asset-loader';
 
 export interface StateMeshInfo {
   id: string;
@@ -23,20 +24,24 @@ export class SvgMapParser {
   // Materials
   private static stonewareMaterial = new THREE.MeshStandardMaterial({
     color: 0xE6DFD5,
-    roughness: 0.72,
+    roughness: 0.70,
     metalness: 0.08,
     flatShading: false
   });
 
   private static boundaryLineMaterial = new THREE.LineBasicMaterial({
-    color: 0xA49688,
+    color: 0x988878,
     linewidth: 1.5,
     transparent: true,
     opacity: 0.85
   });
 
   public static async loadAndParse(svgUrl: string): Promise<MapParseResult> {
-    const response = await fetch(svgUrl);
+    const resolved = AssetLoader.resolveUrl(svgUrl);
+    const response = await fetch(resolved);
+    if (!response.ok) {
+      throw new Error(`Failed to load SVG from ${resolved}: HTTP ${response.status}`);
+    }
     const svgText = await response.text();
     return this.parseSvgString(svgText);
   }
@@ -62,7 +67,6 @@ export class SvgMapParser {
     const tempBox = new THREE.Box3();
 
     for (const path of svgData.paths) {
-      // Path element attributes from SVG
       const userData = path.userData?.node as SVGElement | undefined;
       const stateId = (userData?.getAttribute('id') || '').toUpperCase().trim();
       const stateName = userData?.getAttribute('name') || stateId;
@@ -75,14 +79,11 @@ export class SvgMapParser {
       const stateGroup = new THREE.Group();
       stateGroup.name = `state-group-${stateId}`;
 
-      // Combine subpaths for multi-polygon states/islands
       const geometries: THREE.ExtrudeGeometry[] = shapes.map(shape => new THREE.ExtrudeGeometry(shape, extrudeSettings));
       
-      // Merge geometries or group them
       for (const geo of geometries) {
         geo.computeVertexNormals();
 
-        // Unique material clone per state to allow independent color transitions
         const stateMaterial = this.stonewareMaterial.clone();
 
         const mesh = new THREE.Mesh(geo, stateMaterial);
@@ -95,16 +96,14 @@ export class SvgMapParser {
           originalColor: stateMaterial.color.getHex()
         };
 
-        // Edge boundary line segments
         const edges = new THREE.EdgesGeometry(geo, 28);
         const boundaryLine = new THREE.LineSegments(edges, this.boundaryLineMaterial.clone());
-        boundaryLine.position.z = 0.2; // Slightly above mesh surface
+        boundaryLine.position.z = 0.2;
 
         stateGroup.add(mesh);
         stateGroup.add(boundaryLine);
         interactiveMeshes.push(mesh);
 
-        // Compute Bounding Box
         geo.computeBoundingBox();
         if (geo.boundingBox) {
           tempBox.union(geo.boundingBox);
@@ -113,7 +112,6 @@ export class SvgMapParser {
 
       mapGroup.add(stateGroup);
 
-      // Compute geometric centroid
       const stateBox = new THREE.Box3().setFromObject(stateGroup);
       const centroid = new THREE.Vector3();
       stateBox.getCenter(centroid);
@@ -131,21 +129,19 @@ export class SvgMapParser {
       });
     }
 
-    // 2. Center and Flip Y (SVG coordinates have Y down; 3D scene has Y up)
+    // Center and Flip Y (SVG coordinates have Y down; 3D scene has Y up)
     const compositeBox = new THREE.Box3().setFromObject(mapGroup);
     const center = new THREE.Vector3();
     compositeBox.getCenter(center);
     const size = new THREE.Vector3();
     compositeBox.getSize(size);
 
-    // Scale to fit nicely in ~520 units wide bounding box
     const maxDim = Math.max(size.x, size.y);
     const targetScale = 520 / maxDim;
 
-    mapGroup.scale.set(targetScale, -targetScale, targetScale); // Note negative Y to flip SVG orientation correctly
+    mapGroup.scale.set(targetScale, -targetScale, targetScale);
     mapGroup.position.set(-center.x * targetScale, center.y * targetScale, 0);
 
-    // Recompute centroids in world coordinates after parent scale & offset
     mapGroup.updateMatrixWorld(true);
     for (const info of stateInfoMap.values()) {
       const worldBox = new THREE.Box3().setFromObject(info.group);

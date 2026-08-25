@@ -9,6 +9,7 @@ import { InteractionManager } from './core/interaction-manager';
 import { InfoCardManager } from './components/info-card';
 import { TracerLayer } from './components/tracer-layer';
 import { CategoryFilterManager } from './core/category-filter';
+import { ModalManager } from './components/modals';
 
 function checkWebGLSupport(): boolean {
   try {
@@ -39,6 +40,7 @@ class GIndiaApp {
   private infoCardManager: InfoCardManager | null = null;
   private tracerLayer: TracerLayer | null = null;
   private categoryFilterManager: CategoryFilterManager | null = null;
+  private modalManager: ModalManager | null = null;
 
   constructor() {
     this.init();
@@ -74,6 +76,12 @@ class GIndiaApp {
           this.speakProduct(product.name, product.stateName, product.description);
         }
       });
+    }
+
+    // Setup Modal Manager
+    const modalContainer = document.getElementById('modal-container');
+    if (modalContainer) {
+      this.modalManager = new ModalManager(modalContainer);
     }
 
     this.state.isWebGLSupported = checkWebGLSupport();
@@ -123,7 +131,7 @@ class GIndiaApp {
           if (stateId && stateName) {
             this.updateHeaderSubtitle(`${stateName} (${stateId})`);
           } else if (!this.state.selectedStateId) {
-            this.updateHeaderSubtitle('Interactive Heritage & Regional Produce Atlas');
+            this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
           }
         },
         onStateSelect: (stateId, stateName, centroid) => {
@@ -153,22 +161,34 @@ class GIndiaApp {
     }
   }
 
-  private handleStateSelection(stateId: string, stateName: string, centroid: any): void {
-    console.info(`🎯 Selected State: ${stateName} (${stateId})`);
-    this.state.selectedStateId = stateId;
+  public handleStateSelection(stateId: string, stateName?: string, centroid?: any): void {
+    const cleanId = stateId.replace('-', '').toUpperCase();
+    const stateMeta = db.getStateById(cleanId);
+    if (!stateMeta) return;
 
-    const stateMeta = db.getStateById(stateId);
-    const products = db.getProductsByState(stateId);
+    const actualName = stateName || stateMeta.name;
+    console.info(`🎯 Selected State: ${actualName} (${cleanId})`);
+    this.state.selectedStateId = cleanId;
 
-    if (stateMeta && this.infoCardManager) {
+    const products = db.getProductsByState(cleanId);
+    const info = this.interactionManager?.getStateInfo(cleanId);
+    const actualCentroid = centroid || (info ? info.centroid : null);
+
+    if (this.interactionManager) {
+      this.interactionManager.selectState(cleanId);
+    }
+
+    if (this.infoCardManager) {
       this.infoCardManager.showStateProducts(stateMeta, products);
-      this.tracerLayer?.setTargetCentroid(centroid);
-      this.cameraController?.focusOnTarget(centroid);
-      this.updateHeaderSubtitle(`${stateName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
+      if (actualCentroid) {
+        this.tracerLayer?.setTargetCentroid(actualCentroid);
+        this.cameraController?.focusOnTarget(actualCentroid);
+      }
+      this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
 
       if (this.state.isSpeechEnabled && products.length > 0) {
         const p = products[0];
-        this.speakProduct(p.name, stateName, p.description);
+        this.speakProduct(p.name, actualName, p.description);
       }
     }
   }
@@ -176,13 +196,12 @@ class GIndiaApp {
   private speakProduct(name: string, state: string, description: string): void {
     if (!('speechSynthesis' in window) || !this.state.isSpeechEnabled) return;
 
-    window.speechSynthesis.cancel(); // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
     const text = `${name}, from ${state}. ${description}`;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.95;
     utterance.pitch = 1.0;
     
-    // Select Indian English voice if available
     const voices = window.speechSynthesis.getVoices();
     const indianVoice = voices.find(v => v.lang.includes('en-IN') || v.name.includes('India'));
     if (indianVoice) {
@@ -216,6 +235,29 @@ class GIndiaApp {
     const filterPanel = document.getElementById('category-filter-panel');
     const btnCloseFilter = document.getElementById('btn-close-filter');
     const categoryList = document.getElementById('category-filter-list');
+    const btnSearch = document.getElementById('btn-search');
+    const btnStats = document.getElementById('btn-stats');
+
+    // Header buttons
+    btnSearch?.addEventListener('click', () => {
+      this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId));
+    });
+
+    btnStats?.addEventListener('click', () => {
+      this.modalManager?.openStatsModal((stateId) => this.handleStateSelection(stateId));
+    });
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        this.modalManager?.openSearchModal((stateId) => this.handleStateSelection(stateId));
+      }
+      if (e.key === 'Escape') {
+        this.modalManager?.close();
+        filterPanel?.classList.add('hidden');
+      }
+    });
 
     // Populate category filter list
     if (categoryList) {
