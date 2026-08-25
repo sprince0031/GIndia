@@ -34,35 +34,41 @@ export class AudioNarrator {
         // Prioritize Indian English voices
         const indianVoice = voices.find(v => 
           v.lang.includes('en-IN') || 
+          v.lang.includes('en_IN') ||
           v.name.toLowerCase().includes('india') ||
           v.name.toLowerCase().includes('heera') ||
           v.name.toLowerCase().includes('neerja') ||
           v.name.toLowerCase().includes('ravi')
         );
         // Fallback to high quality English
-        const englishVoice = voices.find(v => v.lang.startsWith('en-') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online')));
+        const englishVoice = voices.find(v => v.lang.startsWith('en-') || v.lang.startsWith('en_'));
         
         this.selectedVoice = indianVoice || englishVoice || voices[0] || null;
       }
     };
 
     updateVoices();
-    if ('onvoiceschanged' in window.speechSynthesis) {
+    if ('speechSynthesis' in window && 'onvoiceschanged' in window.speechSynthesis) {
       window.speechSynthesis.onvoiceschanged = updateVoices;
     }
   }
 
   public generateProductScript(product: GIProduct, stateName: string): string {
     const highlights = product.keyFeatures && product.keyFeatures.length > 0 
-      ? `Distinctive characteristics include ${product.keyFeatures.slice(0, 2).join(' and ')}.` 
+      ? `Distinctive characteristics include: ${product.keyFeatures.slice(0, 2).join(', and ')}.` 
       : '';
     
     return `${product.name}, from ${stateName}. ${product.description} ${highlights}`.trim();
   }
 
   public speak(text: string, onFinish?: () => void): void {
-    if (!this.isSupported || this.isMuted) {
-      const simulatedDuration = Math.max(3000, Math.min(8000, text.length * 55));
+    if (!this.isSupported) {
+      setTimeout(() => onFinish?.(), 4000);
+      return;
+    }
+
+    if (this.isMuted) {
+      const simulatedDuration = Math.max(3500, Math.min(8000, text.length * 60));
       setTimeout(() => {
         onFinish?.();
         this.onEnd?.();
@@ -72,32 +78,67 @@ export class AudioNarrator {
 
     this.cancel();
 
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Unlock speech synthesis in Chrome/Safari
+    window.speechSynthesis.resume();
 
+    // Re-verify voice selection
+    if (!this.selectedVoice) {
+      this.initVoices();
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
     if (this.selectedVoice) {
       utterance.voice = this.selectedVoice;
     }
-
-    utterance.rate = 0.94;
+    utterance.lang = this.selectedVoice?.lang || 'en-IN';
+    utterance.rate = 0.95;
     utterance.pitch = 1.0;
     utterance.volume = 1.0;
+
+    let hasCompleted = false;
+    const maxFallbackMs = Math.max(4000, Math.min(12000, text.length * 70));
+
+    const fallbackTimer = window.setTimeout(() => {
+      if (!hasCompleted) {
+        hasCompleted = true;
+        this.onEnd?.();
+        onFinish?.();
+      }
+    }, maxFallbackMs);
 
     utterance.onstart = () => {
       this.onStart?.();
     };
 
     utterance.onend = () => {
-      onFinish?.();
-      this.onEnd?.();
+      if (!hasCompleted) {
+        hasCompleted = true;
+        window.clearTimeout(fallbackTimer);
+        this.onEnd?.();
+        onFinish?.();
+      }
     };
 
     utterance.onerror = (e) => {
-      this.onError?.(e);
-      onFinish?.();
-      this.onEnd?.();
+      if (!hasCompleted) {
+        hasCompleted = true;
+        window.clearTimeout(fallbackTimer);
+        this.onError?.(e);
+        this.onEnd?.();
+        onFinish?.();
+      }
     };
 
-    window.speechSynthesis.speak(utterance);
+    try {
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      if (!hasCompleted) {
+        hasCompleted = true;
+        window.clearTimeout(fallbackTimer);
+        this.onEnd?.();
+        onFinish?.();
+      }
+    }
   }
 
   public speakProduct(product: GIProduct, stateName: string, onFinish?: () => void): void {
@@ -112,7 +153,7 @@ export class AudioNarrator {
   }
 
   public resume(): void {
-    if (this.isSupported && window.speechSynthesis.paused) {
+    if (this.isSupported) {
       window.speechSynthesis.resume();
     }
   }

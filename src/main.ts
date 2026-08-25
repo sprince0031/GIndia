@@ -82,6 +82,7 @@ class GIndiaApp {
           this.tracerLayer?.hide();
           this.interactionManager?.deselectState();
           this.state.selectedStateId = null;
+          this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
         },
         onProductChange: (product) => {
           this.state.activeProductId = product.id;
@@ -155,9 +156,10 @@ class GIndiaApp {
         domElement: this.sceneManager.renderer.domElement,
         interactiveMeshes: parseResult.interactiveMeshes,
         stateInfoMap: parseResult.stateInfoMap,
-        onStateHover: (stateId, stateName) => {
-          if (stateId && stateName) {
-            this.updateHeaderSubtitle(`${stateName} (${stateId})`);
+        onStateHover: (_stateId, stateName) => {
+          if (stateName) {
+            // Clean state name only (no bracketed state codes)
+            this.updateHeaderSubtitle(stateName);
           } else if (!this.state.selectedStateId && !this.tourManager?.getIsActive()) {
             this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
           }
@@ -212,6 +214,7 @@ class GIndiaApp {
         this.tracerLayer?.setTargetCentroid(actualCentroid);
         this.cameraController?.focusOnTarget(actualCentroid);
       }
+      // Clean header subtitle without bracketed codes
       this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
     }
   }

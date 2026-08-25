@@ -20,19 +20,19 @@ export class TourManager {
   private onStepChange?: (state: StateMetadata, product: GIProduct, stepIndex: number, totalSteps: number) => void;
   private onTourStateChange?: (isActive: boolean, isPaused: boolean) => void;
 
-  // Curated 36-Stop Grand Regional Itinerary across India
+  // Curated 36-Stop Regional Tour Journey
   private readonly itineraryStateIds: string[] = [
-    // 1. Northern Himalayas & Crown
+    // 1. Northern Himalayas
     'INLA', 'INJK', 'INHP', 'INUT', 'INPB', 'INHR', 'INCH', 'INDL',
-    // 2. Central Heartland & Gangetic Basin
+    // 2. Central Heartland & Plains
     'INRJ', 'INMP', 'INUP', 'INCT', 'INBR', 'INJH', 'INWB', 'INOR',
-    // 3. Northeastern Seven Sisters & Sikkim
+    // 3. Northeast Hills
     'INSK', 'INAS', 'INAR', 'INNL', 'INMN', 'INMZ', 'INTR', 'INML',
-    // 4. Western Coast & Arabian Sea
+    // 4. Western Coast
     'INGJ', 'INDH', 'INMH', 'INGA',
-    // 5. Southern Peninsula & Deccan Heritage
+    // 5. Southern Deccan & Coast
     'INTG', 'INAP', 'INKA', 'INKL', 'INTN', 'INPY',
-    // 6. Island Territories
+    // 6. Islands
     'INAN', 'INLD'
   ];
 
@@ -47,7 +47,6 @@ export class TourManager {
   private setupIdleDetection(): void {
     const onUserInteraction = () => {
       if (this.isActive && !this.isPaused) {
-        // Visitor interacted with kiosk: pause tour and restart idle countdown
         this.pause();
       }
 
@@ -57,7 +56,7 @@ export class TourManager {
 
       this.idleTimeoutId = window.setTimeout(() => {
         if (this.isPaused) {
-          console.info('⏱️ Kiosk idle for 20s. Auto-resuming exhibition guided tour...');
+          console.info('⏱️ 20s idle timeout reached. Auto-resuming tour...');
           this.resume();
         }
       }, this.IDLE_RESUME_DELAY_MS);
@@ -116,17 +115,11 @@ export class TourManager {
       this.isPaused = false;
       this.onTourStateChange?.(true, false);
       this.audioNarrator.resume();
-      if (!this.audioNarrator.getIsSpeaking()) {
-        this.executeStep(this.currentIndex);
-      }
+      this.executeStep(this.currentIndex);
     }
   }
 
   public next(): void {
-    if (!this.isActive) {
-      this.start((this.currentIndex + 1) % this.itineraryStateIds.length);
-      return;
-    }
     this.clearStepTimeout();
     this.audioNarrator.cancel();
     this.currentIndex = (this.currentIndex + 1) % this.itineraryStateIds.length;
@@ -136,10 +129,6 @@ export class TourManager {
   }
 
   public previous(): void {
-    if (!this.isActive) {
-      this.start((this.currentIndex - 1 + this.itineraryStateIds.length) % this.itineraryStateIds.length);
-      return;
-    }
     this.clearStepTimeout();
     this.audioNarrator.cancel();
     this.currentIndex = (this.currentIndex - 1 + this.itineraryStateIds.length) % this.itineraryStateIds.length;
@@ -151,26 +140,37 @@ export class TourManager {
   private executeStep(index: number): void {
     if (!this.isActive || this.isPaused) return;
 
+    this.clearStepTimeout();
+
     const stateId = this.itineraryStateIds[index];
     const state = db.getStateById(stateId);
     const products = db.getProductsByState(stateId);
 
     if (!state || products.length === 0) {
-      // Advance to next if state is missing
       this.advanceAfterDwell(1000);
       return;
     }
 
     const featuredProduct = products[0];
 
-    // Trigger visual step change
+    // Trigger visual updates
     this.onStepChange?.(state, featuredProduct, index, this.itineraryStateIds.length);
+
+    let stepHandled = false;
+
+    // Guaranteed fallback timer to prevent tour from ever hanging (e.g. max 9.5s per stop)
+    this.stepTimeoutId = window.setTimeout(() => {
+      if (!stepHandled && this.isActive && !this.isPaused) {
+        stepHandled = true;
+        this.next();
+      }
+    }, 9500);
 
     // Speak audio narration
     this.audioNarrator.speakProduct(featuredProduct, state.name, () => {
-      if (this.isActive && !this.isPaused) {
-        // Dwell briefly after narration concludes before flying to next stop
-        this.advanceAfterDwell(2000);
+      if (!stepHandled && this.isActive && !this.isPaused) {
+        stepHandled = true;
+        this.advanceAfterDwell(1500);
       }
     });
   }
@@ -179,8 +179,7 @@ export class TourManager {
     this.clearStepTimeout();
     this.stepTimeoutId = window.setTimeout(() => {
       if (this.isActive && !this.isPaused) {
-        this.currentIndex = (this.currentIndex + 1) % this.itineraryStateIds.length;
-        this.executeStep(this.currentIndex);
+        this.next();
       }
     }, delayMs);
   }

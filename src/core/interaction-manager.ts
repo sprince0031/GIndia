@@ -26,7 +26,6 @@ export class InteractionManager {
   private onStateHover?: (stateId: string | null, stateName: string | null) => void;
   private onStateSelect?: (stateId: string, stateName: string, centroid: THREE.Vector3) => void;
 
-  
   private pointerDownPos = { x: 0, y: 0 };
 
   // Color constants
@@ -63,14 +62,23 @@ export class InteractionManager {
   };
 
   private onPointerDown = (e: PointerEvent): void => {
-    
     this.pointerDownPos = { x: e.clientX, y: e.clientY };
   };
 
   private onPointerUp = (e: PointerEvent): void => {
     const dist = Math.hypot(e.clientX - this.pointerDownPos.x, e.clientY - this.pointerDownPos.y);
-    if (dist < 6) {
-      // Intentional Click / Tap (not a drag or orbit pan)
+    if (dist < 8) {
+      // Calculate raycast at click point
+      this.raycaster.setFromCamera(this.pointer, this.camera);
+      const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, false);
+      if (intersects.length > 0) {
+        const hitMesh = intersects[0].object as THREE.Mesh;
+        const stateId = hitMesh.userData.stateId as string;
+        if (stateId) {
+          this.selectState(stateId);
+          return;
+        }
+      }
       if (this.hoveredStateId) {
         this.selectState(this.hoveredStateId);
       }
@@ -97,12 +105,10 @@ export class InteractionManager {
       const stateName = hitMesh.userData.stateName as string;
 
       if (stateId && stateId !== this.hoveredStateId) {
-        // Reset previous hovered state
         if (this.hoveredStateId && this.hoveredStateId !== this.selectedStateId) {
           this.animateStateHover(this.hoveredStateId, false);
         }
 
-        // Apply new hover
         this.hoveredStateId = stateId;
         this.domElement.style.cursor = 'pointer';
         if (this.hoveredStateId !== this.selectedStateId) {
@@ -111,7 +117,6 @@ export class InteractionManager {
         this.onStateHover?.(stateId, stateName);
       }
     } else {
-      // Nothing hovered
       if (this.hoveredStateId) {
         if (this.hoveredStateId !== this.selectedStateId) {
           this.animateStateHover(this.hoveredStateId, false);
@@ -124,18 +129,18 @@ export class InteractionManager {
   }
 
   public selectState(stateId: string): void {
-    const info = this.stateInfoMap.get(stateId);
+    const cleanId = stateId.replace('-', '').toUpperCase();
+    const info = this.stateInfoMap.get(cleanId);
     if (!info) return;
 
-    // Reset previous selection
-    if (this.selectedStateId && this.selectedStateId !== stateId) {
+    if (this.selectedStateId && this.selectedStateId !== cleanId) {
       this.animateStateSelect(this.selectedStateId, false);
     }
 
-    this.selectedStateId = stateId;
-    this.animateStateSelect(stateId, true);
+    this.selectedStateId = cleanId;
+    this.animateStateSelect(cleanId, true);
 
-    this.onStateSelect?.(stateId, info.name, info.centroid);
+    this.onStateSelect?.(cleanId, info.name, info.centroid);
   }
 
   public deselectState(): void {
@@ -150,35 +155,22 @@ export class InteractionManager {
     if (!info) return;
 
     info.isHovered = isHovered;
-    const mesh = info.mesh;
-    const material = mesh.material as THREE.MeshStandardMaterial;
-
     const targetZ = isHovered ? this.HOVER_ELEVATION : 0;
     const targetColor = isHovered ? this.TERRACOTTA_COLOR : this.STONE_COLOR;
     const targetEmissive = isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000;
 
-    // Animate Elevation (Z-lift)
     gsap.to(info.group.position, {
       z: targetZ,
       duration: 0.28,
       ease: 'power2.out'
     });
 
-    // Animate Material Color
-    const tempColor = { r: material.color.r, g: material.color.g, b: material.color.b };
-    const goalColor = new THREE.Color(targetColor);
-
-    gsap.to(tempColor, {
-      r: goalColor.r,
-      g: goalColor.g,
-      b: goalColor.b,
-      duration: 0.28,
-      onUpdate: () => {
-        material.color.setRGB(tempColor.r, tempColor.g, tempColor.b);
+    info.group.traverse((child) => {
+      if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+        child.material.color.setHex(targetColor);
+        child.material.emissive.setHex(targetEmissive);
       }
     });
-
-    material.emissive.setHex(targetEmissive);
   }
 
   private animateStateSelect(stateId: string, isSelected: boolean): void {
@@ -186,11 +178,9 @@ export class InteractionManager {
     if (!info) return;
 
     info.isSelected = isSelected;
-    const mesh = info.mesh;
-    const material = mesh.material as THREE.MeshStandardMaterial;
-
     const targetZ = isSelected ? this.SELECT_ELEVATION : (info.isHovered ? this.HOVER_ELEVATION : 0);
     const targetColor = isSelected ? this.TERRACOTTA_COLOR : (info.isHovered ? this.TERRACOTTA_COLOR : this.STONE_COLOR);
+    const targetEmissive = isSelected ? 0x4A1808 : (info.isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000);
 
     gsap.to(info.group.position, {
       z: targetZ,
@@ -198,13 +188,14 @@ export class InteractionManager {
       ease: 'elastic.out(1, 0.75)'
     });
 
-    material.color.setHex(targetColor);
-    material.emissive.setHex(isSelected ? 0x4A1808 : (info.isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000));
+    info.group.traverse((child) => {
+      if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+        child.material.color.setHex(targetColor);
+        child.material.emissive.setHex(targetEmissive);
+      }
+    });
   }
 
-  /**
-   * Project 3D coordinate vector to 2D screen viewport coordinates (pixels)
-   */
   public toScreenPosition(worldPosition: THREE.Vector3): { x: number; y: number; isVisible: boolean } {
     const vector = worldPosition.clone();
     vector.project(this.camera);
@@ -225,7 +216,8 @@ export class InteractionManager {
   }
 
   public getStateInfo(stateId: string): StateMeshInfo | undefined {
-    return this.stateInfoMap.get(stateId);
+    const cleanId = stateId.replace('-', '').toUpperCase();
+    return this.stateInfoMap.get(cleanId);
   }
 
   public dispose(): void {

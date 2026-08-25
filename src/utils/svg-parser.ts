@@ -21,7 +21,7 @@ export interface MapParseResult {
 }
 
 export class SvgMapParser {
-  // Materials
+  // Base Materials
   private static stonewareMaterial = new THREE.MeshStandardMaterial({
     color: 0xE6DFD5,
     roughness: 0.70,
@@ -54,7 +54,6 @@ export class SvgMapParser {
     const interactiveMeshes: THREE.Mesh[] = [];
     const stateInfoMap = new Map<string, StateMeshInfo>();
 
-    // 1. Process all SVG Paths
     const extrudeSettings: THREE.ExtrudeGeometryOptions = {
       depth: 14,
       bevelEnabled: true,
@@ -68,10 +67,17 @@ export class SvgMapParser {
 
     for (const path of svgData.paths) {
       const userData = path.userData?.node as SVGElement | undefined;
+      const nodeName = (userData?.nodeName || '').toLowerCase();
+      
+      // CRITICAL FIX: Only process full state polygon <path> elements, ignore duplicate <circle> nodes
+      if (nodeName && nodeName !== 'path') {
+        continue;
+      }
+
       const stateId = (userData?.getAttribute('id') || '').toUpperCase().trim();
       const stateName = userData?.getAttribute('name') || stateId;
 
-      if (!stateId) continue;
+      if (!stateId || !stateId.startsWith('IN')) continue;
 
       const shapes = SVGLoader.createShapes(path);
       if (!shapes || shapes.length === 0) continue;
@@ -79,9 +85,11 @@ export class SvgMapParser {
       const stateGroup = new THREE.Group();
       stateGroup.name = `state-group-${stateId}`;
 
-      const geometries: THREE.ExtrudeGeometry[] = shapes.map(shape => new THREE.ExtrudeGeometry(shape, extrudeSettings));
-      
-      for (const geo of geometries) {
+      let primaryMesh: THREE.Mesh | null = null;
+      let primaryLine: THREE.LineSegments | null = null;
+
+      for (const shape of shapes) {
+        const geo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
         geo.computeVertexNormals();
 
         const stateMaterial = this.stonewareMaterial.clone();
@@ -104,6 +112,9 @@ export class SvgMapParser {
         stateGroup.add(boundaryLine);
         interactiveMeshes.push(mesh);
 
+        if (!primaryMesh) primaryMesh = mesh;
+        if (!primaryLine) primaryLine = boundaryLine;
+
         geo.computeBoundingBox();
         if (geo.boundingBox) {
           tempBox.union(geo.boundingBox);
@@ -116,17 +127,19 @@ export class SvgMapParser {
       const centroid = new THREE.Vector3();
       stateBox.getCenter(centroid);
 
-      stateInfoMap.set(stateId, {
-        id: stateId,
-        name: stateName,
-        group: stateGroup,
-        mesh: stateGroup.children[0] as THREE.Mesh,
-        boundaryLine: stateGroup.children[1] as THREE.LineSegments,
-        centroid,
-        basePosition: stateGroup.position.clone(),
-        isHovered: false,
-        isSelected: false
-      });
+      if (primaryMesh && primaryLine) {
+        stateInfoMap.set(stateId, {
+          id: stateId,
+          name: stateName,
+          group: stateGroup,
+          mesh: primaryMesh,
+          boundaryLine: primaryLine,
+          centroid,
+          basePosition: stateGroup.position.clone(),
+          isHovered: false,
+          isSelected: false
+        });
+      }
     }
 
     // Center and Flip Y (SVG coordinates have Y down; 3D scene has Y up)
@@ -148,6 +161,8 @@ export class SvgMapParser {
       worldBox.getCenter(info.centroid);
       info.basePosition = info.group.position.clone();
     }
+
+    console.info(`✅ Loaded ${stateInfoMap.size} distinct state 3D meshes (all duplicate circles excluded).`);
 
     return {
       mapGroup,
