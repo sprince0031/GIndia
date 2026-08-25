@@ -3,7 +3,6 @@ import { ArtworkGenerator } from './artwork-generator';
 
 export class AssetLoader {
   private static imageCache: Map<string, HTMLImageElement> = new Map();
-  private static pendingLoads: Map<string, Promise<string>> = new Map();
 
   public static resolveUrl(url: string): string {
     if (!url || url.startsWith('http') || url.startsWith('data:')) {
@@ -15,60 +14,23 @@ export class AssetLoader {
     return `${cleanBase}${cleanPath}`;
   }
 
-  /**
-   * Preload an image URL into browser cache with immediate fallback to generated SVG
-   */
-  public static async loadImage(product: GIProduct): Promise<string> {
-    const rawUrl = product.imageUrl;
-    const url = this.resolveUrl(rawUrl);
-
-    if (this.imageCache.has(url)) {
-      return url;
-    }
-
-    if (this.pendingLoads.has(url)) {
-      return this.pendingLoads.get(url)!;
-    }
-
-    const loadPromise = new Promise<string>((resolve) => {
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-
-      img.onload = () => {
-        this.imageCache.set(url, img);
-        resolve(url);
-      };
-
-      img.onerror = () => {
-        // Return artistic vector fallback when external/local photo fails
-        const fallback = ArtworkGenerator.generateFallbackDataUri(product);
-        resolve(fallback);
-      };
-
-      img.src = url;
-    });
-
-    this.pendingLoads.set(url, loadPromise);
-    return loadPromise;
-  }
-
-  /**
-   * Batch preload images for a list of products
-   */
-  public static async preloadProducts(products: GIProduct[]): Promise<void> {
-    await Promise.all(products.map(p => this.loadImage(p)));
-  }
-
-  /**
-   * Synchronously obtain a displayable image src (returns either cached url or instant SVG fallback)
-   */
   public static getDisplaySrc(product: GIProduct): string {
-    const url = this.resolveUrl(product.imageUrl);
-    if (this.imageCache.has(url)) {
-      return url;
+    if (product.imageUrl) {
+      return this.resolveUrl(product.imageUrl);
     }
-    // Preload in background and return instant vector fallback
-    this.loadImage(product);
     return ArtworkGenerator.generateFallbackDataUri(product);
+  }
+
+  public static preloadProducts(products: GIProduct[]): void {
+    products.forEach(p => {
+      if (p.imageUrl) {
+        const url = this.resolveUrl(p.imageUrl);
+        if (!this.imageCache.has(url)) {
+          const img = new Image();
+          img.src = url;
+          this.imageCache.set(url, img);
+        }
+      }
+    });
   }
 }

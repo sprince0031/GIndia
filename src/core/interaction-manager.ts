@@ -79,7 +79,7 @@ export class InteractionManager {
       const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, true);
       
       if (intersects.length === 0) {
-        // Clicked outside / in the ocean: deselect
+        // Clicked outside in the canvas ocean: deselect
         this.deselectState();
         this.onStateDeselect?.();
         return;
@@ -152,8 +152,15 @@ export class InteractionManager {
     const info = this.stateInfoMap.get(cleanId);
     if (!info) return;
 
-    if (this.selectedStateId && this.selectedStateId !== cleanId) {
-      this.animateStateSelect(this.selectedStateId, false);
+    // Reset ALL other states so only 1 state is active at a time
+    for (const [id, otherInfo] of this.stateInfoMap.entries()) {
+      if (id !== cleanId) {
+        if (otherInfo.isSelected || otherInfo.isHovered) {
+          otherInfo.isSelected = false;
+          otherInfo.isHovered = false;
+          this.animateStateSelect(id, false);
+        }
+      }
     }
 
     const wasAlreadySelected = this.selectedStateId === cleanId;
@@ -166,10 +173,13 @@ export class InteractionManager {
   }
 
   public deselectState(): void {
-    if (this.selectedStateId) {
-      this.animateStateSelect(this.selectedStateId, false);
-      this.selectedStateId = null;
+    for (const [id, info] of this.stateInfoMap.entries()) {
+      info.isSelected = false;
+      info.isHovered = false;
+      this.animateStateSelect(id, false);
     }
+    this.selectedStateId = null;
+    this.hoveredStateId = null;
   }
 
   private animateStateHover(stateId: string, isHovered: boolean): void {
