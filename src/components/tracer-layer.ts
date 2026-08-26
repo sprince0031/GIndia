@@ -64,27 +64,27 @@ export class TracerLayer {
     this.svg.innerHTML = `
       <defs>
         <linearGradient id="tracerGrad" x1="${x1 < x2 ? '0%' : '100%'}" y1="0%" x2="${x1 < x2 ? '100%' : '0%'}" y2="0%">
-          <stop offset="0%" stop-color="#D9531E" stop-opacity="0.95" />
-          <stop offset="100%" stop-color="#D9531E" stop-opacity="0.25" />
+          <stop offset="0%" stop-color="#0284C7" stop-opacity="0.95" />
+          <stop offset="100%" stop-color="#0284C7" stop-opacity="0.25" />
         </linearGradient>
       </defs>
 
       <!-- Glow Background Ray -->
-      <path d="${pathD}" fill="none" stroke="rgba(217, 83, 30, 0.18)" stroke-width="6" stroke-linecap="round" />
+      <path d="${pathD}" fill="none" stroke="rgba(2, 132, 199, 0.2)" stroke-width="6" stroke-linecap="round" />
 
       <!-- Animated Traveling Dashed Ray -->
       <path d="${pathD}" fill="none" stroke="url(#tracerGrad)" stroke-width="2.2" stroke-linecap="round" class="tracer-line" />
 
       <!-- 3D State Origin Anchor Pin (Pulsing) -->
       <g transform="translate(${x1.toFixed(1)}, ${y1.toFixed(1)})">
-        <circle r="10" fill="rgba(217, 83, 30, 0.22)" class="pin-pulse" />
-        <circle r="5.5" fill="#D9531E" stroke="#FFFFFF" stroke-width="2" />
+        <circle r="10" fill="rgba(2, 132, 199, 0.25)" class="pin-pulse" />
+        <circle r="5.5" fill="#0284C7" stroke="#FFFFFF" stroke-width="2" />
         <circle r="2" fill="#FFFFFF" />
       </g>
 
       <!-- Target Info Card Terminal Dot -->
       <g transform="translate(${x2.toFixed(1)}, ${y2.toFixed(1)})">
-        <circle r="4" fill="#D9531E" stroke="#FFFFFF" stroke-width="1.5" />
+        <circle r="4" fill="#0284C7" stroke="#FFFFFF" stroke-width="1.5" />
       </g>
     `;
   }

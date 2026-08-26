@@ -16,9 +16,9 @@ export default {
           hover: '#D8CFB0',
         },
         terracotta: {
-          DEFAULT: '#D9531E',
-          dark: '#B83E10',
-          glow: 'rgba(217, 83, 30, 0.25)',
+          DEFAULT: '#0284C7', // Cerulean Azure Accent (between indigo and light blue)
+          dark: '#0369A1',
+          glow: 'rgba(2, 132, 199, 0.25)',
         },
         indigo: '#2B4C7E',
         saffron: '#E08D3C',

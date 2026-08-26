@@ -7,9 +7,9 @@
   --color-canvas-subtle: #F3EFE6;
   --color-stone-base: #E5DFC5;
   --color-stone-hover: #D8CFB0;
-  --color-terracotta: #D9531E;
-  --color-terracotta-dark: #B83E10;
-  --color-terracotta-glow: rgba(217, 83, 30, 0.25);
+  --color-terracotta: #0284C7;
+  --color-terracotta-dark: #0369A1;
+  --color-terracotta-glow: rgba(2, 132, 199, 0.25);
   --color-indigo: #2B4C7E;
   --color-saffron: #E08D3C;
   --color-gold: #C5A059;
@@ -176,7 +176,7 @@ h1, h2, h3, .font-serif {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(26, 32, 44, 0.1);
   border-radius: 20px;
-  box-shadow: 0 25px 50px -12px rgba(26, 32, 44, 0.15), 0 0 0 1px rgba(217, 83, 30, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(26, 32, 44, 0.15), 0 0 0 1px rgba(2, 132, 199, 0.2);
 }
 
 /* Category Badges */

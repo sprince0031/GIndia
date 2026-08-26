@@ -391,17 +391,17 @@ export class SvgMapEngine {
 
     for (const path of info.paths) {
       if (isSelected) {
-        path.setAttribute('fill', '#D9531E'); // Vibrant terracotta
+        path.setAttribute('fill', '#0284C7'); // Vibrant terracotta
         path.setAttribute('stroke', '#FFFFFF');
         path.setAttribute('stroke-width', '2');
         path.style.opacity = '1.0';
       } else if (isHovered) {
-        path.setAttribute('fill', '#D9531E');
+        path.setAttribute('fill', '#0284C7');
         path.setAttribute('stroke', '#FAF7F2');
         path.setAttribute('stroke-width', '1.5');
         path.style.opacity = '1.0';
       } else if (isFilterActive && matchesFilter) {
-        path.setAttribute('fill', '#D9531E');
+        path.setAttribute('fill', '#0284C7');
         path.setAttribute('stroke', '#FAF7F2');
         path.setAttribute('stroke-width', '1.2');
         path.style.opacity = '1.0';

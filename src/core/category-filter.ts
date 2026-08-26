@@ -16,8 +16,8 @@ export class CategoryFilterManager {
   private onFilterChange?: (category: GICategory | 'All') => void;
 
   public readonly STONE_COLOR = 0xE6DFD5;
-  public readonly TERRACOTTA_COLOR = 0xD9531E;
-  public readonly TERRACOTTA_EMISSIVE = 0x240A04;
+  public readonly TERRACOTTA_COLOR = 0x0284C7;
+  public readonly TERRACOTTA_EMISSIVE = 0x002244;
   public readonly DIMMED_COLOR = 0xEBE6DE;
 
   constructor(options: CategoryFilterOptions) {
@@ -49,7 +49,7 @@ export class CategoryFilterManager {
 
       const targetZ = isSelected ? 14 : (isMatch ? 5 : 0);
       const targetColor = (isSelected || isMatch) ? this.TERRACOTTA_COLOR : this.DIMMED_COLOR;
-      const targetEmissive = isSelected ? 0x4A1808 : (isMatch ? this.TERRACOTTA_EMISSIVE : 0x000000);
+      const targetEmissive = isSelected ? 0x004488 : (isMatch ? this.TERRACOTTA_EMISSIVE : 0x000000);
       const targetOpacity = (isSelected || isMatch) ? 1.0 : 0.32;
       const isTransparent = !(isSelected || isMatch);
 
@@ -77,7 +77,7 @@ export class CategoryFilterManager {
       const isSelected = info.isSelected;
       const targetZ = isSelected ? 14 : 0;
       const targetColor = isSelected ? this.TERRACOTTA_COLOR : this.STONE_COLOR;
-      const targetEmissive = isSelected ? 0x4A1808 : 0x000000;
+      const targetEmissive = isSelected ? 0x004488 : 0x000000;
 
       gsap.to(info.group.position, {
         z: targetZ,

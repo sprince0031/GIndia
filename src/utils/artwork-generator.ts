@@ -14,7 +14,7 @@ export class ArtworkGenerator {
       <stop offset="100%" stop-color="#020617" />
     </linearGradient>
     <radialGradient id="spotlight" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#D9531E" stop-opacity="0.35" />
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.35" />
       <stop offset="100%" stop-color="#000000" stop-opacity="0" />
     </radialGradient>
   </defs>
@@ -23,8 +23,8 @@ export class ArtworkGenerator {
   <rect width="100%" height="100%" fill="url(#spotlight)"/>
 
   <!-- Museum Exhibition Pedestal -->
-  <circle cx="300" cy="180" r="120" fill="none" stroke="#D9531E" stroke-opacity="0.18" stroke-width="1.5" />
-  <circle cx="300" cy="180" r="95" fill="none" stroke="#D9531E" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="4,6" />
+  <circle cx="300" cy="180" r="120" fill="none" stroke="#0284C7" stroke-opacity="0.18" stroke-width="1.5" />
+  <circle cx="300" cy="180" r="95" fill="none" stroke="#0284C7" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="4,6" />
 
   <!-- Hero Artifact Representation -->
   <g transform="translate(300, 180)">
@@ -46,7 +46,7 @@ export class ArtworkGenerator {
     ${safeState} • Registered Geographical Indication of India
   </text>
 
-  <rect x="0" y="396" width="600" height="4" fill="#D9531E" />
+  <rect x="0" y="396" width="600" height="4" fill="#0284C7" />
 </svg>
     `.trim();
 

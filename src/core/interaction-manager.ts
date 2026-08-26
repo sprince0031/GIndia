@@ -35,8 +35,8 @@ export class InteractionManager {
 
   // Color constants
   private readonly STONE_COLOR = 0xE6DFD5;
-  private readonly TERRACOTTA_COLOR = 0xD9531E;
-  private readonly TERRACOTTA_EMISSIVE = 0x381206;
+  private readonly TERRACOTTA_COLOR = 0x0284C7;
+  private readonly TERRACOTTA_EMISSIVE = 0x003366;
   private readonly DIMMED_COLOR = 0xEBE6DE;
   private readonly HOVER_ELEVATION = 10;
   private readonly SELECT_ELEVATION = 14;
@@ -194,7 +194,7 @@ export class InteractionManager {
     if (isFilterActive) {
       const isMatch = this.categoryFilterManager?.isStateMatching(stateId) ?? false;
       if (isMatch) {
-        return { color: this.TERRACOTTA_COLOR, emissive: 0x240A04, z: 5, opacity: 1.0, transparent: false };
+        return { color: this.TERRACOTTA_COLOR, emissive: 0x002244, z: 5, opacity: 1.0, transparent: false };
       } else {
         return { color: this.DIMMED_COLOR, emissive: 0x000000, z: 0, opacity: 0.32, transparent: true };
       }
@@ -269,7 +269,7 @@ export class InteractionManager {
       info.group.traverse((child) => {
         if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
           child.material.color.setHex(this.TERRACOTTA_COLOR);
-          child.material.emissive.setHex(0x4A1808);
+          child.material.emissive.setHex(0x004488);
           child.material.opacity = 1.0;
           child.material.transparent = false;
         }
