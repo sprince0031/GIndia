@@ -1,0 +1,8 @@
+{
+  "track_id": "webgl_fallback_ux",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-08-26T14:29:20Z",
+  "updated_at": "2026-08-26T14:29:20Z",
+  "description": "WebGL Fallback & Cross-Device Mobile/Tablet UX"
+}
