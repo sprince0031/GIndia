@@ -1,13 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
   <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
-    
-        <ellipse cx="0" cy="50" rx="80" ry="20" fill="rgba(0,0,0,0.4)" />
-        <path d="M-45,15 C-40,55 40,55 45,15 C45,-10 -45,-10 -45,15 Z" fill="#78350F" opacity="0.8" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.4))" />
-        <ellipse cx="0" cy="12" rx="42" ry="12" fill="#D97706" />
-        <g transform="translate(0, -35) scale(1.1)">
-          <path d="M0,15 Q-20,-15 0,-45 Q20,-15 0,15 Z" fill="#D97706" stroke="#FEF08A" stroke-width="1.5" />
-        </g>
+    <g transform="translate(0, 10)">
+      <!-- Saucer Plate -->
+      <ellipse cx="0" cy="62" rx="90" ry="22" fill="#CBD5E1" filter="drop-shadow(0 12px 18px rgba(0,0,0,0.35))" />
+      <ellipse cx="0" cy="60" rx="76" ry="16" fill="#F8FAFC" />
       
+      <!-- Clear Glass Teacup with Radiant Copper-Amber Orthodox Tea Liquor -->
+      <path d="M-55,15 C-48,58 48,58 55,15 C55,-12 -55,-12 -55,15 Z" fill="#7C2D12" fill-opacity="0.85" stroke="#E2E8F0" stroke-width="3.5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.4))" />
+      
+      <!-- Liquid Surface with Malty Copper Sheen -->
+      <ellipse cx="0" cy="14" rx="52" ry="14" fill="#C2410C" />
+      <ellipse cx="0" cy="14" rx="46" ry="11" fill="#EA580C" opacity="0.9" />
+      <ellipse cx="-15" cy="12" rx="14" ry="4" fill="#FBBF24" opacity="0.5" /> <!-- Golden liquor reflection -->
+
+      <!-- Glass Handle -->
+      <path d="M52,12 C78,12 78,46 50,46" fill="none" stroke="#E2E8F0" stroke-width="7" stroke-linecap="round" />
+      <path d="M52,12 C78,12 78,46 50,46" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+
+      <!-- Whole Rolled Black Tea Leaves with Golden Tips (TGFOP) cascading on the right -->
+      <g transform="translate(52, 28) scale(0.95)">
+        <!-- Wiry black tea leaves -->
+        <path d="M0,0 Q12,-8 20,4 Q10,12 0,0" fill="#18181B" stroke="#27272A" stroke-width="1" />
+        <path d="M15,10 Q28,2 35,16 Q22,20 15,10" fill="#18181B" stroke="#27272A" stroke-width="1" />
+        <!-- Golden Tips (Amber buds) -->
+        <path d="M-8,14 Q2,5 12,18 Q0,22 -8,14" fill="#F59E0B" stroke="#B45309" stroke-width="1" />
+        <path d="M22,-4 Q32,-14 40,-2 Q30,4 22,-4" fill="#FBBF24" stroke="#D97706" stroke-width="1" />
+      </g>
+
+      <!-- Fresh Two Leaves and a Bud Sprig in the background -->
+      <g transform="translate(-12, -28) scale(1.1)">
+        <path d="M0,18 Q-25,-15 0,-50 Q25,-15 0,18 Z" fill="#15803D" stroke="#16A34A" stroke-width="1.5" />
+        <path d="M0,18 Q-12,-12 0,-50" fill="none" stroke="#86EFAC" stroke-width="1.8" />
+        <path d="M-12,8 Q-42,-2 -32,-35 Q-8,-15 -12,8 Z" fill="#16A34A" />
+        <path d="M12,12 Q42,2 32,-30 Q8,-12 12,12 Z" fill="#15803D" />
+        <!-- Morning dew drops -->
+        <circle cx="-5" cy="-22" r="3" fill="#FFFFFF" opacity="0.8" />
+      </g>
+
+      <!-- Steaming Aromatic Warmth -->
+      <path d="M-15,-2 Q-28,-30 -12,-55 T-22,-95" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.4" stroke-linecap="round" />
+      <path d="M12,-6 Q28,-35 15,-65 T28,-100" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-linecap="round" />
+    </g>
   </g>
 </svg>

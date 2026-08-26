@@ -1,12 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
   <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
-    
-        <path d="M-85,15 Q0,-10 85,15 Q60,40 0,40 Q-60,40 -85,15 Z" fill="#78350F" stroke="#451A03" stroke-width="3" filter="drop-shadow(0 12px 20px rgba(0,0,0,0.5))" />
-        <ellipse cx="0" cy="18" rx="70" ry="12" fill="#B45309" />
-        <line x1="-40" y1="18" x2="-60" y2="-30" stroke="#FDE047" stroke-width="3.5" stroke-linecap="round" />
-        <line x1="40" y1="18" x2="20" y2="-30" stroke="#FDE047" stroke-width="3.5" stroke-linecap="round" />
-        <path d="M-80,-30 Q0,-45 80,-30" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="round" />
+    <g transform="translate(0, 10)">
+      <!-- Sea water ripples under canoe -->
+      <ellipse cx="0" cy="45" rx="85" ry="12" fill="rgba(2,132,199,0.15)" />
       
+      <!-- Outrigger Stabilizer Float (Log boom sitting on the water) -->
+      <g transform="translate(0, -32)">
+        <path d="M-80,0 Q0,-8 80,0 Q70,7 0,7 Q-70,7 -80,0 Z" fill="#D97706" stroke="#92400E" stroke-width="2" />
+        <line x1="-75" y1="0" x2="75" y2="0" stroke="#FDE047" stroke-width="1.5" />
+      </g>
+
+      <!-- Three Curved Bamboo Crossbeams (Booms connecting float to hull) -->
+      <g stroke="#FDE047" stroke-width="3" stroke-linecap="round" fill="none">
+        <path d="M-45,22 C-55,-5 -60,-20 -55,-32" />
+        <path d="M0,22 C-10,-5 -15,-20 -10,-32" />
+        <path d="M45,22 C35,-5 30,-20 35,-32" />
+      </g>
+      <!-- Lashings on crossbeams -->
+      <circle cx="-55" cy="-32" r="3" fill="#78350F" />
+      <circle cx="-10" cy="-32" r="3" fill="#78350F" />
+      <circle cx="35" cy="-32" r="3" fill="#78350F" />
+
+      <!-- Main Dugout Hull (Crafted from single jackfruit trunk, sleek 12:1 profile) -->
+      <g transform="translate(0, 20)">
+        <!-- Outer carved timber hull with sharp curved bow & stern -->
+        <path d="M-92,-8 Q0,-16 92,-8 C85,25 40,32 0,32 C-40,32 -85,25 -92,-8 Z" fill="#78350F" stroke="#451A03" stroke-width="3" filter="drop-shadow(0 12px 20px rgba(0,0,0,0.5))" />
+        
+        <!-- Hollow interior cockpit -->
+        <ellipse cx="0" cy="-2" rx="82" ry="12" fill="#451A03" />
+        <ellipse cx="0" cy="1" rx="74" ry="7" fill="#9A3412" />
+        
+        <!-- Traditional geometric notch markings on gunwale -->
+        <path d="M-82,-6 Q0,-12 82,-6" fill="none" stroke="#FBBF24" stroke-width="2" stroke-dasharray="6,4" />
+
+        <!-- Hand-carved Wooden Paddle (Kavata) resting across the cockpit -->
+        <g transform="translate(-10, -5) rotate(18)">
+          <line x1="-50" y1="0" x2="45" y2="0" stroke="#FDE047" stroke-width="3" stroke-linecap="round" />
+          <path d="M35,-8 Q55,0 35,8 Z" fill="#CA8A04" stroke="#92400E" stroke-width="1.5" />
+        </g>
+      </g>
+    </g>
   </g>
 </svg>

@@ -1,14 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
   <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
-    
-        <rect x="-75" y="-45" width="150" height="90" rx="6" fill="#78350F" stroke="#451A03" stroke-width="4" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.6))" />
-        <rect x="-65" y="-35" width="130" height="70" fill="#9A3412" stroke="#B45309" stroke-width="2" />
-        <g stroke="#FDE047" stroke-width="2.5" fill="none">
-          <circle cx="0" cy="0" r="22" fill="#DC2626" />
-          <path d="M-45,0 Q-30,-20 -15,0 T15,0 T45,0" />
-          <circle cx="0" cy="0" r="8" fill="#FBBF24" />
-        </g>
+    <g transform="translate(0, 10)">
+      <!-- Deep Carved Himalayan Walnut/Apricot Choktse Folding Table Top -->
+      <rect x="-85" y="-55" width="170" height="24" rx="4" fill="#451A03" stroke="#270D02" stroke-width="3" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.6))" />
+      <rect x="-80" y="-51" width="160" height="16" rx="2" fill="#78350F" />
       
+      <!-- Ornate Carved Front Apron Panel with High Relief Depth -->
+      <path d="M-75,-31 L75,-31 L65,55 L-65,55 Z" fill="#542306" stroke="#270D02" stroke-width="3" />
+      <path d="M-68,-26 L68,-26 L58,48 L-58,48 Z" fill="#9A3412" stroke="#CA8A04" stroke-width="2" />
+
+      <!-- Central Sacred Himalayan Snow Lion (Sengge) - White body with turquoise mane -->
+      <g transform="translate(0, 8)">
+        <!-- Golden Carved Sunburst Medallion -->
+        <circle cx="0" cy="0" r="26" fill="#B45309" stroke="#FDE047" stroke-width="2" />
+        
+        <!-- Roaring White Snow Lion Body -->
+        <path d="M-16,8 C-18,-6 -5,-18 10,-14 C16,-10 18,0 12,10 C5,15 -10,15 -16,8 Z" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+        <!-- Vibrant Turquoise Mane Curls -->
+        <path d="M-12,-8 C-22,-16 -10,-24 -2,-16" fill="none" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M0,-14 C-4,-24 10,-26 8,-16" fill="none" stroke="#0891B2" stroke-width="3.5" stroke-linecap="round" />
+        <!-- Roaring Head & Red Mouth -->
+        <circle cx="10" cy="-6" r="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1" />
+        <circle cx="13" cy="-4" r="2" fill="#DC2626" />
+        <!-- Tail curl -->
+        <path d="M-16,4 C-25,0 -22,-12 -14,-8" fill="none" stroke="#06B6D4" stroke-width="2.5" />
+      </g>
+
+      <!-- Flanking Carved Tibetan Cloud / Dragon Motifs in Vermilion & Gold -->
+      <g stroke="#FDE047" stroke-width="2" fill="none">
+        <path d="M-60,-10 Q-45,-22 -35,-5 T-45,15" />
+        <circle cx="-48" cy="-5" r="4" fill="#DC2626" />
+        <path d="M60,-10 Q45,-22 35,-5 T45,15" />
+        <circle cx="48" cy="-5" r="4" fill="#DC2626" />
+      </g>
+
+      <!-- Scalloped Lower Table Feet (Pedestal base) -->
+      <path d="M-65,55 L-72,75 L-48,75 L-55,55 Z" fill="#451A03" stroke="#270D02" stroke-width="2" />
+      <path d="M65,55 L72,75 L48,75 L55,55 Z" fill="#451A03" stroke="#270D02" stroke-width="2" />
+      <path d="M-55,55 Q0,45 55,55" fill="none" stroke="#FBBF24" stroke-width="4" />
+    </g>
   </g>
 </svg>

@@ -1,13 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
   <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
-    
-        <rect x="-85" y="-55" width="170" height="115" rx="10" fill="#18181B" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
-        <rect x="-75" y="-45" width="150" height="95" fill="#991B1B" />
-        <g stroke="#FFFFFF" stroke-width="2.5" fill="none">
-          <polygon points="-40,-25 0,-45 40,-25 0,-5" fill="#DC2626" />
-          <polygon points="-40,15 0,-5 40,15 0,35" fill="#EAB308" />
-        </g>
+    <g transform="translate(0, 0)">
+      <!-- Telia Rumal Square Kerchief Textile Frame -->
+      <rect x="-85" y="-60" width="170" height="120" rx="6" fill="#18181B" stroke="#09090B" stroke-width="4" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
       
+      <!-- Solid Terracotta-Red Outer Border -->
+      <rect x="-76" y="-52" width="152" height="104" rx="2" fill="#991B1B" />
+      
+      <!-- Crisp White Double-Ikat Framing Pinstripes -->
+      <rect x="-68" y="-45" width="136" height="90" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-dasharray="8,2" />
+      
+      <!-- Central Field 3x2 Telia Grid (Chowkas with Jasmine / Diamond Stars) -->
+      <g transform="translate(0, 0)">
+        <rect x="-60" y="-38" width="120" height="76" fill="#18181B" />
+        
+        
+          
+            <g transform="translate(-40, -19)">
+              <!-- Terracotta Red Diamond -->
+              <polygon points="0,-15 15,0 0,15 -15,0" fill="#C2410C" />
+              <!-- White Stepped Ikat Star (Mallipu flower / Star motif) -->
+              <polygon points="0,-11 11,0 0,11 -11,0" fill="#F8FAFC" />
+              <polygon points="0,-7 7,0 0,7 -7,0" fill="#18181B" />
+              <!-- Stepped Pixelated Ikat Corner Dots -->
+              <rect x="-3" y="-3" width="6" height="6" fill="#EA580C" />
+              <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+            </g>
+          
+            <g transform="translate(-40, 19)">
+              <!-- Terracotta Red Diamond -->
+              <polygon points="0,-15 15,0 0,15 -15,0" fill="#C2410C" />
+              <!-- White Stepped Ikat Star (Mallipu flower / Star motif) -->
+              <polygon points="0,-11 11,0 0,11 -11,0" fill="#F8FAFC" />
+              <polygon points="0,-7 7,0 0,7 -7,0" fill="#18181B" />
+              <!-- Stepped Pixelated Ikat Corner Dots -->
+              <rect x="-3" y="-3" width="6" height="6" fill="#EA580C" />
+              <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+            </g>
+          
+        
+          
+            <g transform="translate(0, -19)">
+              <!-- Terracotta Red Diamond -->
+              <polygon points="0,-15 15,0 0,15 -15,0" fill="#C2410C" />
+              <!-- White Stepped Ikat Star (Mallipu flower / Star motif) -->
+              <polygon points="0,-11 11,0 0,11 -11,0" fill="#F8FAFC" />
+              <polygon points="0,-7 7,0 0,7 -7,0" fill="#18181B" />
+              <!-- Stepped Pixelated Ikat Corner Dots -->
+              <rect x="-3" y="-3" width="6" height="6" fill="#EA580C" />
+              <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+            </g>
+          
+            <g transform="translate(0, 19)">
+              <!-- Terracotta Red Diamond -->
+              <polygon points="0,-15 15,0 0,15 -15,0" fill="#C2410C" />
+              <!-- White Stepped Ikat Star (Mallipu flower / Star motif) -->
+              <polygon points="0,-11 11,0 0,11 -11,0" fill="#F8FAFC" />
+              <polygon points="0,-7 7,0 0,7 -7,0" fill="#18181B" />
+              <!-- Stepped Pixelated Ikat Corner Dots -->
+              <rect x="-3" y="-3" width="6" height="6" fill="#EA580C" />
+              <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+            </g>
+          
+        
+          
+            <g transform="translate(40, -19)">
+              <!-- Terracotta Red Diamond -->
+              <polygon points="0,-15 15,0 0,15 -15,0" fill="#C2410C" />
+              <!-- White Stepped Ikat Star (Mallipu flower / Star motif) -->
+              <polygon points="0,-11 11,0 0,11 -11,0" fill="#F8FAFC" />
+              <polygon points="0,-7 7,0 0,7 -7,0" fill="#18181B" />
+              <!-- Stepped Pixelated Ikat Corner Dots -->
+              <rect x="-3" y="-3" width="6" height="6" fill="#EA580C" />
+              <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+            </g>
+          
+            <g transform="translate(40, 19)">
+              <!-- Terracotta Red Diamond -->
+              <polygon points="0,-15 15,0 0,15 -15,0" fill="#C2410C" />
+              <!-- White Stepped Ikat Star (Mallipu flower / Star motif) -->
+              <polygon points="0,-11 11,0 0,11 -11,0" fill="#F8FAFC" />
+              <polygon points="0,-7 7,0 0,7 -7,0" fill="#18181B" />
+              <!-- Stepped Pixelated Ikat Corner Dots -->
+              <rect x="-3" y="-3" width="6" height="6" fill="#EA580C" />
+              <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+            </g>
+          
+        
+
+        <!-- Grid Divider Lines in Double-Ikat White/Black Dash -->
+        <line x1="-20" y1="-38" x2="-20" y2="38" stroke="#F8FAFC" stroke-width="1.5" stroke-dasharray="4,2" />
+        <line x1="20" y1="-38" x2="20" y2="38" stroke="#F8FAFC" stroke-width="1.5" stroke-dasharray="4,2" />
+        <line x1="-60" y1="0" x2="60" y2="0" stroke="#F8FAFC" stroke-width="1.5" stroke-dasharray="4,2" />
+      </g>
+    </g>
   </g>
 </svg>

@@ -1,15 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
   <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
-    
-        <rect x="-85" y="-60" width="170" height="125" rx="8" fill="#FEF3C7" stroke="#78350F" stroke-width="5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
-        <rect x="-75" y="-50" width="150" height="105" fill="none" stroke="#DC2626" stroke-width="2" />
-        <g transform="translate(0, 0)" fill="none" stroke="#1E293B" stroke-width="2.5">
-          <circle cx="0" cy="0" r="24" fill="#F59E0B" />
-          <line x1="26" y1="0" x2="36" y2="0" stroke="#DC2626" stroke-width="2.5" /><line x1="22.516660498395407" y1="12.999999999999998" x2="31.176914536239792" y2="17.999999999999996" stroke="#DC2626" stroke-width="2.5" /><line x1="13.000000000000004" y1="22.516660498395403" x2="18.000000000000004" y2="31.17691453623979" stroke="#DC2626" stroke-width="2.5" /><line x1="1.592040838891559e-15" y1="26" x2="2.204364238465236e-15" y2="36" stroke="#DC2626" stroke-width="2.5" /><line x1="-12.999999999999995" y1="22.516660498395407" x2="-17.999999999999993" y2="31.176914536239792" stroke="#DC2626" stroke-width="2.5" /><line x1="-22.516660498395407" y1="12.999999999999998" x2="-31.176914536239792" y2="17.999999999999996" stroke="#DC2626" stroke-width="2.5" /><line x1="-26" y1="3.184081677783118e-15" x2="-36" y2="4.408728476930472e-15" stroke="#DC2626" stroke-width="2.5" /><line x1="-22.51666049839541" y1="-12.999999999999993" x2="-31.1769145362398" y2="-17.99999999999999" stroke="#DC2626" stroke-width="2.5" /><line x1="-13.00000000000001" y1="-22.5166604983954" x2="-18.000000000000014" y2="-31.176914536239785" stroke="#DC2626" stroke-width="2.5" /><line x1="-4.776122516674677e-15" y1="-26" x2="-6.613092715395707e-15" y2="-36" stroke="#DC2626" stroke-width="2.5" /><line x1="13.000000000000004" y1="-22.516660498395403" x2="18.000000000000004" y2="-31.17691453623979" stroke="#DC2626" stroke-width="2.5" /><line x1="22.516660498395396" y1="-13.00000000000001" x2="31.17691453623978" y2="-18.000000000000014" stroke="#DC2626" stroke-width="2.5" />
-          <path d="M-45,25 Q-25,10 -35,-15 Q-55,0 -45,25 Z" fill="#0284C7" stroke="#1E293B" />
-          <path d="M45,25 Q25,10 35,-15 Q55,0 45,25 Z" fill="#16A34A" stroke="#1E293B" />
-        </g>
+    <g transform="translate(0, 0)">
+      <!-- Mud plaster backdrop panel (Hazaribagh wall) -->
+      <rect x="-95" y="-70" width="190" height="140" rx="10" fill="#1C1917" stroke="#78350F" stroke-width="5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.6))" />
       
+      <!-- Comb-cut Kaolin (White Clay) Geometric Border -->
+      <rect x="-85" y="-60" width="170" height="120" rx="4" fill="none" stroke="#F5F5F4" stroke-width="2" />
+      <g stroke="#F5F5F4" stroke-width="1.5" fill="none">
+        <line x1="-85" y1="-60" x2="-78" y2="-52" /><line x1="-72" y1="-60" x2="-65" y2="-52" /><line x1="-59" y1="-60" x2="-52" y2="-52" /><line x1="-46" y1="-60" x2="-39" y2="-52" /><line x1="-33" y1="-60" x2="-26" y2="-52" /><line x1="-20" y1="-60" x2="-13" y2="-52" /><line x1="-7" y1="-60" x2="0" y2="-52" /><line x1="6" y1="-60" x2="13" y2="-52" /><line x1="19" y1="-60" x2="26" y2="-52" /><line x1="32" y1="-60" x2="39" y2="-52" /><line x1="45" y1="-60" x2="52" y2="-52" /><line x1="58" y1="-60" x2="65" y2="-52" /><line x1="71" y1="-60" x2="78" y2="-52" /><line x1="84" y1="-60" x2="91" y2="-52" />
+        <line x1="-85" y1="60" x2="-78" y2="52" /><line x1="-72" y1="60" x2="-65" y2="52" /><line x1="-59" y1="60" x2="-52" y2="52" /><line x1="-46" y1="60" x2="-39" y2="52" /><line x1="-33" y1="60" x2="-26" y2="52" /><line x1="-20" y1="60" x2="-13" y2="52" /><line x1="-7" y1="60" x2="0" y2="52" /><line x1="6" y1="60" x2="13" y2="52" /><line x1="19" y1="60" x2="26" y2="52" /><line x1="32" y1="60" x2="39" y2="52" /><line x1="45" y1="60" x2="52" y2="52" /><line x1="58" y1="60" x2="65" y2="52" /><line x1="71" y1="60" x2="78" y2="52" /><line x1="84" y1="60" x2="91" y2="52" />
+      </g>
+
+      <!-- Central Sacred Pashupati Horned Bull with Sgraffito comb lines -->
+      <g transform="translate(-15, 10)">
+        <!-- Bull Body with combed texture -->
+        <path d="M-45,15 C-45,-15 15,-15 35,5 C42,12 40,25 35,32 C15,40 -40,35 -45,15 Z" fill="#F5F5F4" />
+        <path d="M-40,15 C-40,-8 10,-8 28,8 C32,14 30,22 26,28 C10,34 -35,30 -40,15 Z" fill="#1C1917" />
+        
+        <!-- Sgraffito comb waves inside body -->
+        <path d="M-30,12 Q-10,0 15,14" stroke="#F5F5F4" stroke-width="2" fill="none" />
+        <path d="M-32,18 Q-10,6 18,20" stroke="#F5F5F4" stroke-width="2" fill="none" />
+        <path d="M-30,24 Q-10,12 15,26" stroke="#F5F5F4" stroke-width="2" fill="none" />
+
+        <!-- Sturdy Legs -->
+        <line x1="-35" y1="30" x2="-35" y2="45" stroke="#F5F5F4" stroke-width="4" stroke-linecap="round" />
+        <line x1="-20" y1="30" x2="-20" y2="45" stroke="#F5F5F4" stroke-width="4" stroke-linecap="round" />
+        <line x1="15" y1="28" x2="15" y2="45" stroke="#F5F5F4" stroke-width="4" stroke-linecap="round" />
+        <line x1="28" y1="28" x2="28" y2="45" stroke="#F5F5F4" stroke-width="4" stroke-linecap="round" />
+
+        <!-- Bull Head, Large Sweeping Horns & Ears -->
+        <path d="M35,8 L50,-5 L48,15 Z" fill="#F5F5F4" />
+        <path d="M42,-2 C45,-25 25,-42 5,-45 C2,-45 8,-35 25,-32 C38,-28 40,-15 42,-2 Z" fill="#F5F5F4" />
+        <path d="M46,-2 C58,-22 45,-40 28,-42 C25,-42 32,-32 42,-28 C50,-24 48,-15 46,-2 Z" fill="#E7E5E4" />
+        <polygon points="38,12 52,18 42,22" fill="#F5F5F4" />
+        <circle cx="44" cy="4" r="2.5" fill="#1C1917" />
+        <line x1="-45" y1="5" x2="-58" y2="28" stroke="#F5F5F4" stroke-width="3" stroke-linecap="round" />
+      </g>
+
+      <!-- Perched Tribal Peacock & Tree of Life on the right -->
+      <g transform="translate(48, -10)">
+        <path d="M0,45 Q-15,10 0,-25 Q10,10 0,45" fill="none" stroke="#F5F5F4" stroke-width="3" />
+        <!-- Combed Peacock Feathers -->
+        <path d="M-8,-15 C-25,-30 -10,-45 8,-35 C20,-25 10,-5 -8,-15 Z" fill="#F5F5F4" />
+        <circle cx="12" cy="-38" r="4" fill="#F5F5F4" />
+        <path d="M14,-40 L22,-44 L16,-36 Z" fill="#F5F5F4" />
+        <path d="M-15,-20 Q-35,-25 -40,-10 Q-25,-5 -10,-10" stroke="#F5F5F4" stroke-width="2" fill="none" />
+      </g>
+
+      <!-- Natural Red Ochre (Lal Matti) and Yellow (Pila Matti) Accent Dots -->
+      <circle cx="-60" cy="-40" r="4" fill="#B91C1C" />
+      <circle cx="65" cy="-42" r="4" fill="#D97706" />
+      <circle cx="-65" cy="35" r="4" fill="#D97706" />
+      <circle cx="65" cy="35" r="4" fill="#B91C1C" />
+    </g>
   </g>
 </svg>

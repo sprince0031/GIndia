@@ -1,15 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
   <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
-    
-        <rect x="-85" y="-60" width="170" height="125" rx="8" fill="#FEF3C7" stroke="#78350F" stroke-width="5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
-        <rect x="-75" y="-50" width="150" height="105" fill="none" stroke="#DC2626" stroke-width="2" />
-        <g transform="translate(0, 0)" fill="none" stroke="#1E293B" stroke-width="2.5">
-          <circle cx="0" cy="0" r="24" fill="#F59E0B" />
-          <line x1="26" y1="0" x2="36" y2="0" stroke="#DC2626" stroke-width="2.5" /><line x1="22.516660498395407" y1="12.999999999999998" x2="31.176914536239792" y2="17.999999999999996" stroke="#DC2626" stroke-width="2.5" /><line x1="13.000000000000004" y1="22.516660498395403" x2="18.000000000000004" y2="31.17691453623979" stroke="#DC2626" stroke-width="2.5" /><line x1="1.592040838891559e-15" y1="26" x2="2.204364238465236e-15" y2="36" stroke="#DC2626" stroke-width="2.5" /><line x1="-12.999999999999995" y1="22.516660498395407" x2="-17.999999999999993" y2="31.176914536239792" stroke="#DC2626" stroke-width="2.5" /><line x1="-22.516660498395407" y1="12.999999999999998" x2="-31.176914536239792" y2="17.999999999999996" stroke="#DC2626" stroke-width="2.5" /><line x1="-26" y1="3.184081677783118e-15" x2="-36" y2="4.408728476930472e-15" stroke="#DC2626" stroke-width="2.5" /><line x1="-22.51666049839541" y1="-12.999999999999993" x2="-31.1769145362398" y2="-17.99999999999999" stroke="#DC2626" stroke-width="2.5" /><line x1="-13.00000000000001" y1="-22.5166604983954" x2="-18.000000000000014" y2="-31.176914536239785" stroke="#DC2626" stroke-width="2.5" /><line x1="-4.776122516674677e-15" y1="-26" x2="-6.613092715395707e-15" y2="-36" stroke="#DC2626" stroke-width="2.5" /><line x1="13.000000000000004" y1="-22.516660498395403" x2="18.000000000000004" y2="-31.17691453623979" stroke="#DC2626" stroke-width="2.5" /><line x1="22.516660498395396" y1="-13.00000000000001" x2="31.17691453623978" y2="-18.000000000000014" stroke="#DC2626" stroke-width="2.5" />
-          <path d="M-45,25 Q-25,10 -35,-15 Q-55,0 -45,25 Z" fill="#0284C7" stroke="#1E293B" />
-          <path d="M45,25 Q25,10 35,-15 Q55,0 45,25 Z" fill="#16A34A" stroke="#1E293B" />
-        </g>
+    <g transform="translate(0, 0)">
+      <!-- Handmade Mithila Paper Canvas -->
+      <rect x="-92" y="-68" width="184" height="136" rx="8" fill="#FEF3C7" stroke="#78350F" stroke-width="5" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.5))" />
       
+      <!-- Authentic Double-Line Border with Hatching (Kachni style) -->
+      <rect x="-84" y="-60" width="168" height="120" fill="none" stroke="#1E293B" stroke-width="2" />
+      <rect x="-80" y="-56" width="160" height="112" fill="none" stroke="#1E293B" stroke-width="1.5" />
+      <g stroke="#1E293B" stroke-width="1">
+        <line x1="-84" y1="-60" x2="-80" y2="-56" /><line x1="-74.5" y1="-60" x2="-70.5" y2="-56" /><line x1="-65" y1="-60" x2="-61" y2="-56" /><line x1="-55.5" y1="-60" x2="-51.5" y2="-56" /><line x1="-46" y1="-60" x2="-42" y2="-56" /><line x1="-36.5" y1="-60" x2="-32.5" y2="-56" /><line x1="-27" y1="-60" x2="-23" y2="-56" /><line x1="-17.5" y1="-60" x2="-13.5" y2="-56" /><line x1="-8" y1="-60" x2="-4" y2="-56" /><line x1="1.5" y1="-60" x2="5.5" y2="-56" /><line x1="11" y1="-60" x2="15" y2="-56" /><line x1="20.5" y1="-60" x2="24.5" y2="-56" /><line x1="30" y1="-60" x2="34" y2="-56" /><line x1="39.5" y1="-60" x2="43.5" y2="-56" /><line x1="49" y1="-60" x2="53" y2="-56" /><line x1="58.5" y1="-60" x2="62.5" y2="-56" /><line x1="68" y1="-60" x2="72" y2="-56" /><line x1="77.5" y1="-60" x2="81.5" y2="-56" />
+        <line x1="-84" y1="56" x2="-80" y2="60" /><line x1="-74.5" y1="56" x2="-70.5" y2="60" /><line x1="-65" y1="56" x2="-61" y2="60" /><line x1="-55.5" y1="56" x2="-51.5" y2="60" /><line x1="-46" y1="56" x2="-42" y2="60" /><line x1="-36.5" y1="56" x2="-32.5" y2="60" /><line x1="-27" y1="56" x2="-23" y2="60" /><line x1="-17.5" y1="56" x2="-13.5" y2="60" /><line x1="-8" y1="56" x2="-4" y2="60" /><line x1="1.5" y1="56" x2="5.5" y2="60" /><line x1="11" y1="56" x2="15" y2="60" /><line x1="20.5" y1="56" x2="24.5" y2="60" /><line x1="30" y1="56" x2="34" y2="60" /><line x1="39.5" y1="56" x2="43.5" y2="60" /><line x1="49" y1="56" x2="53" y2="60" /><line x1="58.5" y1="56" x2="62.5" y2="60" /><line x1="68" y1="56" x2="72" y2="60" /><line x1="77.5" y1="56" x2="81.5" y2="60" />
+      </g>
+
+      <!-- Central Auspicious Sacred Lotus (Aripana) -->
+      <g transform="translate(0, 0)">
+        <circle cx="0" cy="0" r="15" fill="#F59E0B" stroke="#1E293B" stroke-width="2" />
+        <circle cx="0" cy="0" r="8" fill="#DC2626" />
+        
+          <g transform="rotate(0)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(45)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(90)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(135)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(180)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(225)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(270)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+          <g transform="rotate(315)">
+            <path d="M0,-15 Q-8,-26 0,-34 Q8,-26 0,-15 Z" fill="#E11D48" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="0" y1="-15" x2="0" y2="-32" stroke="#FEF08A" stroke-width="1" />
+          </g>
+        
+      </g>
+
+      <!-- Two Auspicious Madhubani Fish with Double-Line Fine Scales (Fertility & Prosperity) -->
+      <!-- Left Fish -->
+      <g transform="translate(-48, 12) rotate(25)">
+        <path d="M-28,0 C-15,-18 15,-18 28,0 C15,18 -15,18 -28,0 Z" fill="#0284C7" stroke="#1E293B" stroke-width="2" />
+        <path d="M-22,0 C-10,-12 10,-12 22,0 C10,12 -10,12 -22,0 Z" fill="#38BDF8" />
+        <!-- Fin & Tail -->
+        <polygon points="-28,0 -42,-12 -38,0 -42,12" fill="#0369A1" stroke="#1E293B" stroke-width="1.5" />
+        <circle cx="16" cy="-4" r="3" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+        <circle cx="16" cy="-4" r="1.5" fill="#000000" />
+        <!-- Kachni Hatching Scales -->
+        <path d="M-10,-8 Q0,0 -10,8" fill="none" stroke="#1E293B" stroke-width="1.2" />
+        <path d="M0,-10 Q10,0 0,10" fill="none" stroke="#1E293B" stroke-width="1.2" />
+      </g>
+
+      <!-- Right Graceful Peacock with Fine Feather Crown -->
+      <g transform="translate(48, -10) scale(0.95)">
+        <!-- Body & Neck -->
+        <path d="M0,25 C-12,15 -18,-10 0,-25 C12,-15 15,15 0,25 Z" fill="#10B981" stroke="#1E293B" stroke-width="2" />
+        <circle cx="2" cy="-28" r="6" fill="#059669" stroke="#1E293B" stroke-width="1.5" />
+        <polygon points="8,-28 16,-26 8,-24" fill="#F59E0B" stroke="#1E293B" stroke-width="1" />
+        <!-- Crest (Kalgi) -->
+        <line x1="2" y1="-34" x2="-2" y2="-44" stroke="#1E293B" stroke-width="1.5" />
+        <circle cx="-2" cy="-44" r="2.5" fill="#DC2626" />
+        <line x1="4" y1="-34" x2="6" y2="-45" stroke="#1E293B" stroke-width="1.5" />
+        <circle cx="6" cy="-45" r="2.5" fill="#F59E0B" />
+        <!-- Tail Feathers -->
+        <path d="M-12,18 C-35,30 -45,10 -25,-5" fill="none" stroke="#0284C7" stroke-width="4" stroke-linecap="round" />
+        <circle cx="-35" cy="20" r="4" fill="#FBBF24" />
+      </g>
+    </g>
   </g>
 </svg>
