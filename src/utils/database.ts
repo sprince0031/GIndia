@@ -64,7 +64,11 @@ class DatabaseManager {
     if (category === 'All') {
       return this.data.products;
     }
-    return this.data.products.filter(p => p.category === category);
+    const catNorm = category.toLowerCase().replace(/s$/, '');
+    return this.data.products.filter(p => {
+      const pNorm = p.category.toLowerCase().replace(/s$/, '');
+      return pNorm === catNorm || p.category.toLowerCase() === category.toLowerCase();
+    });
   }
 
   public searchProducts(query: string): { products: GIProduct[]; matchedStates: StateMetadata[] } {

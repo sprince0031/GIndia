@@ -1,12 +1,14 @@
 import * as THREE from 'three';
 import gsap from 'gsap';
 import { StateMeshInfo } from '../utils/svg-parser';
+import { CategoryFilterManager } from './category-filter';
 
 export interface InteractionManagerOptions {
   camera: THREE.PerspectiveCamera;
   domElement: HTMLElement;
   interactiveMeshes: THREE.Mesh[];
   stateInfoMap: Map<string, StateMeshInfo>;
+  categoryFilterManager?: CategoryFilterManager;
   onStateHover?: (stateId: string | null, stateName: string | null) => void;
   onStateSelect?: (stateId: string, stateName: string, centroid: THREE.Vector3) => void;
   onStateDeselect?: () => void;
@@ -17,6 +19,7 @@ export class InteractionManager {
   private domElement: HTMLElement;
   private interactiveMeshes: THREE.Mesh[];
   private stateInfoMap: Map<string, StateMeshInfo>;
+  private categoryFilterManager?: CategoryFilterManager;
 
   private raycaster: THREE.Raycaster = new THREE.Raycaster();
   private pointer: THREE.Vector2 = new THREE.Vector2(-9999, -9999);
@@ -34,6 +37,7 @@ export class InteractionManager {
   private readonly STONE_COLOR = 0xE6DFD5;
   private readonly TERRACOTTA_COLOR = 0xD9531E;
   private readonly TERRACOTTA_EMISSIVE = 0x381206;
+  private readonly DIMMED_COLOR = 0xEBE6DE;
   private readonly HOVER_ELEVATION = 10;
   private readonly SELECT_ELEVATION = 14;
 
@@ -42,11 +46,16 @@ export class InteractionManager {
     this.domElement = options.domElement;
     this.interactiveMeshes = options.interactiveMeshes;
     this.stateInfoMap = options.stateInfoMap;
+    this.categoryFilterManager = options.categoryFilterManager;
     this.onStateHover = options.onStateHover;
     this.onStateSelect = options.onStateSelect;
     this.onStateDeselect = options.onStateDeselect;
 
     this.attachEventListeners();
+  }
+
+  public setCategoryFilterManager(mgr: CategoryFilterManager): void {
+    this.categoryFilterManager = mgr;
   }
 
   private attachEventListeners(): void {
@@ -79,7 +88,7 @@ export class InteractionManager {
       const intersects = this.raycaster.intersectObjects(this.interactiveMeshes, true);
       
       if (intersects.length === 0) {
-        // Clicked outside in the canvas ocean: deselect
+        // Clicked outside in the ocean: deselect active card
         this.deselectState();
         this.onStateDeselect?.();
         return;
@@ -152,14 +161,12 @@ export class InteractionManager {
     const info = this.stateInfoMap.get(cleanId);
     if (!info) return;
 
-    // Reset ALL other states so only 1 state is active at a time
+    // Reset ALL other states to their resting filter/default style
     for (const [id, otherInfo] of this.stateInfoMap.entries()) {
       if (id !== cleanId) {
-        if (otherInfo.isSelected || otherInfo.isHovered) {
-          otherInfo.isSelected = false;
-          otherInfo.isHovered = false;
-          this.animateStateSelect(id, false);
-        }
+        otherInfo.isSelected = false;
+        otherInfo.isHovered = false;
+        this.restoreStateToResting(id);
       }
     }
 
@@ -176,10 +183,45 @@ export class InteractionManager {
     for (const [id, info] of this.stateInfoMap.entries()) {
       info.isSelected = false;
       info.isHovered = false;
-      this.animateStateSelect(id, false);
+      this.restoreStateToResting(id);
     }
     this.selectedStateId = null;
     this.hoveredStateId = null;
+  }
+
+  private getRestingStateStyle(stateId: string): { color: number; emissive: number; z: number; opacity: number; transparent: boolean } {
+    const isFilterActive = this.categoryFilterManager?.isFilterActive() ?? false;
+    if (isFilterActive) {
+      const isMatch = this.categoryFilterManager?.isStateMatching(stateId) ?? false;
+      if (isMatch) {
+        return { color: this.TERRACOTTA_COLOR, emissive: 0x240A04, z: 5, opacity: 1.0, transparent: false };
+      } else {
+        return { color: this.DIMMED_COLOR, emissive: 0x000000, z: 0, opacity: 0.32, transparent: true };
+      }
+    }
+    return { color: this.STONE_COLOR, emissive: 0x000000, z: 0, opacity: 1.0, transparent: false };
+  }
+
+  private restoreStateToResting(stateId: string): void {
+    const info = this.stateInfoMap.get(stateId);
+    if (!info) return;
+
+    const style = this.getRestingStateStyle(stateId);
+
+    gsap.to(info.group.position, {
+      z: style.z,
+      duration: 0.35,
+      ease: 'power2.out'
+    });
+
+    info.group.traverse((child) => {
+      if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+        child.material.color.setHex(style.color);
+        child.material.emissive.setHex(style.emissive);
+        child.material.opacity = style.opacity;
+        child.material.transparent = style.transparent;
+      }
+    });
   }
 
   private animateStateHover(stateId: string, isHovered: boolean): void {
@@ -187,22 +229,28 @@ export class InteractionManager {
     if (!info) return;
 
     info.isHovered = isHovered;
-    const targetZ = isHovered ? this.HOVER_ELEVATION : 0;
-    const targetColor = isHovered ? this.TERRACOTTA_COLOR : this.STONE_COLOR;
-    const targetEmissive = isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000;
 
-    gsap.to(info.group.position, {
-      z: targetZ,
-      duration: 0.28,
-      ease: 'power2.out'
-    });
+    if (isHovered) {
+      gsap.to(info.group.position, {
+        z: this.HOVER_ELEVATION,
+        duration: 0.28,
+        ease: 'power2.out'
+      });
 
-    info.group.traverse((child) => {
-      if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
-        child.material.color.setHex(targetColor);
-        child.material.emissive.setHex(targetEmissive);
+      info.group.traverse((child) => {
+        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+          child.material.color.setHex(this.TERRACOTTA_COLOR);
+          child.material.emissive.setHex(this.TERRACOTTA_EMISSIVE);
+          child.material.opacity = 1.0;
+          child.material.transparent = false;
+        }
+      });
+    } else {
+      // Revert to resting state style (preserving active category filter shading)
+      if (!info.isSelected) {
+        this.restoreStateToResting(stateId);
       }
-    });
+    }
   }
 
   private animateStateSelect(stateId: string, isSelected: boolean): void {
@@ -210,22 +258,25 @@ export class InteractionManager {
     if (!info) return;
 
     info.isSelected = isSelected;
-    const targetZ = isSelected ? this.SELECT_ELEVATION : (info.isHovered ? this.HOVER_ELEVATION : 0);
-    const targetColor = isSelected ? this.TERRACOTTA_COLOR : (info.isHovered ? this.TERRACOTTA_COLOR : this.STONE_COLOR);
-    const targetEmissive = isSelected ? 0x4A1808 : (info.isHovered ? this.TERRACOTTA_EMISSIVE : 0x000000);
 
-    gsap.to(info.group.position, {
-      z: targetZ,
-      duration: 0.35,
-      ease: 'elastic.out(1, 0.75)'
-    });
+    if (isSelected) {
+      gsap.to(info.group.position, {
+        z: this.SELECT_ELEVATION,
+        duration: 0.35,
+        ease: 'elastic.out(1, 0.75)'
+      });
 
-    info.group.traverse((child) => {
-      if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
-        child.material.color.setHex(targetColor);
-        child.material.emissive.setHex(targetEmissive);
-      }
-    });
+      info.group.traverse((child) => {
+        if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) {
+          child.material.color.setHex(this.TERRACOTTA_COLOR);
+          child.material.emissive.setHex(0x4A1808);
+          child.material.opacity = 1.0;
+          child.material.transparent = false;
+        }
+      });
+    } else {
+      this.restoreStateToResting(stateId);
+    }
   }
 
   public toScreenPosition(worldPosition: THREE.Vector3): { x: number; y: number; isVisible: boolean } {

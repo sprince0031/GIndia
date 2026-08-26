@@ -8,7 +8,7 @@ export interface AudioNarratorOptions {
 
 export class AudioNarrator {
   private isSupported = false;
-  private isMuted = false;
+  private isMuted = true; // Auto-muted by default on page load
   private selectedVoice: SpeechSynthesisVoice | null = null;
 
   private onStart?: () => void;
@@ -22,7 +22,9 @@ export class AudioNarrator {
 
     if ('speechSynthesis' in window) {
       this.isSupported = true;
-      this.isMuted = localStorage.getItem('gindia_speech_muted') === 'true';
+      const storedMuted = localStorage.getItem('gindia_speech_muted');
+      // Default to muted (true) unless user has explicitly saved an unmuted preference
+      this.isMuted = storedMuted === null ? true : storedMuted === 'true';
       this.initVoices();
     }
   }

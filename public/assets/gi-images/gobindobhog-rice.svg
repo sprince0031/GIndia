@@ -1,29 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
-  <defs>
-    <linearGradient id="bgGrad_gobindobhog-rice" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#14532D" />
-      <stop offset="50%" stop-color="#052E16" />
-      <stop offset="100%" stop-color="#14532D" />
-    </linearGradient>
-    <radialGradient id="spotlight_gobindobhog-rice" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45" />
-      <stop offset="60%" stop-color="#22C55E" stop-opacity="0.1" />
-      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="floorShadow_gobindobhog-rice" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="rgba(0,0,0,0.6)" />
-      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
-    </radialGradient>
-  </defs>
-
-  <rect width="100%" height="100%" fill="url(#bgGrad_gobindobhog-rice)"/>
-  <rect width="100%" height="100%" fill="url(#spotlight_gobindobhog-rice)"/>
-
-  <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
-  <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
-
-  <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_gobindobhog-rice)" />
-
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
+  <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
     
         <ellipse cx="0" cy="60" rx="80" ry="20" fill="rgba(0,0,0,0.4)" />
@@ -31,7 +7,7 @@
         <path d="M-65,15 Q-75,60 0,65 Q75,60 65,15 Z" fill="#C2410C" />
         <ellipse cx="0" cy="12" rx="68" ry="22" fill="#F8FAFC" />
         <path d="M-65,12 Q0,-45 65,12 Z" fill="#FFFFFF" />
-        <ellipse cx="-27.5" cy="-28.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(111.4, -27.5, -28.8)" /><ellipse cx="-17.3" cy="-21.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(24.8, -17.3, -21.5)" /><ellipse cx="10.6" cy="-28.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(172.7, 10.6, -28.4)" /><ellipse cx="22.8" cy="-28.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(12.6, 22.8, -28.3)" /><ellipse cx="-21.1" cy="-22.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(103.6, -21.1, -22.2)" /><ellipse cx="-23.2" cy="-17.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(4.7, -23.2, -17.9)" /><ellipse cx="43.8" cy="-32.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(151.2, 43.8, -32.4)" /><ellipse cx="-9.3" cy="-27.2" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(98.4, -9.3, -27.2)" /><ellipse cx="5.4" cy="-33.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(166.4, 5.4, -33.4)" /><ellipse cx="42.0" cy="-12.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(156.0, 42.0, -12.7)" /><ellipse cx="18.6" cy="-34.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(139.4, 18.6, -34.5)" /><ellipse cx="35.6" cy="-10.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(10.9, 35.6, -10.3)" /><ellipse cx="-24.5" cy="-10.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(147.6, -24.5, -10.7)" /><ellipse cx="-19.5" cy="-16.1" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(154.9, -19.5, -16.1)" /><ellipse cx="6.1" cy="-27.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(172.4, 6.1, -27.9)" /><ellipse cx="7.8" cy="-22.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(57.4, 7.8, -22.7)" /><ellipse cx="-11.6" cy="-22.1" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(154.4, -11.6, -22.1)" /><ellipse cx="-23.6" cy="-12.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(109.9, -23.6, -12.4)" /><ellipse cx="-40.4" cy="-27.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(42.3, -40.4, -27.4)" /><ellipse cx="-18.8" cy="-22.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(94.0, -18.8, -22.8)" /><ellipse cx="13.0" cy="-32.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(159.1, 13.0, -32.9)" /><ellipse cx="41.0" cy="-16.0" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(49.5, 41.0, -16.0)" /><ellipse cx="27.4" cy="-25.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(44.0, 27.4, -25.9)" /><ellipse cx="-11.2" cy="-10.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(144.7, -11.2, -10.8)" />
+        <ellipse cx="-21.7" cy="-22.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(48.8, -21.7, -22.7)" /><ellipse cx="10.3" cy="-25.0" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(119.2, 10.3, -25.0)" /><ellipse cx="-35.4" cy="-32.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(4.2, -35.4, -32.8)" /><ellipse cx="31.9" cy="-32.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(97.9, 31.9, -32.5)" /><ellipse cx="27.5" cy="-30.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(21.8, 27.5, -30.8)" /><ellipse cx="-14.9" cy="-25.1" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(25.6, -14.9, -25.1)" /><ellipse cx="-44.0" cy="-13.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(75.5, -44.0, -13.9)" /><ellipse cx="6.1" cy="-20.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(119.9, 6.1, -20.5)" /><ellipse cx="12.1" cy="-27.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(52.5, 12.1, -27.4)" /><ellipse cx="29.0" cy="-14.4" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(105.9, 29.0, -14.4)" /><ellipse cx="6.1" cy="-15.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(84.6, 6.1, -15.7)" /><ellipse cx="32.9" cy="-18.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(113.8, 32.9, -18.8)" /><ellipse cx="-33.9" cy="-29.0" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(66.3, -33.9, -29.0)" /><ellipse cx="8.7" cy="-31.6" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(93.7, 8.7, -31.6)" /><ellipse cx="38.3" cy="-14.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(30.1, 38.3, -14.8)" /><ellipse cx="16.6" cy="-29.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(131.5, 16.6, -29.7)" /><ellipse cx="41.9" cy="-32.3" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(161.3, 41.9, -32.3)" /><ellipse cx="9.6" cy="-26.9" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(131.7, 9.6, -26.9)" /><ellipse cx="22.8" cy="-26.6" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(86.8, 22.8, -26.6)" /><ellipse cx="7.2" cy="-13.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(178.5, 7.2, -13.7)" /><ellipse cx="-11.9" cy="-28.7" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(175.9, -11.9, -28.7)" /><ellipse cx="-6.1" cy="-17.8" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(18.9, -6.1, -17.8)" /><ellipse cx="-6.7" cy="-33.6" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(130.2, -6.7, -33.6)" /><ellipse cx="-33.1" cy="-27.5" rx="5.5" ry="2.8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="0.8" transform="rotate(139.7, -33.1, -27.5)" />
         <g transform="translate(0, -35) scale(0.8)">
           <path d="M0,0 Q-15,-20 0,-35 Q15,-20 0,0 Z" fill="#15803D" />
           <path d="M0,0 Q-20,-10 -25,-25 Q-5,-20 0,0 Z" fill="#16A34A" />
@@ -39,17 +15,4 @@
         </g>
       
   </g>
-
-  <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
-  <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
-
-  <text x="32" y="358" fill="#F9F6F0" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="700">
-    Gobindobhog Rice
-  </text>
-  
-  <text x="32" y="382" fill="rgba(249, 246, 240, 0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500">
-    West Bengal • Registered Geographical Indication of India
-  </text>
-
-  <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>

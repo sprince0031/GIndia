@@ -51,7 +51,8 @@ export class InfoCardManager {
       isEast ? 'justify-end items-center' : 'justify-start items-center pl-16 sm:pl-20 md:pl-24'
     }`;
 
-    const imgSrc = AssetLoader.getDisplaySrc(product);
+    const prodImgSrc = AssetLoader.getDisplaySrc(product);
+    const bgImgSrc = AssetLoader.getCategoryBackgroundSrc(product.category);
     const hasMultipleProducts = this.currentProducts.length > 1;
 
     const html = `
@@ -89,12 +90,16 @@ export class InfoCardManager {
         <!-- Scrollable Card Content -->
         <div class="p-5 overflow-y-auto space-y-4 flex-1 custom-scroll">
           
-          <!-- Product Photographic Visual (Clean museum plate without redundant badge) -->
-          <div class="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden bg-stone-base shadow-inner group">
-            <img src="${imgSrc}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <!-- Modular Exhibition Visual Plate (Layer 1: Category Background + Layer 2: Standalone Product Object) -->
+          <div class="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden bg-stone-base shadow-inner group flex items-center justify-center">
+            <!-- Background Layer -->
+            <img src="${bgImgSrc}" alt="${product.category} Background" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+
+            <!-- Standalone Product Layer -->
+            <img src="${prodImgSrc}" alt="${product.name}" class="relative z-10 w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" loading="lazy" />
 
             ${product.year ? `
-              <div class="absolute bottom-2.5 right-2.5">
+              <div class="absolute bottom-2.5 right-2.5 z-20">
                 <span class="text-[10px] font-medium text-white/90 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full">
                   Reg: ${product.year}
                 </span>

@@ -14,6 +14,19 @@ export class AssetLoader {
     return `${cleanBase}${cleanPath}`;
   }
 
+  public static getCategoryBackgroundSrc(category: string): string {
+    const slugMap: Record<string, string> = {
+      'Handicraft': 'handicrafts-bg.svg',
+      'Handicrafts': 'handicrafts-bg.svg',
+      'Agricultural': 'agricultural-bg.svg',
+      'Food Stuff': 'food-stuff-bg.svg',
+      'Manufactured': 'manufactured-bg.svg',
+      'Natural Goods': 'natural-goods-bg.svg'
+    };
+    const file = slugMap[category] || 'handicrafts-bg.svg';
+    return this.resolveUrl(`assets/gi-images/backgrounds/${file}`);
+  }
+
   public static getDisplaySrc(product: GIProduct): string {
     if (product.imageUrl) {
       return this.resolveUrl(product.imageUrl);

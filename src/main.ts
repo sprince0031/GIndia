@@ -30,7 +30,7 @@ class GIndiaApp {
     selectedStateId: null,
     activeProductId: null,
     isTourActive: false,
-    isSpeechEnabled: true,
+    isSpeechEnabled: false, // Default auto-muted on page load
     activeCategoryFilter: 'All',
     isWebGLSupported: true,
     tourSpeedMs: 7000,
@@ -63,7 +63,7 @@ class GIndiaApp {
     // Warm up asset cache
     AssetLoader.preloadProducts(products.slice(0, 15));
 
-    // 2. Audio Engine
+    // 2. Audio Engine (Auto-muted by default)
     this.audioNarrator = new AudioNarrator({
       onStart: () => {
         document.getElementById('narration-pulse')?.classList.add('animate-pulse');
@@ -157,6 +157,7 @@ class GIndiaApp {
         domElement: this.sceneManager.renderer.domElement,
         interactiveMeshes: parseResult.interactiveMeshes,
         stateInfoMap: parseResult.stateInfoMap,
+        categoryFilterManager: this.categoryFilterManager,
         onStateHover: (_stateId, stateName) => {
           if (stateName) {
             this.updateHeaderSubtitle(stateName);
@@ -298,9 +299,9 @@ class GIndiaApp {
       this.tourManager?.toggle();
     });
 
-    // Speech Mute Toggle
+    // Speech Mute Toggle (Auto-muted on page load)
     const updateSpeechIcon = () => {
-      const isMuted = this.audioNarrator?.getIsMuted() ?? false;
+      const isMuted = this.audioNarrator?.getIsMuted() ?? true;
       document.getElementById('dock-speech-on-icon')?.classList.toggle('hidden', isMuted);
       document.getElementById('dock-speech-off-icon')?.classList.toggle('hidden', !isMuted);
     };

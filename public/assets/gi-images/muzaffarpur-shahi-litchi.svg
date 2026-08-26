@@ -1,35 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
-  <defs>
-    <linearGradient id="bgGrad_muzaffarpur-shahi-litchi" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#14532D" />
-      <stop offset="50%" stop-color="#052E16" />
-      <stop offset="100%" stop-color="#14532D" />
-    </linearGradient>
-    <radialGradient id="spotlight_muzaffarpur-shahi-litchi" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45" />
-      <stop offset="60%" stop-color="#22C55E" stop-opacity="0.1" />
-      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="floorShadow_muzaffarpur-shahi-litchi" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="rgba(0,0,0,0.6)" />
-      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
-    </radialGradient>
-  </defs>
-
-  <rect width="100%" height="100%" fill="url(#bgGrad_muzaffarpur-shahi-litchi)"/>
-  <rect width="100%" height="100%" fill="url(#spotlight_muzaffarpur-shahi-litchi)"/>
-
-  <circle cx="300" cy="180" r="140" fill="none" stroke="#FACC15" stroke-opacity="0.12" stroke-width="1.5" />
-  <circle cx="300" cy="180" r="115" fill="none" stroke="#FACC15" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="6,6" />
-
-  <ellipse cx="300" cy="285" rx="140" ry="25" fill="url(#floorShadow_muzaffarpur-shahi-litchi)" />
-
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
+  <!-- Standalone Physical Product Hero Artwork (Transparent Background) -->
   <g transform="translate(300, 180)">
     
         <g transform="translate(-25, 10)">
           <circle cx="0" cy="0" r="38" fill="#DC2626" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.4))" />
           <circle cx="-5" cy="-5" r="30" fill="#EF4444" />
-          <circle cx="20.04999602208916" cy="-13.144795714657253" r="2.5" fill="#991B1B" /><circle cx="20.030357197167888" cy="-4.704548302827423" r="2.5" fill="#991B1B" /><circle cx="-7.454777480762143" cy="22.01022757804906" r="2.5" fill="#991B1B" /><circle cx="13.311950256949181" cy="-16.332919741081895" r="2.5" fill="#991B1B" /><circle cx="13.45955626615601" cy="-0.45386960163240786" r="2.5" fill="#991B1B" /><circle cx="9.564500013834003" cy="16.248409642933833" r="2.5" fill="#991B1B" /><circle cx="7.7208714588458065" cy="16.332226411319354" r="2.5" fill="#991B1B" /><circle cx="-4.102985195122662" cy="15.689798493458149" r="2.5" fill="#991B1B" /><circle cx="20.9983077540307" cy="-17.531426684065476" r="2.5" fill="#991B1B" /><circle cx="-4.343550241705579" cy="-17.194422152467745" r="2.5" fill="#991B1B" /><circle cx="19.36652321727225" cy="-7.3899705202608175" r="2.5" fill="#991B1B" /><circle cx="10.376908796271582" cy="8.38619070956779" r="2.5" fill="#991B1B" /><circle cx="-8.830586584624442" cy="-4.949214721240805" r="2.5" fill="#991B1B" /><circle cx="-13.604512213393978" cy="13.16169945692343" r="2.5" fill="#991B1B" /><circle cx="0.6006242790445376" cy="-5.487423270589848" r="2.5" fill="#991B1B" /><circle cx="-3.6503816829418283" cy="-11.48805566121215" r="2.5" fill="#991B1B" />
+          <circle cx="9.929469301102557" cy="8.930935955525353" r="2.5" fill="#991B1B" /><circle cx="0.5733894404996404" cy="10.216397587620406" r="2.5" fill="#991B1B" /><circle cx="12.36318109394081" cy="10.934860609597024" r="2.5" fill="#991B1B" /><circle cx="-5.84968783514514" cy="18.17392425464775" r="2.5" fill="#991B1B" /><circle cx="12.925873368363558" cy="9.80099879787557" r="2.5" fill="#991B1B" /><circle cx="12.006579959238445" cy="1.9248657055842333" r="2.5" fill="#991B1B" /><circle cx="9.847714110719703" cy="10.524797929571687" r="2.5" fill="#991B1B" /><circle cx="8.487516232208815" cy="18.50077209978263" r="2.5" fill="#991B1B" /><circle cx="-22.295195396823676" cy="3.326542570159737" r="2.5" fill="#991B1B" /><circle cx="0.993034712496163" cy="-3.5171995255180817" r="2.5" fill="#991B1B" /><circle cx="-22.36264444141973" cy="9.094930060244458" r="2.5" fill="#991B1B" /><circle cx="6.374956855377947" cy="-10.348121576007532" r="2.5" fill="#991B1B" /><circle cx="-16.378567289883357" cy="-5.456503482440676" r="2.5" fill="#991B1B" /><circle cx="7.543578257851557" cy="-12.212596858415528" r="2.5" fill="#991B1B" /><circle cx="-4.138863252362493" cy="5.791457598100365" r="2.5" fill="#991B1B" /><circle cx="-17.864880912001958" cy="8.371705853935614" r="2.5" fill="#991B1B" />
         </g>
         <g transform="translate(35, 15)">
           <circle cx="0" cy="0" r="34" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.3))" />
@@ -38,17 +14,4 @@
         </g>
       
   </g>
-
-  <rect x="0" y="325" width="600" height="75" fill="rgba(15, 23, 42, 0.75)" />
-  <rect x="0" y="325" width="600" height="1" fill="rgba(255, 255, 255, 0.12)" />
-
-  <text x="32" y="358" fill="#F9F6F0" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="700">
-    Muzaffarpur Shahi Litchi
-  </text>
-  
-  <text x="32" y="382" fill="rgba(249, 246, 240, 0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500">
-    Bihar • Registered Geographical Indication of India
-  </text>
-
-  <rect x="0" y="396" width="600" height="4" fill="#FACC15" />
 </svg>
