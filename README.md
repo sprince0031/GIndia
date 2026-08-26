@@ -1,4 +1,4 @@
-# 🏛️ GIndia — Geographical Indications of India
+# GIndia — Geographical Indications of India
 ### *An Interactive 3D Spatial Art & Heritage Exhibition*
 
 [![Deploy to GitHub Pages](https://github.com/ParetoSoftware/GIndia/actions/workflows/deploy.yml/badge.svg)](https://github.com/ParetoSoftware/GIndia/actions/workflows/deploy.yml)
@@ -145,6 +145,4 @@ npm run preview
 
 ---
 
-## 📜 License
-This project is open-source and released under the [MIT License](LICENSE).
 Metadata and Geographical Indication records sourced from the **Geographical Indications Registry of India (Intellectual Property India)**.
