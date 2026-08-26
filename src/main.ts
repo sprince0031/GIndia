@@ -12,6 +12,7 @@ import { CategoryFilterManager } from './core/category-filter';
 import { ModalManager } from './components/modals';
 import { AudioNarrator } from './core/audio-narrator';
 import { TourManager } from './core/tour-manager';
+import { SvgMapEngine } from './core/svg-map-engine';
 
 function checkWebGLSupport(): boolean {
   try {
@@ -39,6 +40,7 @@ class GIndiaApp {
   private sceneManager: SceneManager | null = null;
   private cameraController: CameraController | null = null;
   private interactionManager: InteractionManager | null = null;
+  private svgMapEngine: SvgMapEngine | null = null;
   private infoCardManager: InfoCardManager | null = null;
   private tracerLayer: TracerLayer | null = null;
   private categoryFilterManager: CategoryFilterManager | null = null;
@@ -81,6 +83,7 @@ class GIndiaApp {
         onClose: () => {
           this.tracerLayer?.hide();
           this.interactionManager?.deselectState();
+          this.svgMapEngine?.deselectState();
           this.state.selectedStateId = null;
           this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
         },
@@ -123,7 +126,7 @@ class GIndiaApp {
 
     if (!this.state.isWebGLSupported) {
       console.warn('⚠️ WebGL not supported. Enabling 2D SVG fallback.');
-      this.init2DFallback();
+      await this.init2DFallback();
     } else {
       await this.init3DScene();
     }
@@ -195,7 +198,7 @@ class GIndiaApp {
       console.info('✨ 3D Map Engine, Spatial Tracers & Kiosk Tour Initialized!');
     } catch (err) {
       console.error('Failed to load 3D map, falling back to 2D canvas:', err);
-      this.init2DFallback();
+      await this.init2DFallback();
     }
   }
 
@@ -208,20 +211,33 @@ class GIndiaApp {
     this.state.selectedStateId = cleanId;
 
     const products = db.getProductsByState(cleanId);
-    const info = this.interactionManager?.getStateInfo(cleanId);
-    const actualCentroid = centroid || (info ? info.centroid : null);
 
-    if (updateInteraction && this.interactionManager) {
-      this.interactionManager.selectState(cleanId, false);
-    }
+    if (this.state.isWebGLSupported && this.interactionManager) {
+      const info = this.interactionManager.getStateInfo(cleanId);
+      const actualCentroid = centroid || (info ? info.centroid : null);
 
-    if (this.infoCardManager) {
-      this.infoCardManager.showStateProducts(stateMeta, products);
-      if (actualCentroid) {
-        this.tracerLayer?.setTargetCentroid(actualCentroid);
-        this.cameraController?.focusOnTarget(actualCentroid);
+      if (updateInteraction) {
+        this.interactionManager.selectState(cleanId, false);
       }
-      this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
+
+      if (this.infoCardManager) {
+        this.infoCardManager.showStateProducts(stateMeta, products);
+        if (actualCentroid) {
+          this.tracerLayer?.setTargetCentroid(actualCentroid);
+          this.cameraController?.focusOnTarget(actualCentroid);
+        }
+        this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
+      }
+    } else if (this.svgMapEngine) {
+      // 2D Mode
+      if (updateInteraction) {
+        this.svgMapEngine.selectState(cleanId, false);
+      }
+      if (this.infoCardManager) {
+        this.infoCardManager.showStateProducts(stateMeta, products);
+        this.svgMapEngine.focusOnState(cleanId);
+        this.updateHeaderSubtitle(`${actualName} • ${products.length} Featured GI Tag${products.length !== 1 ? 's' : ''}`);
+      }
     }
   }
 
@@ -247,7 +263,7 @@ class GIndiaApp {
       narrationBar?.classList.remove('hidden');
       narrationBar?.classList.add('flex');
     } else {
-      playIcon?.classList.remove('hidden');
+      playIcon?.classList.add('hidden');
       pauseIcon?.classList.add('hidden');
       narrationBar?.classList.add('hidden');
       narrationBar?.classList.remove('flex');
@@ -259,13 +275,60 @@ class GIndiaApp {
     }
   }
 
-  private init2DFallback(): void {
+  private async init2DFallback(): Promise<void> {
+    this.state.isWebGLSupported = false;
     const fallbackContainer = document.getElementById('fallback-container');
+    const fallbackSvgWrapper = document.getElementById('fallback-svg-wrapper');
     const canvasContainer = document.getElementById('canvas-container');
-    if (fallbackContainer && canvasContainer) {
+
+    if (fallbackContainer && fallbackSvgWrapper && canvasContainer) {
       fallbackContainer.classList.remove('hidden');
       canvasContainer.classList.add('hidden');
+
+      this.svgMapEngine = new SvgMapEngine({
+        container: fallbackSvgWrapper,
+        onStateHover: (_stateId, stateName) => {
+          if (stateName) {
+            this.updateHeaderSubtitle(stateName);
+          } else if (!this.state.selectedStateId && !this.tourManager?.getIsActive()) {
+            this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
+          }
+        },
+        onStateSelect: (stateId, stateName) => {
+          if (this.tourManager?.getIsActive()) {
+            this.tourManager.pause();
+          }
+          this.handleStateSelection(stateId, stateName, null, false);
+        },
+        onStateDeselect: () => {
+          this.infoCardManager?.hide();
+          this.state.selectedStateId = null;
+          this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
+        }
+      });
+
+      await this.svgMapEngine.loadMap('assets/in.svg');
+      this.showAmbient2DModeBanner();
     }
+  }
+
+  private showAmbient2DModeBanner(): void {
+    const existing = document.getElementById('ambient-2d-mode-banner');
+    if (existing) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'ambient-2d-mode-banner';
+    banner.className = 'fixed bottom-4 right-4 z-30 flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-white/90 backdrop-blur-md border border-ink/10 shadow-lg text-xs text-ink-muted transition-all';
+    banner.innerHTML = `
+      <span class="w-2 h-2 rounded-full bg-terracotta"></span>
+      <span>2D Vector Mode Active</span>
+      <button id="btn-close-2d-banner" class="hover:text-ink font-bold text-sm leading-none pl-1" title="Dismiss">×</button>
+    `;
+
+    document.body.appendChild(banner);
+    document.getElementById('btn-close-2d-banner')?.addEventListener('click', () => {
+      banner.remove();
+    });
   }
 
   private setupUIEventListeners(): void {
@@ -365,6 +428,7 @@ class GIndiaApp {
           const cat = ((e.currentTarget as HTMLElement).getAttribute('data-cat') || 'All') as GICategory | 'All';
           this.state.activeCategoryFilter = cat;
           this.categoryFilterManager?.setFilter(cat);
+          this.svgMapEngine?.setCategoryFilter(cat);
           filterPanel?.classList.add('hidden');
 
           categoryList.querySelectorAll('button').forEach(b => {
@@ -384,13 +448,16 @@ class GIndiaApp {
     });
 
     btnReset?.addEventListener('click', () => {
-      console.log('Resetting 3D camera to exhibition default');
+      console.log('Resetting exhibition view');
       this.tourManager?.stop();
       this.infoCardManager?.hide();
       this.tracerLayer?.hide();
       this.interactionManager?.deselectState();
+      this.svgMapEngine?.deselectState();
       this.categoryFilterManager?.resetFilter();
+      this.svgMapEngine?.setCategoryFilter('All');
       this.cameraController?.resetView();
+      this.svgMapEngine?.resetView();
       this.updateHeaderSubtitle('Geographical Indications of India • Interactive Art Exhibit');
     });
   }
