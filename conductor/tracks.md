@@ -2,9 +2,9 @@
 
 | Track ID | Title | Description | Status |
 | :--- | :--- | :--- | :--- |
-| `github_pages_deployment` | GitHub Pages CI/CD & Production Deployment | GitHub Actions workflow for automated testing, bundling, and deployment to GitHub Pages (`GIndia`). | `[ ] Pending` |
+| `github_pages_deployment` | GitHub Pages CI/CD & Production Deployment | GitHub Actions workflow for automated testing, bundling, and deployment to GitHub Pages (`GIndia`). | `[x] Completed` |
 
 ---
 
-- [ ] **Track: GitHub Pages CI/CD & Production Deployment**
+- [x] **Track: GitHub Pages CI/CD & Production Deployment**
 *Link: [./conductor/tracks/github_pages_deployment/](./conductor/tracks/github_pages_deployment/)*

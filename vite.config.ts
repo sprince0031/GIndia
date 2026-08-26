@@ -1,11 +1,20 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './',
+  base: process.env.BASE_URL || '/GIndia/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true
+    sourcemap: true,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+          gsap: ['gsap']
+        }
+      }
+    }
   },
   server: {
     port: 3000,
